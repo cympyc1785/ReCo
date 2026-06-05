@@ -2,20 +2,21 @@
 set -euo pipefail
 
 # ========== Env (W&B) ==========
-export WANDB_API_KEY=""
+# WANDB_API_KEY는 ~/.netrc의 로그인 정보 사용
+export WANDB_API_KEY=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
 export WANDB_PROJECT="QA_GEN_JOINT"
-export WANDB_MODE="offline"
+export WANDB_MODE="online"
 
 export PYTHONUNBUFFERED=1
 export OMP_NUM_THREADS=8
-export GPU_NUM=8
+export GPU_NUM=4
 export NUM_NODES=1              # 1 or 2
 export TOKENIZERS_PARALLELISM=false  # Linux/macOS
 
 # ========== Config ==========
-DIT_PATH="Wan-AI/Wan2.1-VACE-1.3B/diffusion_pytorch_model.safetensors,\
-VACE/models/VACE-Wan2.1-1.3B/models_t5_umt5-xxl-enc-bf16.pth,\
-VACE/models/VACE-Wan2.1-1.3B/Wan2.1_VAE.pth"
+DIT_PATH="checkpoints/Wan2.1-VACE-1.3B/diffusion_pytorch_model.safetensors,\
+checkpoints/Wan2.1-VACE-1.3B/models_t5_umt5-xxl-enc-bf16.pth,\
+checkpoints/Wan2.1-VACE-1.3B/Wan2.1_VAE.pth"
 
 # training
 world_size=$((GPU_NUM * NUM_NODES))
@@ -31,7 +32,8 @@ mkdir -p "$log_dir/$run_name"
 
 
 # ========== Run ==========
-torchrun --nnodes=$NUM_NODES \
+MASTER_ADDR="${MASTER_ADDR:-localhost:29500}"
+CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nnodes=$NUM_NODES \
     --nproc_per_node=$GPU_NUM \
     --rdzv_id=distributed_alldata \
     --rdzv_backend=c10d \
@@ -53,8 +55,8 @@ torchrun --nnodes=$NUM_NODES \
     --use_gradient_checkpointing \
     --lora_rank "128" --lora_alpha "128" \
     --lora_target_modules "q,k,v,o,ffn.0,ffn.2" \
-    --project_name train_video_edit \
-    --run_name train_base_run1  2>&1 | tee $log_file
+    --project_name ReCo \
+    --run_name train_run2_contrast_attnscore  2>&1 | tee $log_file
     # 如需加载已有 LoRA：
     # --pretrained_lora_path "all_results/train_runs/.../checkpoints/xxx.ckpt"
     # --resume_ckpt_folder "all_results/train_runs/..../checkpoints/wan_deepspeed_folder-epoch=0-step=7000.ckpt" 2>&1 | tee $log_file

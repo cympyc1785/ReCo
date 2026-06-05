@@ -211,6 +211,7 @@ class ReCo_Dataset_train(Dataset):
         read_video_from_local = False,
         task_name = 'replace',
         user_first_frame=True,
+        mask_video_folder = None,
 
     ) -> None:
         super().__init__()
@@ -226,6 +227,7 @@ class ReCo_Dataset_train(Dataset):
         self.read_video_from_local = read_video_from_local
         self.task_name = task_name
         self.user_first_frame = user_first_frame
+        self.mask_video_folder = mask_video_folder
 
 
     def __len__(self):
@@ -297,6 +299,23 @@ class ReCo_Dataset_train(Dataset):
         tar_video_key = tar_concated_video * (1-tar_video_key_mask)
         ref_img_path = None
 
+        # diff_mask: GT object mask 영상 (832-width 단일 half, [-1,1]); 없으면 zeros
+        if self.mask_video_folder is not None:
+            mask_path = os.path.join(self.mask_video_folder, task_name, os.path.basename(item['tar_video']))
+            if os.path.exists(mask_path):
+                vr_mask = decord.VideoReader(mask_path)
+                diff_mask = torch.from_numpy(vr_mask.get_batch(list(range(0, len(vr_mask)))).asnumpy())
+                diff_mask = (diff_mask/255) *2 -1
+                f_tar = tar_video.shape[0]
+                if diff_mask.shape[0] > f_tar:
+                    diff_mask = diff_mask[:f_tar]
+                elif diff_mask.shape[0] < f_tar:
+                    diff_mask = torch.cat([diff_mask, diff_mask[-1:].repeat(f_tar-diff_mask.shape[0],1,1,1)], dim=0)
+            else:
+                diff_mask = torch.zeros_like(tar_video)
+        else:
+            diff_mask = torch.zeros_like(tar_video_key)
+
         video_save_name = f"task_{task_name}_dataset_reco_{video_tar_name}"
 
         return {
@@ -304,7 +323,7 @@ class ReCo_Dataset_train(Dataset):
             'tar_video_key_mask': tar_video_key_mask.permute(3,0,1,2),          # mask for tar_video_key, [c,f,h,w], 0-1
             'ref_video': torch.zeros_like(tar_video_key).permute(3,0,1,2),      # depth ect. input, [c,f,h,w], tensor [-1, 1]
             'tar_video': tar_concated_video.permute(3,0,1,2),                   # tar_video, [c,f,h,w], tensor [-1, 1]
-            'diff_mask': torch.zeros_like(tar_video_key).permute(3,0,1,2),      # edit area mask, [c,f,h,w], tensor [-1, 1]
+            'diff_mask': diff_mask.permute(3,0,1,2),                            # edit area mask, [c,f,h,w], tensor [-1, 1]
             'task_name': task_name,
             'prompt': prompt, 
             'video_name': video_save_name, 

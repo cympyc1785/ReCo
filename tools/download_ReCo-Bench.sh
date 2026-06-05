@@ -1,12 +1,12 @@
 #!/bin/bash
 # Ref hfd from: https://hf-mirror.com/
 
-sudo apt install aria2c
+gcsudo apt install aria2c
 export HF_ENDPOINT=https://hf-mirror.com
 
 # Set the parameters
 repo_id="HiDream-ai/ReCo-Bench"
-hf_username="YOUR HF NAME"
+hf_username="cympyc1785"
 hf_token="YOUR HF TOKEN"
 tool="aria2c"
 threads="10"
