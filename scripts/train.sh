@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$REPO_ROOT"
+
 # ========== Env (W&B) ==========
 # WANDB_API_KEY는 ~/.netrc의 로그인 정보 사용
 export WANDB_API_KEY=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
@@ -38,7 +42,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nnodes=$NUM_NODES \
     --rdzv_id=distributed_alldata \
     --rdzv_backend=c10d \
     --rdzv-endpoint=$MASTER_ADDR \
-    train.py --train_architecture all_lora \
+    scripts/train.py --train_architecture all_lora \
     --num_nodes $NUM_NODES \
     --training_strategy $training_strategy \
     --every_n_train_steps 250 \

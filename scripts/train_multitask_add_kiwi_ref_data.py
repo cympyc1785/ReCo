@@ -1,4 +1,13 @@
 import os
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+for path in (PROJECT_ROOT, PROJECT_ROOT / "DiffSynth-Studio", PROJECT_ROOT / "scripts"):
+    path_str = str(path)
+    if path_str not in sys.path:
+        sys.path.insert(0, path_str)
+
 # 限制 BLAS / OpenMP 并行度
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -23,7 +32,7 @@ from threadpoolctl import threadpool_limits
 import math
 import cv2
 from reco_data_test_mix_data import ReCo_Dataset_train, collate_fn_with_diff_mask, WebMixDatasetWithLength
-
+from kiwidata.test_dataset_mixdata import get_kiwi_mixdata
 
 
 def set_seed(seed, rank):
@@ -36,19 +45,11 @@ def set_seed(seed, rank):
 
 import json
 import time
-def get_dataset_for_each_tasks(base_json_folder, task_name='replace', rank=0, world_size=1, shuffle=True, base_video_folder=None, read_video_from_local=True, mask_video_folder=None):
+def get_dataset_for_each_tasks(base_json_folder, task_name='replace', rank=0, world_size=1, shuffle=True, base_video_folder=None, read_video_from_local=True):
 
     json_path = os.path.join(base_json_folder, task_name, f"{task_name}_data_configs.json")
     with open(json_path, "r", encoding="utf-8") as f:
         all_dict_list = json.load(f)
-
-    # exclude fixed validation holdout items if a val config exists
-    val_json_path = os.path.join(base_json_folder, task_name, f"{task_name}_val_configs.json")
-    if os.path.exists(val_json_path):
-        with open(val_json_path, "r", encoding="utf-8") as f:
-            val_keys = set(item['tar_video'] for item in json.load(f))
-        all_dict_list = [item for item in all_dict_list if item['tar_video'] not in val_keys]
-        print(f'====== Exclude {len(val_keys)} fixed validation videos from task {task_name} ======')
 
     if shuffle:
         import random
@@ -59,7 +60,7 @@ def get_dataset_for_each_tasks(base_json_folder, task_name='replace', rank=0, wo
     sub_dict_list = all_dict_list[rank::world_size]
     print(f'rank {rank} world_size {world_size} video num is: {len(sub_dict_list)}')
 
-    video_dataset = ReCo_Dataset_train(all_data_list=sub_dict_list, base_video_folder=base_video_folder, read_video_from_local=read_video_from_local, task_name=task_name, mask_video_folder=mask_video_folder)
+    video_dataset = ReCo_Dataset_train(all_data_list=sub_dict_list, base_video_folder=base_video_folder, read_video_from_local=read_video_from_local, task_name=task_name)
 
     return video_dataset
 
@@ -209,31 +210,18 @@ class LightningModelForTrain(pl.LightningModule):
         else:
             rank = 0
             world_size = 1
+            
+        # sample_prob_list = [0.15, 0.25, 0.5, 1.0] if not self.debug else [0, 0, 0, 1.0]
+        sample_prob_list = [0.2, 0.5, 1.0] if not self.debug else [0, 0, 1.0]
         
-        # ------------------ ReCo dataset --------------
-        json_folder = './ReCo-Data/ReCo-Data' # YOUR JSON FOLDER...
-        video_folder = './ReCo-Data/ReCo-Data'
-        mask_video_folder = './ReCo-Data/ReCo-Data/video_masks'
-        task_list = ['add']
-        dataset_list = []
-        for task_name in task_list:
-            sub_dataaset = get_dataset_for_each_tasks(json_folder, task_name, rank, world_size, \
-                                                    shuffle=True, base_video_folder=video_folder, \
-                                                    read_video_from_local=True,
-                                                    mask_video_folder=mask_video_folder,
-                                                    )
-            dataset_list.append(sub_dataaset)
-
-        sample_prob_list = [1.0]
-        dataset_mix = WebMixDatasetWithLength(dataset_list, sample_prob_list)
-        dataloader_train = DataLoader(dataset_mix, batch_size=self.train_batch_size, shuffle=False, num_workers=0, collate_fn=collate_fn_with_diff_mask)
-
+        dataloader_train = get_kiwi_mixdata(rank, world_size, sample_prob_list=sample_prob_list)
         return dataloader_train
 
 
     def get_processed_ref_img(self, ref_img_path, height, width, device):
 
-        if ref_img_path is not None:
+        random_value = torch.rand(1).item()
+        if ref_img_path is not None and random_value<0.75:   # NOTE: 70% chance to use ref image, 30% chance to not use ref image, for better generalization..can adjust the ratio.
             ref_img_pil = Image.open(ref_img_path).convert("RGB")
 
             # ---- 随机增强：水平/垂直翻转 + 小角度旋转 ----
@@ -512,8 +500,6 @@ class LightningModelForTrain(pl.LightningModule):
             if self.use_contrast_loss or self.use_mse_loss or self.use_attnscore_loss:
                 if 'style' in task_name:
                     latent_mask = torch.ones((1,21,60,104,1), dtype=self.pipe.torch_dtype, device=self.pipe.device)
-                elif batch["diff_mask"].abs().sum() == 0:
-                    latent_mask = None      # GT mask가 없는 샘플은 regularization 미적용
                 else:
                     latent_mask = self.get_obj_latent_mask_from_video(batch["diff_mask"], video_save_name, batch_idx)
             else:
@@ -536,8 +522,7 @@ class LightningModelForTrain(pl.LightningModule):
         # Compute loss
         self.pipe.dit.train()
         self.pipe.vace.train()
-        attnscore_list = None
-        if self.use_attnscore_loss and latent_mask is not None:
+        if self.use_attnscore_loss:
             try:
                 noise_pred, attnscore_list = self.pipe.model_fn_wan_video_w_attnscore(
                     self.pipe.dit, vace=self.pipe.vace, 
@@ -553,7 +538,6 @@ class LightningModelForTrain(pl.LightningModule):
                 print(f'latent mask shape: {latent_mask.shape}')
                 print(f'Error in model_fn_wan_video_w_attnscore: {e}')
                 raise e
-
         else:
             noise_pred = self.pipe.model_fn_wan_video(
                 self.pipe.dit, vace=self.pipe.vace, 
@@ -588,25 +572,6 @@ class LightningModelForTrain(pl.LightningModule):
                 loss_mse = torch.nn.functional.mse_loss((noise_pred*latent_mask_new).float(), (training_target*latent_mask_new).float())
 
             loss = loss + loss_mse 
-
-
-        # ============== 3. Latent regularization (논문 Eq.13): L_latent = mean(|x1_tar-x1_src|·(1-M)) - mean(|x1_tar-x1_src|·M)
-        if self.use_contrast_loss and latent_mask is not None and 'style' not in task_name:
-            sigma = self.pipe.scheduler.sigmas[timestep_id].to(noisy_latents.device)
-            while len(sigma.shape) < len(noisy_latents.shape):
-                sigma = sigma.unsqueeze(-1)
-            pred_x1 = noisy_latents - sigma * noise_pred                     # flow matching: x1 = xt - sigma*v
-            if pred_x1.shape[2] != 21:
-                pred_x1 = pred_x1[:, :, 1:]
-            w_half = pred_x1.shape[4] // 2
-            latent_diff = pred_x1[..., w_half:] - pred_x1[..., :w_half]      # tar half - src half
-            diff_loss = self.mask_separation_loss(latent_diff.float(), latent_mask.permute(0,4,1,2,3).float())
-            loss = loss + 1e-3 * diff_loss                                   # lambda_1 = 1e-3 (논문)
-
-        # ============== 4. Attention regularization (논문 Eq.14-16): L_attn = L_edit + L_global
-        if self.use_attnscore_loss and attnscore_list is not None and len(attnscore_list) > 0:
-            loss_attnscore = torch.stack([s.float() for s in attnscore_list]).mean()
-            loss = loss + 1e-3 * loss_attnscore                              # lambda_2 = 1e-3 (논문)
 
         # loss = loss * self.pipe.scheduler.training_weight(timestep)           # No weight...
         lr = self.optimizers().param_groups[0]["lr"] 
@@ -649,7 +614,7 @@ class LightningModelForTrain(pl.LightningModule):
                 vace_mask=batch["tar_video_key_mask"][i:i+1].to(dtype=self.pipe.torch_dtype, device=self.pipe.device), tar_video=batch['tar_video'][i:i+1].to(dtype=self.pipe.torch_dtype, device=self.pipe.device),
                 ref_img_pil=ref_img_pil, inference=True,
             )
-            save_dir = os.path.join(self.trainer.logger.save_dir, 'all_videos', self.trainer.logger._name, f'step_{self.trainer.global_step}', f'gs_{self.trainer.global_step}-{video_names[i]}_global_rank_{global_rank}.mp4')
+            save_dir = os.path.join(self.trainer.logger.save_dir, 'all_videos', self.trainer.logger._name, f'gs_{self.trainer.global_step}-{video_names[i]}_global_rank_{global_rank}.mp4')
             os.makedirs(os.path.dirname(save_dir), exist_ok=True)
             save_video(video, save_dir, fps=16, quality=5)
 
@@ -668,141 +633,55 @@ class LightningModelForTrain(pl.LightningModule):
         self.pipe.scheduler.set_timesteps(1000, training=True)
 
 
-    @torch.no_grad()
-    def run_fixed_validation(self):
-        """8개 고정 holdout 영상으로 validation: PSNR/SSIM/LPIPS 계산 + wandb 영상 logging"""
-
-        import wandb
-        from skimage.metrics import structural_similarity as compute_ssim
-
-        if dist.is_initialized():
-            rank = dist.get_rank()
-            world_size = dist.get_world_size()
-        else:
-            rank = 0
-            world_size = 1
-
-        # ---- fixed validation items (holdout, excluded from training) ----
-        if not hasattr(self, 'val_dataset'):
-            json_folder = './ReCo-Data/ReCo-Data'
-            video_folder = './ReCo-Data/ReCo-Data'
-            with open(os.path.join(json_folder, 'add', 'add_val_configs.json'), "r", encoding="utf-8") as f:
-                val_items = json.load(f)
-            self.val_dataset = ReCo_Dataset_train(all_data_list=val_items, base_video_folder=video_folder,
-                                                  read_video_from_local=True, task_name='add', user_first_frame=False)
-
-        # lazy-load LPIPS (list 보관: nn.Module로 등록되지 않게)
-        if not hasattr(self, '_lpips_model'):
-            import lpips as lpips_pkg
-            self._lpips_model = [lpips_pkg.LPIPS(net='alex').to(self.device).eval()]
-        lpips_model = self._lpips_model[0]
-
-        self.pipe.eval()
-        self.pipe.device = self.device
-
-        save_root = os.path.join(self.trainer.logger.save_dir, 'all_videos', self.trainer.logger._name, f'step_{self.trainer.global_step}')
-        os.makedirs(save_root, exist_ok=True)
-
-        negative_prompt="Bright tones, overexposed, static, blurred details, subtitles, images, static, overall gray, worst quality, low quality, JPEG compression residue, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, misshapen limbs, fused fingers, still picture, messy background, three legs, many people in the background, walking backwards"
-
-        psnr_sum, ssim_sum, lpips_sum, n = 0.0, 0.0, 0.0, 0
-        for idx in range(rank, len(self.val_dataset), world_size):
-            sample = self.val_dataset[idx]
-            batch = collate_fn_with_diff_mask([sample])
-            b,c,f,h,w = batch["tar_video_key"].shape
-
-            video = self.pipe(
-                prompt=batch["prompt"][0],
-                negative_prompt=negative_prompt,
-                num_inference_steps=50,
-                height=h, width=w, num_frames=81,
-                seed=1, tiled=False,
-                vace_video=batch["tar_video_key"][:1].to(dtype=self.pipe.torch_dtype, device=self.device),
-                vace_video_ref=batch["ref_video"][:1].to(dtype=self.pipe.torch_dtype, device=self.device),
-                vace_mask=batch["tar_video_key_mask"][:1].to(dtype=self.pipe.torch_dtype, device=self.device),
-                tar_video=batch['tar_video'][:1].to(dtype=self.pipe.torch_dtype, device=self.device),
-                ref_img_pil=None, inference=True,
-            )
-
-            # ---- metrics: 생성 edit 영역 vs GT ----
-            # pipe 출력은 2x2 그리드 [T, 2h, 2w, C]: 상단=[입력|GT], 하단=[생성|마스크]
-            gen = np.stack([np.array(frame) for frame in video])                    # [T,2h,2w,C] uint8
-            gen_tar = gen[:, h:, w//2:w, :]                                         # 하단 좌측 concat의 우측 절반 = 생성 edit
-            gt = batch['tar_video'][0].permute(1,2,3,0).float().numpy()             # [f,h,w,c], [-1,1]
-            gt_tar = ((gt[:, :, w//2:, :] + 1) * 127.5).clip(0, 255).astype(np.uint8)
-
-            T = min(len(gen_tar), len(gt_tar))
-            gen_tar, gt_tar = gen_tar[:T], gt_tar[:T]
-
-            mse = np.mean((gen_tar.astype(np.float64) - gt_tar.astype(np.float64)) ** 2)
-            psnr = 10 * np.log10(255.0 ** 2 / max(mse, 1e-10))
-            ssim = np.mean([compute_ssim(gt_tar[t], gen_tar[t], channel_axis=2) for t in range(T)])
-
-            gen_t = torch.from_numpy(gen_tar).permute(0,3,1,2).float().to(self.device) / 127.5 - 1
-            gt_t = torch.from_numpy(gt_tar).permute(0,3,1,2).float().to(self.device) / 127.5 - 1
-            lpips_chunks = []
-            for beg in range(0, T, 8):
-                lpips_chunks.append(lpips_model(gen_t[beg:beg+8], gt_t[beg:beg+8]).flatten())
-            lpips_val = torch.cat(lpips_chunks).mean().item()
-
-            psnr_sum += psnr; ssim_sum += ssim; lpips_sum += lpips_val; n += 1
-
-            # ---- save video locally ----
-            save_dir = os.path.join(save_root, f'val_{batch["video_name"][0]}_rank_{rank}.mp4')
-            save_video(video, save_dir, fps=16, quality=5)
-            with open(save_dir.replace('.mp4', '.txt'), 'w') as f_txt:
-                f_txt.write(f'{batch["prompt"][0]}\n')
-
-            del video, batch, gen_t, gt_t
-
-        # ---- aggregate metrics across ranks ----
-        stats = torch.tensor([psnr_sum, ssim_sum, lpips_sum, float(n)], device=self.device)
-        if dist.is_initialized():
-            dist.all_reduce(stats, op=dist.ReduceOp.SUM)
-            dist.barrier()      # 모든 rank의 영상 저장 완료 대기
-
-        if rank == 0 and stats[3] > 0:
-            psnr_mean, ssim_mean, lpips_mean = (stats[0]/stats[3]).item(), (stats[1]/stats[3]).item(), (stats[2]/stats[3]).item()
-            log_data = {
-                'val/psnr': psnr_mean, 'val/ssim': ssim_mean, 'val/lpips': lpips_mean,
-                'trainer/global_step': self.trainer.global_step,
-            }
-            for f_name in sorted(f for f in os.listdir(save_root) if f.startswith('val_') and f.endswith('.mp4')):
-                log_data[f'val_videos/{f_name.replace(".mp4","")}'] = wandb.Video(os.path.join(save_root, f_name), fps=16, format="mp4")
-            self.trainer.logger.experiment.log(log_data)
-            print(f'[val] step {self.trainer.global_step}: PSNR {psnr_mean:.3f}, SSIM {ssim_mean:.4f}, LPIPS {lpips_mean:.4f}')
-
-        # restore training state
-        self.pipe.load_models_to_device()
-        self.pipe.train()
-        self.pipe.scheduler.set_timesteps(1000, training=True)
-
-
     # @torch.no_grad()
     # def on_train_batch_start(self, batch, batch_idx):
-
+        
     #     if batch_idx == 0 and False:
+    #         self.run_val_func(batch, batch_idx)
+    #     else:
+    #         pass
+
+    # @torch.no_grad()
+    # def on_train_batch_end(self, outputs, batch, batch_idx):
+        
+    #     # print logs
+    #     if self.trainer.is_global_zero :
+    #         print("accumulate_grad_batches =", self.trainer.accumulate_grad_batches)
+    #         print("global_step =", self.trainer.global_step)
+    #         print("PL accumulate_grad_batches:", self.trainer.accumulate_grad_batches)
+
+    #     acc_batches = self.trainer.accumulate_grad_batches
+    #     is_update_step = ((batch_idx + 1) % acc_batches == 0)
+    #     init_sample = (acc_batches>1 and self.trainer.global_step==0 or self.trainer.global_step==1)
+
+    #     if init_sample and not self.debug or (is_update_step and (self.trainer.global_step % self.log_video_steps == 0)):
     #         self.run_val_func(batch, batch_idx)
     #     else:
     #         pass
 
     @torch.no_grad()
     def on_train_batch_end(self, outputs, batch, batch_idx):
-        
-        # print logs
-        if self.trainer.is_global_zero :
+        if self.trainer.is_global_zero:
             print("accumulate_grad_batches =", self.trainer.accumulate_grad_batches)
             print("global_step =", self.trainer.global_step)
-            print("PL accumulate_grad_batches:", self.trainer.accumulate_grad_batches)
 
         acc_batches = self.trainer.accumulate_grad_batches
+        
+        # 判断是否为真正的 optimizer update step
         is_update_step = ((batch_idx + 1) % acc_batches == 0)
-        init_sample = (acc_batches>1 and self.trainer.global_step==0 or self.trainer.global_step==1)
+        
+        # 修复优先级 bug，意图：梯度累积>1时，第0步或第1步触发初始采样
+        init_sample = (
+            acc_batches > 1 and 
+            (self.trainer.global_step == 0)
+        )
+        should_log = (
+            (init_sample and not self.debug) or 
+            (is_update_step and (self.trainer.global_step % self.log_video_steps == 0))
+        )
 
-        if init_sample and not self.debug or (is_update_step and (self.trainer.global_step % self.log_video_steps == 0)):
-            self.run_fixed_validation()
-        else:
-            pass
+        if should_log:
+            self.run_val_func(batch, batch_idx)
 
 
     def configure_optimizers(self):
@@ -1187,16 +1066,13 @@ def parse_args():
 
 
 def train(args):
-    
     """
     Baseline settings: with only MSE loss
     """
-
     # ------------ 1. Load dataset and model
-    # task_name_list = ['remove']
-    use_contrast_loss = True    # 논문 Eq.13 latent regularization (lambda_1=1e-3)
-    use_mse_loss = False        # 논문 Eq.17에 없는 항 (코드 자체 옵션)
-    use_attnscore_loss = True   # 논문 Eq.14-16 attention regularization (lambda_2=1e-3)
+    use_contrast_loss = False
+    use_mse_loss = False
+    use_attnscore_loss = False
     debug_ornot = args.debug
     model = LightningModelForTrain(
         dit_path=args.dit_path,
@@ -1226,7 +1102,7 @@ def train(args):
         # dirpath=args.output_path,
         filename="wan_deepspeed_folder-{epoch}-{step}",
         save_top_k=-1,  
-        every_n_train_steps=args.every_n_train_steps,         # 每200步保存一次
+        every_n_train_steps=args.every_n_train_steps,        
     )
     # lr_monitor = pl.pytorch.callbacks.LearningRateMonitor(logging_interval="step")
 
