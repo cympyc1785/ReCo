@@ -1,0 +1,659 @@
+{
+  "854132-hd_1920_1080_25fps_Replace_the_golden_puppy_with_a_fluffy_white_bunny_rabbit_chewing_on_the_grass.mp4": {
+    "tar_video_prompt": "A fluffy, white bunny rabbit lying on a lush green lawn, chewing on the grass. The bunny's soft fur contrasts with the vibrant green blades, and it appears relaxed and content as it nibbles, captured in a medium shot that highlights its gentle movements against the natural outdoor backdrop."
+  },
+  "854132-hd_1920_1080_25fps_Replace_the_golden_puppy_on_the_grass_with_a_cute_white_cat.mp4": {
+    "tar_video_prompt": "A cute white cat lying on the grass, playfully interacting with a small object. The cat is positioned in a relaxed, stretched-out posture, its paws extended forward as it focuses intently on the item near its mouth. The lush green grass surrounds the cat, with a few scattered leaves visible in the background, creating a serene outdoor setting."
+  },
+  "855289-hd_1920_1080_25fps_Replace_the_gray_squirrel_with_a_small_brown_rabbit.mp4": {
+    "tar_video_prompt": "A small, brown rabbit with upright ears is gently nibbling seeds from a person's outstretched hand. The rabbit stands on a bed of dry autumn leaves and pine needles, its fur blending softly with the earthy tones of the forest floor. The person’s hand, clad in a dark sleeve, remains steady as the rabbit eats calmly, creating a peaceful moment of connection between human and wildlife."
+  },
+  "855289-hd_1920_1080_25fps_Replace_the_gray_squirrel_with_a_small_pigeon_pecking_food_from_the_hand.mp4": {
+    "tar_video_prompt": "A small pigeon pecking food from a person's hand, standing on a ground covered with dry, brown leaves and pine needles. The pigeon is focused on the seeds in the outstretched palm, its head bobbing gently as it eats. The person’s hand is steady, wearing a dark sleeve, and the natural forest floor provides a textured, earthy backdrop to the gentle interaction."
+  },
+  "855289-hd_1920_1080_25fps_Replace_the_human_hand_on_the_right_with_a_small_brown_ceramic_bowl_filled_with_.mp4": {
+    "tar_video_prompt": "A squirrel with gray and reddish-brown fur is eating nuts from a small, brown ceramic bowl placed on the ground amidst dry autumn leaves. The squirrel stands on its hind legs, using its front paws to reach into the bowl, nibbling contentedly. The scene is captured in a close-up shot, highlighting the natural setting of fallen leaves and pine needles under soft daylight."
+  },
+  "855934-hd_1920_1080_30fps_Replace_the_sparrow_on_the_wire_with_a_bright_yellow_canary.mp4": {
+    "tar_video_prompt": "A bright yellow canary perched on a wire against a clear blue sky. The canary is facing slightly to the side, its vibrant feathers contrasting with the deep blue backdrop. It occasionally shifts its posture, bobbing its head and adjusting its stance on the wire, captured in a steady low-angle shot that emphasizes the bird's vivid color and delicate movements."
+  },
+  "855934-hd_1920_1080_30fps_Replace_the_black_wire_the_bird_is_sitting_on_with_a_thin_natural_tree_branch.mp4": {
+    "tar_video_prompt": "A small bird with brown and white feathers perched on a thin, natural tree branch against a clear blue sky. The bird occasionally turns its head and ruffles its feathers, captured in a low-angle shot that emphasizes the serene, natural setting. The branch appears organic and textured, replacing the original black wire, creating a more naturalistic and peaceful atmosphere."
+  },
+  "855934-hd_1920_1080_30fps_Replace_the_bird_perched_on_the_wire_with_a_small_owl.mp4": {
+    "tar_video_prompt": "A small owl perched on a wire against a clear blue sky. The owl, with its distinct round face and large eyes, sits calmly, occasionally turning its head to survey its surroundings. The scene is captured in a medium shot, emphasizing the contrast between the owl's soft feathers and the stark, dark lines of the wires. The bright blue sky provides a serene backdrop, highlighting the owl's presence as it remains still and observant."
+  },
+  "1500734-hd_1920_1080_24fps_Replace_the_mallard_duck_with_a_majestic_white_swan.mp4": {
+    "tar_video_prompt": "A majestic white swan glides gracefully across the calm, rippling water. Its pristine white feathers contrast beautifully with the dark, reflective surface, which shimmers with hints of green and purple hues. The swan moves serenely, creating gentle ripples that spread outward, capturing a tranquil moment in nature."
+  },
+  "1500734-hd_1920_1080_24fps_Replace_the_mallard_duck_with_a_small_wooden_toy_sailboat_floating_on_the_water.mp4": {
+    "tar_video_prompt": "A small, wooden toy sailboat with a white sail floats gently on the rippling water. The boat drifts calmly, creating subtle ripples as it moves across the surface, which reflects shades of green and pink from the surrounding environment. The scene captures the serene motion of the toy sailboat against the tranquil, reflective water, evoking a peaceful and playful atmosphere."
+  },
+  "1500734-hd_1920_1080_24fps_Replace_the_mallard_duck_with_a_brown_muskrat_swimming_in_the_water.mp4": {
+    "tar_video_prompt": "A brown muskrat swimming in the water, its sleek fur glistening as it glides smoothly across the rippling surface. The water reflects subtle hues of green and pink, creating a serene natural backdrop. The muskrat moves steadily, leaving gentle ripples behind, captured in a medium shot that emphasizes its calm, aquatic motion."
+  },
+  "1500734-hd_1920_1080_24fps_Replace_the_mallard_duck_with_a_bright_yellow_rubber_duck.mp4": {
+    "tar_video_prompt": "A bright yellow rubber duck floating calmly on the water's surface. The water ripples gently around it, reflecting subtle hues of green and purple, creating a serene and playful scene as the rubber duck bobs slightly with the current."
+  },
+  "1526909-hd_1920_1080_24fps_Replace_the_spotted_baby_seal_on_the_sand_with_a_red_crab.mp4": {
+    "tar_video_prompt": "A red crab on a sandy beach, positioned where the spotted baby seal was previously. The crab's vibrant red shell contrasts with the muted tones of the sand, and its claws are slightly raised as if exploring its surroundings. The background remains consistent, featuring gentle waves and distant rocks, maintaining the natural coastal setting."
+  },
+  "1526909-hd_1920_1080_24fps_Replace_the_spotted_baby_seal_with_a_small_sea_turtle_crawling_on_the_sand.mp4": {
+    "tar_video_prompt": "A small sea turtle crawling on the sand, its shell textured and patterned, moving slowly with deliberate flippers against the grainy beach surface. The background features a blurred shoreline with gentle waves and distant rocks, captured in a low-angle close-up that emphasizes the turtle's journey across the sandy terrain."
+  },
+  "1526909-hd_1920_1080_24fps_Replace_the_spotted_baby_seal_with_an_intricate_sandcastle.mp4": {
+    "tar_video_prompt": "An intricate sandcastle sits on a sandy beach, its detailed towers and moats crafted with precision. The background features gentle waves lapping at the shore and distant rocks, with the soft texture of wet sand surrounding the castle. The scene is captured in a low-angle close-up, emphasizing the craftsmanship of the sandcastle against the natural coastal backdrop."
+  },
+  "1847910-hd_1920_1080_30fps_Replace_the_red_carnations_in_the_vase_with_bright_yellow_sunflowers.mp4": {
+    "tar_video_prompt": "A clear glass vase filled with bright yellow sunflowers sits in front of a rain-streaked window, with droplets sliding down the glass. Outside, a blurred background of greenery and overcast skies creates a soft, moody atmosphere, contrasting vividly with the cheerful, vibrant sunflowers in the foreground."
+  },
+  "1847910-hd_1920_1080_30fps_Replace_the_red_carnations_in_the_vase_with_white_lilies.mp4": {
+    "tar_video_prompt": "A clear glass vase filled with white lilies, their delicate petals and long stems standing out against a rainy backdrop. Raindrops streak down the windowpane, blurring the view of greenery and distant structures outside, creating a serene and melancholic atmosphere as the white lilies remain in sharp focus, contrasting beautifully with the soft, muted tones of the rain-soaked scene."
+  },
+  "1847910-hd_1920_1080_30fps_Replace_the_glass_vase_with_a_rustic_brown_clay_pot.mp4": {
+    "tar_video_prompt": "A bouquet of vibrant red carnations sits in a rustic, brown clay pot, positioned in front of a rain-streaked window. Outside, the blurred background reveals a misty, overcast landscape with greenery and distant structures softened by the falling rain. Raindrops trail down the glass, adding texture and melancholy to the scene, while the rich earth tones of the clay pot contrast warmly against the cool, muted colors of the rainy day backdrop."
+  },
+  "1847910-hd_1920_1080_30fps_Replace_the_bouquet_of_red_flowers_in_the_glass_vase_with_a_cat_sitting_on_the_w.mp4": {
+    "tar_video_prompt": "A cat sitting on a windowsill, gazing outside on a rainy day. Raindrops streak down the glass window, blurring the view of the greenery and distant structures beyond. The cat's fur appears soft and slightly damp from the cool air, its eyes focused intently on the falling rain, creating a serene and contemplative atmosphere against the muted, overcast backdrop."
+  },
+  "2436088-uhd_3840_2160_25fps_Replace_the_baby_monkey_on_the_grass_with_a_small_gray_squirrel_eating_a_nut.mp4": {
+    "tar_video_prompt": "A small, gray squirrel sitting on a grassy field, holding and eating a nut. The squirrel's fur is soft and gray, its bushy tail curled behind it as it nibbles on the nut with focused attention. Scattered around are fallen leaves and twigs, adding to the natural outdoor setting. The background remains a lush green lawn, slightly blurred to emphasize the squirrel's activity in the foreground."
+  },
+  "2436088-uhd_3840_2160_25fps_Replace_the_baby_monkey_on_the_grass_with_a_brown_rabbit_nibbling_on_the_grass.mp4": {
+    "tar_video_prompt": "A brown rabbit nibbling on the grass in a lush green field. The rabbit is sitting upright, using its front paws to hold and eat pieces of grass or vegetation. Scattered around are fallen leaves and small twigs, adding texture to the natural setting. The background remains a soft-focus green meadow, creating a peaceful, pastoral atmosphere as the rabbit enjoys its meal."
+  },
+  "2436088-uhd_3840_2160_25fps_Replace_the_monkey_sitting_on_the_grass_with_a_cute_blond-haired_little_boy_sitt.mp4": {
+    "tar_video_prompt": "A cute blond-haired little boy sitting cross-legged on a lush green grassy field, holding a piece of fruit in his hands. He looks around curiously before taking a bite, with scattered fallen leaves and small twigs dotting the grass around him. The natural outdoor setting remains serene and sunlit, highlighting the child’s innocent engagement with his snack."
+  },
+  "2796086-uhd_3840_2160_25fps_Replace_the_fluffy_brown_dog_on_the_chair_with_a_fluffy_white_cat.mp4": {
+    "tar_video_prompt": "A fluffy white cat sitting on a wooden chair outdoors, wearing a blue bandana around its neck. A person with long hair, dressed in a beige jacket, is gently petting the cat, stroking its head and body. The background features green grass, trees, and bicycles parked nearby, creating a calm, sunny garden atmosphere."
+  },
+  "2796086-uhd_3840_2160_25fps_Replace_the_fluffy_brown_dog_on_the_chair_with_a_small_child_sitting_on_the_chai.mp4": {
+    "tar_video_prompt": "A small child sitting on a wooden chair outdoors, wearing a blue bandana around their neck. A person with long hair, dressed in a beige jacket, is gently petting and adjusting the bandana on the child. The background features green grass, trees, and bicycles parked nearby, creating a cozy, relaxed outdoor setting."
+  },
+  "2796086-uhd_3840_2160_25fps_Replace_the_dog_sitting_on_the_wooden_lounge_chair_with_a_baby_sitting_on_the_ch.mp4": {
+    "tar_video_prompt": "A baby sitting on a wooden lounge chair outdoors, being gently petted by a person. The baby is wearing a blue bandana around its neck, and the person, dressed in a beige long-sleeve shirt, tenderly strokes the baby’s head and back. The background features green grass, trees, and bicycles parked nearby, creating a calm and affectionate outdoor scene."
+  },
+  "3044074-uhd_3840_2160_24fps_Replace_the_woman's_orange_patterned_headwrap_with_a_blue_knit_beanie.mp4": {
+    "tar_video_prompt": "A woman wearing a blue knit beanie, large hoop earrings, and a black leather jacket over a yellow plaid shirt, speaking animatedly while gesturing with her hands. Her nails are painted in bright pink and orange colors, and she wears multiple bracelets on her wrists. The background features a textured wall with soft, geometric light patterns, captured in a medium close-up shot."
+  },
+  "3044074-uhd_3840_2160_24fps_Replace_the_woman's_orange_patterned_headwrap_with_long_black_curly_hair.mp4": {
+    "tar_video_prompt": "A woman with long, black curly hair, wearing a black leather jacket over a yellow plaid shirt, accessorized with large hoop earrings and a chain necklace. She is gesturing expressively with her hands, which have brightly colored nails, against a textured concrete background with soft lighting filtering through square windows above. The scene is captured in a medium close-up, focusing on her animated expression and stylish urban outfit."
+  },
+  "3044074-uhd_3840_2160_24fps_Replace_the_black_leather_jacket_with_a_blue_denim_jacket.mp4": {
+    "tar_video_prompt": "A woman wearing an orange patterned headwrap and large hoop earrings is speaking animatedly, gesturing with her hands that have brightly colored nails. She is dressed in a blue denim jacket over a yellow plaid shirt, captured in a close-up shot against a textured stone wall background with soft overhead lighting."
+  },
+  "3044074-uhd_3840_2160_24fps_Replace_the_woman_in_the_foreground_with_a_humanoid_robot.mp4": {
+    "tar_video_prompt": "A humanoid robot with a sleek, metallic finish stands in the foreground, wearing an orange plaid headwrap and a black leather jacket over a yellow plaid shirt. Its articulated hands, painted with pink and orange nails, gesture expressively as if speaking or explaining something. The robot’s face features smooth synthetic skin with human-like eyes and lips, conveying emotion through subtle movements. It wears large hoop earrings and a chain necklace, blending futuristic design with fashion-forward styling. The background remains unchanged — a textured concrete wall with soft rectangular lighting panels creating a modern, industrial ambiance. The camera maintains a close-up, eye-level perspective, focusing on the robot’s upper body and expressive gestures."
+  },
+  "3129424-uhd_3840_2160_24fps_Replace_the_woman_sitting_at_the_desk_with_a_man_wearing_a_blue_shirt_and_glasse.mp4": {
+    "tar_video_prompt": "A man wearing a blue shirt and glasses sits at a desk in an office, talking on the phone while holding a credit card. He is positioned in front of a laptop, with colorful sticky notes visible on a glass partition behind him. The desk is organized with small potted plants, pens, and documents, and shelves with binders and decor are visible in the background. The scene captures a professional atmosphere as he engages in a phone conversation, occasionally glancing toward the sticky notes."
+  },
+  "3129424-uhd_3840_2160_24fps_Replace_the_laptop_on_the_desk_with_a_vintage_black_typewriter.mp4": {
+    "tar_video_prompt": "A woman with curly hair, wearing a green blazer, sits at a desk in an office while talking on her phone. She holds a blue credit card in one hand and looks toward a glass partition covered in colorful sticky notes. Instead of the laptop, a vintage black typewriter now sits on the desk, surrounded by small potted plants, pens, and documents. The background features white shelving units with binders and decor, creating a modern yet nostalgic workspace atmosphere."
+  },
+  "3129424-uhd_3840_2160_24fps_Replace_the_woman_sitting_at_the_desk_with_a_raccoon_sitting_in_her_place_intera.mp4": {
+    "tar_video_prompt": "A raccoon sitting at a desk in an office, interacting with a laptop and looking at the sticky notes on the glass wall. The raccoon holds a blue credit card in one paw while talking on a phone held to its ear with the other paw. It is dressed in a green blazer over a white shirt, mimicking the posture of a human worker. The background features shelves with binders, potted plants, and a glass partition covered in colorful sticky notes with handwritten reminders. The scene is brightly lit, capturing a whimsical yet professional atmosphere as the raccoon multitasks like a seasoned office employee."
+  },
+  "3873059-hd_1920_1080_25fps_Replace_the_woman_in_the_center_with_a_male_hip-hop_dancer.mp4": {
+    "tar_video_prompt": "Three dancers perform a synchronized hip-hop routine in a studio with a beige backdrop. The woman on the left, wearing a white crop top and blue jeans, and the woman on the right, wearing a white crop top and dark leggings, continue their choreography as before. In the center, where a woman previously danced, now stands a male hip-hop dancer dressed in a white crop top and black pants, matching the style of the others. He performs sharp, rhythmic movements with confidence, seamlessly blending into the group’s energetic routine. All three wear white sneakers and maintain strong stage presence under bright studio lighting."
+  },
+  "3873059-hd_1920_1080_25fps_Replace_the_woman_on_the_left_with_a_dancing_robot.mp4": {
+    "tar_video_prompt": "Three figures dancing in sync against a beige backdrop in a studio setting. The central woman, dressed in a white crop top and black leggings, leads the choreography with energetic movements. To her right, another woman in a white crop top and dark blue leggings mirrors the dance moves. On the left, where a woman in a white t-shirt and jeans originally danced, a sleek, humanoid dancing robot now performs the same choreography — its metallic limbs moving fluidly with mechanical precision, matching the rhythm and style of the human dancers. All three maintain synchronized footwork and arm gestures, creating a striking visual blend of human grace and robotic precision under bright studio lighting."
+  },
+  "3873059-hd_1920_1080_25fps_Replace_the_woman_in_the_center_with_a_dancing_robot.mp4": {
+    "tar_video_prompt": "Three figures are dancing in a studio with a beige backdrop. On the left and right, two women in white crop tops and jeans perform synchronized dance moves. In the center, where a woman was previously dancing, a sleek, humanoid robot now performs the same choreography. The robot has a metallic, reflective surface with articulated joints, moving fluidly alongside the human dancers. All three maintain rhythm and coordination, blending organic motion with mechanical precision against the minimalist studio setting."
+  },
+  "4064863-uhd_4096_2160_25fps_Replace_the_takeaway_coffee_cup_in_the_foreground_with_a_clear_glass_of_water.mp4": {
+    "tar_video_prompt": "A man in a brown hoodie sits at a white table, focused on typing on his silver laptop. In the foreground, where a takeaway coffee cup once sat, there is now a clear glass of water. The background features a bright, modern interior with large windows, green accents, and blurred tables and chairs, creating a calm, productive atmosphere."
+  },
+  "4064863-uhd_4096_2160_25fps_Replace_the_takeaway_coffee_cup_in_the_foreground_with_a_small_green_potted_succ.mp4": {
+    "tar_video_prompt": "A man in a brown hoodie sits at a white table, focused on typing on his silver laptop in a bright, modern room with large windows and green accents. In the foreground, where a takeaway coffee cup once sat, there is now a small, green potted succulent adding a touch of nature to the workspace. The background features blurred tables, chairs, and indoor plants, creating a calm and productive atmosphere."
+  },
+  "4064863-uhd_4096_2160_25fps_Replace_the_man_in_the_green_hoodie_with_a_woman_wearing_a_blue_sweater.mp4": {
+    "tar_video_prompt": "A woman wearing a blue sweater sitting at a white table in a bright, modern room, focused as she types on a silver laptop. A disposable coffee cup sits on the table beside her. The background features large windows with green frames, blurred tables and chairs, and a potted plant, captured in a medium shot with soft natural lighting."
+  },
+  "4064863-uhd_4096_2160_25fps_Replace_the_silver_laptop_on_the_desk_with_a_stack_of_old_books_and_a_notepad.mp4": {
+    "tar_video_prompt": "A man in a brown hoodie sits at a white desk in a bright, modern room with large windows and green accents, focused as he types on a stack of old books and a notepad placed where the silver laptop used to be. A disposable coffee cup rests beside the books on the desk. The background features blurred tables, chairs, and indoor plants, captured in a medium shot that emphasizes his concentration and the cozy, studious atmosphere."
+  },
+  "4064863-uhd_4096_2160_25fps_Replace_the_man_in_the_green_hoodie_with_a_brown_chimpanzee_wearing_a_hoodie_and.mp4": {
+    "tar_video_prompt": "A brown chimpanzee wearing a green hoodie sits at a white table, typing on a silver laptop. A disposable coffee cup sits in front of the chimpanzee. The background features large windows with natural light, indoor plants, and blurred tables and chairs, creating a modern, casual office or cafe environment. The chimpanzee’s posture and hand movements mimic human typing behavior, adding a whimsical yet focused tone to the scene."
+  },
+  "4064863-uhd_4096_2160_25fps_Replace_the_man_in_the_green_hoodie_with_a_fluffy_St_Bernard_dog_sitting_in_the_.mp4": {
+    "tar_video_prompt": "A fluffy St. Bernard dog sitting in a chair at a white desk, paws resting on the surface as if typing on a silver laptop. A paper coffee cup with a white lid sits nearby on the desk. The background features a bright, modern room with large windows, green trim, and blurred tables and chairs, creating a cozy, productive atmosphere. The dog appears focused and engaged, mimicking the posture of someone working intently on their computer."
+  },
+  "4068820-hd_1920_1080_30fps_Replace_the_German_Shepherd_dog_with_a_panda_sitting_on_the_path.mp4": {
+    "tar_video_prompt": "A panda sitting on a gravel path in a rural setting, with its body facing forward and its head turned slightly to the side. The background features leafless trees, a grassy field, and a forested hillside under a clear blue sky. The warm sunlight casts long shadows across the path, highlighting the panda's black-and-white fur against the natural landscape. The scene is peaceful, with the panda calmly seated as if enjoying the serene surroundings."
+  },
+  "4068820-hd_1920_1080_30fps_Replace_the_German_Shepherd_dog_with_a_small_raccoon_standing_on_the_path.mp4": {
+    "tar_video_prompt": "A small raccoon standing on a gravel path in a rural setting, its fur detailed and its curious eyes looking around. The raccoon is positioned where the German Shepherd previously stood, with its bushy tail slightly raised and its paws planted firmly on the ground. The background features a winding dirt road flanked by bare trees and a forested hillside under a clear blue sky, bathed in warm golden sunlight that casts long shadows across the path. A wooden fence and distant utility poles are visible, maintaining the serene countryside atmosphere."
+  },
+  "4068820-hd_1920_1080_30fps_Replace_the_German_Shepherd_dog_with_an_empty_blue_baby_stroller_on_the_path.mp4": {
+    "tar_video_prompt": "An empty, blue baby stroller sits on a gravel path in a rural setting during golden hour. The path winds through a landscape of bare trees and distant evergreen forests under a clear blue sky. A wooden fence and a small grassy field are visible in the background, with the warm sunlight casting long shadows across the ground. The scene is peaceful and still, with the stroller as the central focus against the natural backdrop."
+  },
+  "4068820-hd_1920_1080_30fps_Replace_the_German_Shepherd_dog_with_a_grey_wolf_standing_on_the_path.mp4": {
+    "tar_video_prompt": "A grey wolf stands on a gravel path, its fur glistening in the warm sunlight. The wolf's ears are perked, and its mouth is slightly open, exuding a calm yet alert demeanor. The background features a serene rural landscape with leafless shrubs, a grassy field, and a dense forest of tall evergreen trees under a clear blue sky. A wooden fence and utility poles line the path, adding rustic charm to the scene. The golden hour lighting casts long shadows, enhancing the natural beauty and wild presence of the wolf in this tranquil countryside setting."
+  },
+  "4068820-hd_1920_1080_30fps_Replace_the_German_Shepherd_dog_with_a_small_brown_deer_standing_on_the_path.mp4": {
+    "tar_video_prompt": "A small, brown deer standing on a gravel path in a rural setting during golden hour. The deer is positioned in the center of the frame, facing slightly to the left with its ears perked up and head turned as if observing something off-camera. The background features leafless shrubs on the left, a grassy field, and a dense forest of tall evergreen trees under a clear blue sky. A wooden fence and utility poles are visible in the distance on the right. The warm sunlight casts long shadows across the gravel, highlighting the deer’s fur and creating a serene, natural atmosphere."
+  },
+  "4092344-uhd_3840_2160_30fps_Replace_the_iconic_Matterhorn_mountain_in_the_background_with_Japan's_Mount_Fuji.mp4": {
+    "tar_video_prompt": "A hiker with a backpack walks along a winding dirt path through a lush green alpine meadow, with Japan's Mount Fuji now standing majestically in the background instead of the Matterhorn. The snow-capped, symmetrical peak of Mount Fuji rises against a clear blue sky, surrounded by distant mountain ridges and soft clouds. The vibrant green grass and rugged terrain remain unchanged, creating a serene yet surreal blend of Swiss alpine scenery with the iconic Japanese landmark."
+  },
+  "4092344-uhd_3840_2160_30fps_Replace_the_hiker_on_the_path_with_a_mountain_goat.mp4": {
+    "tar_video_prompt": "A mountain goat gracefully walks along a winding dirt path on a lush green hillside, with the majestic, snow-capped Matterhorn towering in the background under a clear blue sky. The surrounding alpine landscape features rolling meadows and distant snow-dusted peaks, creating a serene and picturesque scene as the agile goat navigates the trail with ease."
+  },
+  "4267752-uhd_3840_2160_30fps_Replace_the_Alaskan_Malamute_in_the_center_with_a_seated_panda.mp4": {
+    "tar_video_prompt": "Two women wearing face masks sit on a grassy field in a sunlit, natural setting, each interacting with a dog. The woman on the left pets a seated panda in the center, while the woman on the right holds and pets a fluffy white dog beside her. The background features trees and rolling hills bathed in warm sunlight, creating a serene outdoor atmosphere."
+  },
+  "4267752-uhd_3840_2160_30fps_Replace_the_Alaskan_Malamute_in_the_center_with_a_black_bear_sitting_on_the_gras.mp4": {
+    "tar_video_prompt": "Two women wearing face masks sit on a grassy field in a sunlit, natural outdoor setting, each interacting with an animal. The woman on the left pets a black bear sitting calmly on the grass in place of the original Alaskan Malamute, while the woman on the right holds and pets a fluffy white dog standing beside her. The background features trees and distant hills bathed in warm sunlight, creating a peaceful, golden-hour atmosphere."
+  },
+  "4267752-uhd_3840_2160_30fps_Replace_the_woman_on_the_left_with_a_man_wearing_a_black_hoodie.mp4": {
+    "tar_video_prompt": "A man wearing a black hoodie and a face mask sits on the grass in a sunlit field, petting a large, fluffy husky dog. Beside him, another woman in a denim jacket and face mask is interacting with a second fluffy white dog. The background features dry grass, distant trees, and soft sunlight creating a warm, serene atmosphere."
+  },
+  "4415052-uhd_3840_2160_30fps_Replace_the_pigeon_on_the_left_with_colorful_parrots.mp4": {
+    "tar_video_prompt": "Two colorful parrots standing on a textured stone surface, interacting closely with each other. One parrot, vibrant with green, red, and blue feathers, gently touches beaks with another parrot displaying iridescent plumage in shades of teal, purple, and gold. Their bright orange eyes and pink feet contrast against the soft-focus background of lush green foliage and blurred sunlight reflections. The scene is captured in a medium close-up, emphasizing their affectionate behavior and vivid colors under natural daylight."
+  },
+  "4415052-uhd_3840_2160_30fps_Replace_the_pigeon_on_the_left_with_a_brown_sparrow.mp4": {
+    "tar_video_prompt": "A brown sparrow and a pigeon standing close together on a textured stone surface, engaging in affectionate behavior. The sparrow, with its earthy brown plumage, gently nuzzles the pigeon, which has iridescent green and purple feathers on its neck and gray body. Both birds have bright orange eyes and pink feet, and they are positioned against a softly blurred background of green foliage and hints of blue water, suggesting a peaceful outdoor setting. The scene is bathed in natural sunlight, highlighting the textures of their feathers and the warmth of their interaction."
+  },
+  "4415052-uhd_3840_2160_30fps_Replace_the_pigeon_on_the_right_with_a_squirrel.mp4": {
+    "tar_video_prompt": "Two pigeons are interacting affectionately on a stone surface, with one pigeon on the left displaying iridescent green and purple feathers on its neck and speckled wings, while the pigeon on the right has similar coloring and is gently touching beaks with its companion. The background features soft green foliage and blurred light reflections, suggesting an outdoor setting near water. In the edited version, the pigeon on the right is replaced with a squirrel. The squirrel stands upright on its hind legs beside the pigeon, facing it with curious eyes and twitching nose, maintaining the intimate pose as if mirroring the original interaction. The squirrel’s bushy tail curls behind it, and its fur is a mix of brown and gray tones, contrasting with the pigeon’s iridescent plumage. The serene outdoor backdrop remains unchanged, creating a whimsical yet harmonious scene between bird and rodent."
+  },
+  "4704244-hd_1920_1080_25fps_Replace_the_chipmunk_on_the_left_with_a_small_white_rabbit.mp4": {
+    "tar_video_prompt": "A small, white rabbit and a chipmunk sitting on a paved surface outdoors, surrounded by scattered seeds. The rabbit, with its fluffy white fur, is positioned on the left, while the chipmunk, with its striped brown and black fur, is on the right. Both animals are focused on eating the seeds in front of them, occasionally looking up or shifting their positions slightly. The background features blurred greenery and trees, suggesting a park or garden setting, captured in a low-angle shot that emphasizes the animals’ interaction with their environment."
+  },
+  "4704244-hd_1920_1080_25fps_Replace_the_chipmunk_on_the_right_with_a_small_pigeon_pecking_at_the_ground.mp4": {
+    "tar_video_prompt": "Two chipmunks are on a paved surface, with scattered seeds around them. The chipmunk on the left is actively sniffing and eating the seeds, while the chipmunk on the right has been replaced by a small pigeon pecking at the ground. The background features blurred greenery and trees, suggesting an outdoor park setting. The scene captures the natural behavior of the animals as they forage, with the pigeon now interacting with the environment in place of the original chipmunk."
+  },
+  "4704244-hd_1920_1080_25fps_Replace_both_chipmunks_with_two_small_sparrows.mp4": {
+    "tar_video_prompt": "Two small sparrows standing on a paved surface, pecking at scattered seeds. The birds are positioned close to each other, with one slightly turned toward the other as if interacting. The background is softly blurred, showing trees, greenery, and distant figures moving, suggesting a park or outdoor public space. The scene is captured in natural daylight, emphasizing the sparrows’ delicate feathers and alert expressions as they feed."
+  },
+  "4704244-hd_1920_1080_25fps_Replace_the_stone_pavement_with_a_patch_of_green_grass.mp4": {
+    "tar_video_prompt": "Two chipmunks with striped fur are foraging on a patch of green grass, nibbling at scattered seeds. One chipmunk is sitting upright while the other bends down to eat, both displaying alert and curious expressions. The background features blurred trees and foliage under natural daylight, creating a serene outdoor setting. The soft green grass replaces the original stone pavement, enhancing the naturalistic feel of the scene."
+  },
+  "4704244-hd_1920_1080_25fps_Replace_the_chipmunk_on_the_left_with_a_small_grey_kitten.mp4": {
+    "tar_video_prompt": "A small, grey kitten and a chipmunk sitting on a paved surface outdoors, surrounded by scattered seeds. The kitten, with soft grey fur, is positioned on the left, while the chipmunk remains on the right, both appearing to interact or eat from the ground. The background features blurred greenery and trees, suggesting a park or garden setting, captured in a low-angle shot that emphasizes the animals’ proximity and natural behavior."
+  },
+  "4747171-hd_1920_1080_25fps_Replace_the_grey_Weimaraner_dog_with_a_golden_retriever.mp4": {
+    "tar_video_prompt": "A woman with long blonde hair, wearing a white t-shirt and floral pants, sits cross-legged on a sandy beach at sunset, facing the ocean. She extends her hand toward a golden retriever sitting beside her, who raises its paw to meet hers in a high-five gesture. The dog is wearing a black harness. In the background, gentle waves roll onto the shore and a few distant figures walk along the water’s edge under the soft, warm glow of the setting sun."
+  },
+  "4747171-hd_1920_1080_25fps_Replace_the_grey_Weimaraner_dog_with_a_small_playful_seal_sitting_on_the_sand.mp4": {
+    "tar_video_prompt": "A woman with long blonde hair, wearing a white t-shirt and floral pants, sits cross-legged on a sandy beach at sunset, facing the ocean. In front of her, where a grey Weimaraner dog once sat, is now a small, playful seal resting on the sand. The seal looks toward the woman as she raises her hand to give it a high-five. Gentle waves roll in the background, and a few distant figures walk along the shoreline under the soft golden sky."
+  },
+  "4747171-hd_1920_1080_25fps_Replace_the_woman_sitting_on_the_sand_with_a_intricate_sandcastle.mp4": {
+    "tar_video_prompt": "An intricate sandcastle sits on the sandy beach, facing the ocean, with a Weimaraner dog sitting beside it. The dog, wearing a black harness, looks attentively toward the sandcastle as if interacting with it. In the background, gentle waves roll onto the shore under a soft, golden sky, and distant figures walk along the water’s edge. The scene captures a serene beach atmosphere at sunset, with the sandcastle serving as the central focus in place of the woman."
+  },
+  "4747171-hd_1920_1080_25fps_Replace_the_woman's_white_t-shirt_with_a_blue_rain_jacket.mp4": {
+    "tar_video_prompt": "A woman with long blonde hair sits cross-legged on a sandy beach, facing the ocean at sunset. She is now wearing a blue rain jacket instead of a white t-shirt, paired with light floral pants. Beside her, a brown dog in a black harness sits attentively, lifting its paw to meet her raised hand in a high-five gesture. The serene beach scene includes gentle waves rolling in and distant figures walking along the shore, all bathed in warm golden hour light."
+  },
+  "4772989-uhd_3840_2160_24fps_Replace_the_Shiba_Inu_on_the_left_with_a_fluffy_white_cat_wearing_the_blue_hat.mp4": {
+    "tar_video_prompt": "A fluffy white cat wearing a blue party hat sits on the left, next to a Shiba Inu dog wearing a yellow party hat, both seated against a solid pink background. The cat appears calm and composed, while the Shiba Inu on the right looks cheerful with its mouth open in a happy expression. The scene is brightly lit, emphasizing the playful contrast between the two animals in a festive, minimalist setting."
+  },
+  "4772989-uhd_3840_2160_24fps_Replace_the_Shiba_Inu_on_the_right_with_a_Corgi_wearing_the_yellow_hat.mp4": {
+    "tar_video_prompt": "Two dogs sitting side by side against a solid pink background. On the left, a Shiba Inu wearing a blue party hat sits with its tongue out, looking happy and alert. On the right, a Corgi now replaces the original Shiba Inu, wearing the same yellow party hat, also sitting upright with a cheerful expression and tongue slightly visible. Both dogs are well-groomed with fluffy fur, and the scene maintains a bright, playful, and celebratory atmosphere."
+  },
+  "4772989-uhd_3840_2160_24fps_Replace_the_blue_party_hat_on_the_left_dog_with_a_small_golden_crown.mp4": {
+    "tar_video_prompt": "Two Shiba Inu dogs sitting side by side against a solid pink background. The dog on the right wears a yellow party hat and appears cheerful, with its mouth open in a happy expression. The dog on the left now wears a small, golden crown instead of the blue party hat, maintaining a joyful demeanor with its tongue slightly out. Both dogs are well-groomed with fluffy fur, and their expressions convey excitement and playfulness, creating a festive and whimsical atmosphere."
+  },
+  "4772989-uhd_3840_2160_24fps_Replace_the_yellow_party_hat_on_the_right_dog_with_a_red_bow.mp4": {
+    "tar_video_prompt": "Two Shiba Inu dogs sitting side by side against a solid pink background. The dog on the left wears a blue party hat and has its tongue slightly out, looking cheerful. The dog on the right, originally wearing a yellow party hat, now wears a red bow on its head instead, maintaining a happy expression with its mouth open in a joyful smile. Both dogs are seated upright, facing forward, with their fluffy tails curled behind them, creating a festive and adorable scene."
+  },
+  "4772989-uhd_3840_2160_24fps_Replace_the_solid_pink_background_with_a_background_filled_with_colorful_balloon.mp4": {
+    "tar_video_prompt": "Two Shiba Inu dogs sitting side by side against a vibrant background filled with colorful balloons. The dog on the left wears a blue party hat and has its tongue out, while the dog on the right wears a yellow party hat and is smiling broadly with its mouth open. Both dogs are seated upright on their hind legs, looking cheerful and festive, as if celebrating a party. The balloons in the background add a joyful, celebratory atmosphere to the scene."
+  },
+  "4874384-uhd_3840_2160_30fps_Replace_the_bulldog_on_the_grass_with_a_pot-bellied_pig.mp4": {
+    "tar_video_prompt": "A pot-bellied pig wearing a black harness walks across a lush green lawn in a park. The pig has a light brown and white coat, with a rounded body and short legs. It moves forward slowly, sniffing the grass as it goes. In the background, trees line the perimeter of the field, and a paved path curves gently to the right. A few scattered yellow leaves dot the grass, and a person with a bicycle is visible near a tree on the left side of the frame. The scene is captured with a wide-angle lens, giving a slightly curved perspective to the landscape."
+  },
+  "4874384-uhd_3840_2160_30fps_Replace_the_bulldog_on_the_grass_with_a_small_white_lamb.mp4": {
+    "tar_video_prompt": "A small, white lamb standing on a lush green grassy field in a park. The lamb is wearing a black harness and looks around curiously, occasionally lowering its head to sniff the grass. The background features scattered trees, a winding path, and distant foliage under natural daylight, creating a peaceful outdoor scene."
+  },
+  "4874384-uhd_3840_2160_30fps_Replace_the_bulldog_on_the_grass_with_a_red_remote-controlled_toy_car.mp4": {
+    "tar_video_prompt": "A red, remote-controlled toy car positioned on a lush green grassy field in a park. The car is stationary at first, then begins to move forward across the grass, navigating the terrain with its small wheels. In the background, trees and a winding path are visible, along with scattered leaves and distant figures enjoying the park. The scene is captured from a low-angle perspective, emphasizing the car's movement against the natural backdrop."
+  },
+  "5081743-uhd_4096_2160_25fps_Replace_the_red_and_white_striped_lighthouse_in_the_background_with_an_ancient_s.mp4": {
+    "tar_video_prompt": "Three people are sitting on a blanket on a rocky beach, enjoying a picnic under a clear blue sky. The man in the center, wearing a white t-shirt and a black beanie, holds an open book and engages in conversation with the two women beside him. One woman, with long dark hair, wears a beige t-shirt and gray pants; the other, with curly red hair, wears a white top and a patterned skirt. In front of them are snacks, fruit, and a portable radio. Behind them, instead of the original red and white striped lighthouse, stands an ancient stone watchtower — weathered, sturdy, and medieval in design — rising above trees and low coastal structures, adding a historic ambiance to the serene seaside gathering."
+  },
+  "5081743-uhd_4096_2160_25fps_Replace_the_man_in_the_center_with_a_golden_retriever_dog_wearing_the_black_bean.mp4": {
+    "tar_video_prompt": "Three people are sitting on a blanket on a rocky beach, enjoying a sunny day with a red-and-white striped lighthouse in the background. On the left, a woman with long dark hair wearing a beige t-shirt and gray pants is smiling and engaged in conversation. In the center, where a man once sat reading a book, there is now a golden retriever dog wearing a black beanie, sitting upright as if participating in the picnic. On the right, a woman with curly red hair in a white top and patterned skirt is laughing and gesturing toward the dog. Picnic items including apples and containers are arranged on the blanket. The sky is blue with scattered clouds, and trees frame the lighthouse in the distance, creating a warm, cheerful seaside atmosphere."
+  },
+  "5081743-uhd_4096_2160_25fps_Replace_the_man_in_the_center_with_a_wise-looking_gorilla_wearing_the_black_bean.mp4": {
+    "tar_video_prompt": "Three individuals are seated on a sandy beach near a lighthouse under a clear blue sky. On the left, a woman with long dark hair in a beige t-shirt and gray pants is smiling and engaged in conversation. In the center, a wise-looking gorilla wearing a black beanie sits cross-legged, holding an open book as if reading aloud or sharing a story. To the right, a woman with curly red hair in a white top and patterned skirt listens attentively, her hand resting near her chin. A picnic blanket holds apples and snacks between them. The background features green trees, a red-and-white striped lighthouse, and distant coastal structures, creating a serene and whimsical seaside gathering."
+  },
+  "5081743-uhd_4096_2160_25fps_Replace_the_man_in_the_center_with_a_panda_sitting_on_the_blanket_chewing_on_a_p.mp4": {
+    "tar_video_prompt": "Three people are sitting on a blanket on a rocky beach with a lighthouse in the background under a clear blue sky. The man in the center, who was previously reading a book, has been replaced by a panda sitting on the blanket and chewing on a piece of bamboo. The two women on either side continue to interact and smile, maintaining the relaxed picnic atmosphere. The picnic items — including apples and containers — remain arranged on the blanket beside the panda, blending whimsy with the serene coastal setting."
+  },
+  "5081743-uhd_4096_2160_25fps_Replace_the_man_in_the_center_with_a_playful_sea_lion_sitting_on_the_blanket.mp4": {
+    "tar_video_prompt": "Two women are sitting on a blanket on a rocky beach, engaged in conversation, with a playful sea lion sitting between them on the blanket. The sea lion appears relaxed and curious, adding a whimsical touch to the scene. In front of them are picnic items including apples and a container, while in the background stands a red-and-white striped lighthouse under a bright blue sky with scattered clouds. Trees and a low wall frame the setting, creating a cheerful coastal atmosphere."
+  },
+  "5262600-uhd_4096_2160_30fps_Replace_the_Corgi_dog_on_the_bed_with_a_fluffy_white_cat.mp4": {
+    "tar_video_prompt": "A young child with curly hair, wearing a green shirt, is lying on a cozy bed and reading a book. Beside the child, instead of a Corgi dog, there is now a fluffy, white cat sitting calmly on the bed, looking relaxed and content. The setting includes soft pillows, a wooden headboard, a bedside table with a plant, and a small alarm clock in the background, creating a warm and peaceful atmosphere as the child reads and occasionally smiles."
+  },
+  "5262600-uhd_4096_2160_30fps_Replace_the_Corgi_dog_on_the_bed_with_a_brown_teddy_bear.mp4": {
+    "tar_video_prompt": "A young child with curly hair, wearing a green shirt, is lying on a cozy bed and reading a book. Instead of the Corgi dog, a brown teddy bear is sitting beside the child, appearing as if it’s listening attentively. The bed is dressed in soft white linens with patterned pillows, and the room features a minimalist aesthetic with a bedside table holding a plant and an alarm clock. The child occasionally looks up from the book and smiles, creating a warm, peaceful atmosphere centered around storytelling and companionship with the teddy bear."
+  },
+  "5262600-uhd_4096_2160_30fps_Replace_the_young_boy_reading_the_book_with_a_young_girl_with_long_blonde_hair.mp4": {
+    "tar_video_prompt": "A young girl with long blonde hair lying on a bed, reading a book. She is wearing a green shirt and appears engaged and smiling as she turns the pages. Beside her, a happy corgi dog with its tongue out is lying comfortably on the bed, looking at her. The scene is set in a cozy bedroom with white bedding, pillows, a wooden headboard, a small side table with a plant, and an alarm clock on another table in the background."
+  },
+  "5262600-uhd_4096_2160_30fps_Replace_the_young_boy_reading_the_book_with_a_brown_teddy_bear.mp4": {
+    "tar_video_prompt": "A brown teddy bear sitting on a cozy bed, holding an open book as if reading. Beside the teddy bear, a happy corgi dog lies comfortably on the bed, tongue out and looking cheerful. The setting is a bright, softly lit bedroom with neutral-toned bedding, decorative pillows, and bedside tables featuring a plant and an alarm clock. The scene captures a warm, whimsical moment of companionship between the teddy bear and the dog."
+  },
+  "5262600-uhd_4096_2160_30fps_Replace_the_book_the_boy_is_reading_with_a_handheld_video_game_console.mp4": {
+    "tar_video_prompt": "A young boy with curly hair lying on a cozy bed, smiling and engaged as he plays a handheld video game console. Beside him, a happy corgi dog lies comfortably, tongue out, watching the boy with interest. The room is softly lit, featuring neutral-toned bedding, decorative pillows, a bedside table with a plant, and a vintage alarm clock in the background, creating a warm, relaxed atmosphere."
+  },
+  "5262600-uhd_4096_2160_30fps_Replace_the_book_the_boy_is_reading_with_a_tablet_device.mp4": {
+    "tar_video_prompt": "A young boy with curly hair, wearing a green shirt, is lying on a cozy bed with white linens, next to a happy corgi dog. Instead of reading a physical book, he is now interacting with a tablet device, tapping and swiping the screen with focused curiosity. The dog sits beside him, tongue out, looking content and engaged. The background features soft pillows, a bedside table with a plant, and a vintage alarm clock, maintaining a warm, serene bedroom atmosphere."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_brown_poodle_puppy_on_the_sofa_with_a_small_white_kitten.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits on a beige sofa, playfully holding his fingers to his ears with a cheerful smile. Beside him, a small, white kitten sits calmly, looking around curiously. The background features a modern living room with white shelves displaying books, decorative items, and a tall green vase with plants, creating a cozy and bright atmosphere."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_brown_poodle_puppy_on_the_sofa_with_a_grey_bunny_rabbit.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sitting on a beige sofa, playfully holding his fingers to his ears as if mimicking bunny ears. Beside him, where a brown poodle puppy once sat, is now a fluffy grey bunny rabbit sitting upright on the sofa cushion. The background features white shelves with books, decorative vases, and plants, creating a cozy, modern living room atmosphere. The boy smiles and glances toward the bunny, maintaining a cheerful and playful mood."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_young_boy_on_the_sofa_with_a_young_girl_with_pigtails.mp4": {
+    "tar_video_prompt": "A young girl with pigtails sitting on a beige sofa next to a fluffy brown dog. She is wearing a white t-shirt and green pants, playfully covering her ears with her fingers while smiling. The dog sits attentively beside her, occasionally looking up at her. The background features a modern living room with white shelves holding books, plants, and decorative items, creating a cozy and cheerful atmosphere."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_boy's_white_t-shirt_with_a_blue_superhero_costume.mp4": {
+    "tar_video_prompt": "A young boy sitting on a beige couch next to a fluffy brown dog, now wearing a blue superhero costume instead of a white t-shirt. He is playfully covering his ears with his hands and smiling, while the dog sits beside him, occasionally looking around. The background features a modern living room with white shelves holding books, plants, and decorative items, including a green vase with foliage. The scene remains warm and playful, enhanced by the boy’s imaginative superhero attire."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_brown_poodle_puppy_with_a_colorful_parrot_perched_on_the_sofa.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits on a beige sofa, playfully holding his fingers to his ears with a cheerful smile. Beside him, a colorful parrot perches on the sofa cushion, its vibrant feathers contrasting with the neutral tones of the room. The background features white shelves adorned with books, plants, and decorative items, creating a cozy and modern living space. The scene is captured in a medium shot, emphasizing the joyful interaction between the boy and the parrot."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_blue_vase_in_the_background_with_a_small_round_fishbowl_with_a_goldf.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits cross-legged on a light beige couch, playfully holding his fingers to his ears with a mischievous smile. Beside him, a fluffy brown poodle sits attentively, looking toward the boy. The background features a clean, modern living room with white shelves displaying books and decorative items. A small, round fishbowl with a goldfish now replaces the blue vase on the central shelf, adding a whimsical aquatic touch to the serene setting. Soft natural lighting enhances the cozy, cheerful atmosphere of the scene."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_blue_vase_in_the_background_with_a_child's_sports_trophy.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits on a beige couch, playfully covering his ears with his hands while smiling. Beside him, a fluffy brown dog sits attentively, looking toward the boy. Behind them, the background features white shelves adorned with books, decorative items, and a child’s sports trophy standing in place of the original blue vase. The scene is bright and cozy, capturing a cheerful moment between the boy and his pet in a modern living room setting."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_blue_vase_in_the_background_with_a_framed_family_photo.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits on a beige couch, playfully pulling at his ears with a cheerful expression. Beside him, a fluffy brown poodle sits attentively, looking toward the boy. Behind them, white shelves display various decorative items — including books, small plants, and a framed family photo (replacing the original blue vase) — adding a warm, personal touch to the modern living room setting. The scene is bright and cozy, capturing a joyful moment of companionship between the child and his pet."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_blue_vase_in_the_background_with_a_small_sleeping_cat_curled_up_on_t.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits on a beige couch, playfully plugging his ears with his fingers while smiling. Beside him, a fluffy brown dog sits attentively, looking toward the boy. In the background, white shelves hold books and decorative items; notably, a small, sleeping cat is curled up peacefully on one of the shelves where a blue vase previously stood. The scene is bright and cozy, capturing a warm, playful moment between the child and his pet in a tidy living room setting."
+  },
+  "5955336-uhd_3840_2160_25fps_Replace_the_blue_vase_in_the_background_with_a_Star_Wars_Stormtrooper_helmet.mp4": {
+    "tar_video_prompt": "A young boy in a white t-shirt and green pants sits on a beige couch, playfully pulling at his ears with a smile, while a fluffy brown dog sits beside him, looking up and yawning. In the background, instead of the original blue vase on the shelf, a Star Wars Stormtrooper helmet is now prominently displayed among books and decorative items, adding a playful sci-fi touch to the cozy living room setting."
+  },
+  "6264838-uhd_3840_2160_25fps_Replace_the_small_dog_sleeping_on_the_woman's_lap_with_a_fluffy_white_cat.mp4": {
+    "tar_video_prompt": "A woman in a brown outfit is peacefully sleeping on a gray couch, her head resting on a white pillow. A fluffy, white cat is curled up on her lap, replacing the small dog. She is partially covered by a red blanket with white leaf patterns, and the scene exudes warmth and tranquility."
+  },
+  "6264838-uhd_3840_2160_25fps_Replace_the_small_dog_sleeping_on_the_woman's_lap_with_a_sleeping_baby.mp4": {
+    "tar_video_prompt": "A woman in a brown outfit is peacefully sleeping on a gray couch, her head resting on a white pillow. She is covered with a red blanket featuring white leaf patterns. Instead of a small dog, a sleeping baby is now nestled on her lap, creating a tender and serene moment as they both rest together on the couch."
+  },
+  "6264838-uhd_3840_2160_25fps_Replace_the_sleeping_woman_on_the_couch_with_a_sleeping_elderly_man.mp4": {
+    "tar_video_prompt": "An elderly man sleeping on a gray couch, covered partially by a red blanket with white leaf patterns. He is wearing a brown long-sleeve shirt and rests his head on a white pillow, with one hand tucked under his cheek. A small Yorkshire Terrier dog sleeps curled up beside him, nestled against his side. The scene is calm and cozy, capturing a peaceful moment of rest between the man and his pet."
+  },
+  "6264838-uhd_3840_2160_25fps_Replace_the_red_patterned_blanket_with_a_blue_knit_blanket.mp4": {
+    "tar_video_prompt": "A woman in a brown top is sleeping peacefully on a gray couch, her head resting on a white pillow with her hand gently tucked under her cheek. Beside her, a small Yorkshire Terrier dog is curled up, also asleep. The red patterned blanket covering part of the couch and the woman has been replaced with a blue knit blanket, adding a cozy, textured look to the scene while maintaining the serene and comfortable atmosphere."
+  },
+  "7173031-uhd_3840_2160_25fps_Replace_the_sea_turtle_with_a_manta_ray_gliding_through_the_water.mp4": {
+    "tar_video_prompt": "A manta ray gliding gracefully through the clear blue water above a sandy ocean floor scattered with small rocks. The manta ray's wide, flat body and long pectoral fins move rhythmically as it swims forward, casting subtle shadows on the seabed below. The underwater scene is serene, with soft sunlight filtering from above, illuminating particles floating in the water and enhancing the tranquil marine atmosphere."
+  },
+  "7173031-uhd_3840_2160_25fps_Replace_the_sea_turtle_with_a_scuba_diver_swimming_over_the_seabed.mp4": {
+    "tar_video_prompt": "A scuba diver swimming over a sandy seabed in clear blue water. The diver is equipped with fins, a mask, and an oxygen tank, moving gracefully through the underwater environment. The seabed is scattered with small rocks and pebbles, and faint rays of sunlight penetrate the water from above, illuminating the scene. Small fish swim nearby as the diver glides forward, exploring the tranquil ocean floor."
+  },
+  "7173031-uhd_3840_2160_25fps_Replace_the_sea_turtle_with_a_small_yellow_submarine_exploring_the_area.mp4": {
+    "tar_video_prompt": "A small, yellow submarine glides gracefully over a sandy ocean floor scattered with rocks and pebbles, exploring the serene underwater environment. The deep blue water surrounds the submarine as it moves forward, with faint particles floating in the current. The scene is calm and mysterious, capturing the submarine's quiet journey across the seabed under natural ambient lighting."
+  },
+  "7173031-uhd_3840_2160_25fps_Replace_the_sea_turtle_with_a_shark.mp4": {
+    "tar_video_prompt": "A shark glides gracefully through the clear blue underwater environment, swimming over a sandy ocean floor scattered with small rocks. The deep blue water creates a serene backdrop as the shark moves steadily forward, its sleek body and powerful fins cutting through the water. Small fish dart around in the distance, adding life to the tranquil underwater scene."
+  },
+  "7275094-hd_1920_1080_24fps_Replace_the_woman_sitting_in_the_chair_with_an_elderly_man_wearing_headphones.mp4": {
+    "tar_video_prompt": "An elderly man wearing headphones sits in a wicker chair, carefully handling a vinyl record on a portable turntable placed on a small stool beside him. He is dressed in a light-colored shirt and beige pants, focused on placing the record onto the player. The setting is a bright, airy room with large windows, featuring a vase of pink tulips on a nearby table and a blue suitcase resting on the floor. The scene exudes a calm, nostalgic atmosphere as the man prepares to enjoy his music."
+  },
+  "7275094-hd_1920_1080_24fps_Replace_the_vase_of_pink_tulips_on_the_table_with_a_small_sleeping_cat.mp4": {
+    "tar_video_prompt": "A woman with long braids, dressed in a white top and beige pants, sits on a rattan chair in a bright, airy room, carefully placing a vinyl record onto a vintage portable turntable. Beside her, on a small round table with black legs, a small, sleeping cat replaces the original vase of pink tulips. The cat is curled up peacefully, adding a cozy and serene touch to the scene. In the background, a window reveals a glimpse of brick buildings outside, while a blue suitcase rests near the table, contributing to the relaxed, nostalgic atmosphere."
+  },
+  "7275094-hd_1920_1080_24fps_Replace_the_brown_record_player_with_a_modern_silver_laptop_computer.mp4": {
+    "tar_video_prompt": "A woman with long braids, dressed in a white blouse and beige pants, sits on a wicker chair in a bright, airy room. She is interacting with a modern, silver laptop computer placed on a small stool beside her, replacing the original brown record player. Her hands are gently touching the laptop’s surface as if navigating or selecting something. To her right, a small table holds a white vase with pink tulips, and a blue suitcase rests nearby. Natural light streams in from a large window behind her, illuminating the minimalist, stylish interior."
+  },
+  "7275094-hd_1920_1080_24fps_Replace_the_vase_of_pink_tulips_with_a_brightly_lit_lava_lamp.mp4": {
+    "tar_video_prompt": "A woman with long braids, dressed in a white top and beige pants, sits on a rattan chair in a bright, modern room, carefully placing a vinyl record onto a vintage-style portable turntable. Beside her, on a small round table, a brightly lit lava lamp replaces the original vase of pink tulips, its colorful, flowing wax adding a retro, mesmerizing glow to the scene. A blue suitcase rests nearby, and natural light streams through a large window, illuminating the minimalist space with soft warmth."
+  },
+  "8625209-hd_1920_1080_30fps_Replace_the_black_horse_with_a_brown_camel.mp4": {
+    "tar_video_prompt": "A man in a black cowboy hat and casual attire stands beside a brown camel in a sandy, enclosed outdoor area, gently touching its neck and mane. He appears to be interacting with or training the camel, while a woman in a denim jacket observes from behind. The background features rustic buildings and metal fencing under bright daylight, creating a calm, rural atmosphere."
+  },
+  "8625209-hd_1920_1080_30fps_Replace_the_black_horse_with_a_zebra.mp4": {
+    "tar_video_prompt": "A man in a black cowboy hat and casual attire stands beside a zebra in a sandy, enclosed outdoor area, gently touching its mane. The zebra, with its distinctive black-and-white stripes, stands calmly as the man interacts with it. In the foreground, a woman with her back to the camera, wearing a denim jacket, observes the scene. The background features rustic buildings and metal fencing under bright daylight, creating a relaxed, rural atmosphere."
+  },
+  "8625209-hd_1920_1080_30fps_Replace_the_man_in_the_cowboy_hat_with_a_woman_wearing_a_riding_helmet.mp4": {
+    "tar_video_prompt": "A woman wearing a riding helmet gently grooming a black horse in a sandy outdoor enclosure. She is dressed in a dark t-shirt and blue jeans, her hands moving carefully along the horse’s neck and mane. In the foreground, another woman with blonde hair tied back, wearing a denim jacket, watches attentively from behind. The background features metal fencing, white walls, and rustic buildings under bright daylight, creating a calm, instructional atmosphere."
+  },
+  "8625209-hd_1920_1080_30fps_Replace_the_man's_black_cowboy_hat_with_a_bright_red_baseball_cap.mp4": {
+    "tar_video_prompt": "A man wearing a bright red baseball cap, a black t-shirt, and blue jeans is standing next to a black horse in a sandy enclosure. He is gently touching the horse's neck and mane while smiling, as a woman with her back to the camera watches from the foreground. The background features white walls, metal fencing, and a small wooden shed under a clear sky."
+  },
+  "8625209-hd_1920_1080_30fps_Replace_the_woman_in_the_foreground_with_a_bale_of_hay.mp4": {
+    "tar_video_prompt": "A man in a black cowboy hat and dark shirt gently brushes a black horse in a sandy, enclosed paddock. He is wearing blue jeans and a belt with a buckle, focused on grooming the horse's mane and neck. In the foreground, where a woman previously stood with her back to the camera, there is now a large bale of hay. The background features white walls, metal fencing, and a small wooden shed under a bright, sunny sky."
+  },
+  "8625209-hd_1920_1080_30fps_Replace_the_dirt_corral_setting_with_a_lush_green_pasture.mp4": {
+    "tar_video_prompt": "A man in a black cowboy hat and dark shirt gently brushes a sleek black horse, while a woman in a denim jacket observes from behind. They are now standing in a lush, green pasture under bright sunlight, with vibrant grass stretching out around them. In the background, rustic wooden structures and distant trees frame the serene pastoral scene, replacing the original dirt corral setting. The peaceful interaction between the man, the horse, and the observer is enhanced by the natural beauty of the verdant landscape."
+  },
+  "8730832-uhd_3840_2160_25fps_Replace_the_black_dog_with_a_golden_retriever.mp4": {
+    "tar_video_prompt": "A golden retriever wearing a yellow harness and white collar sits on a sandy beach, attentively looking at a person’s outstretched hand offering a treat. The dog gently takes the treat from the hand, chewing contentedly while maintaining eye contact. The background features gentle ocean waves, a distant cliff, and soft daylight, creating a serene coastal atmosphere. The person’s arm, clad in a light blue sleeve, holds a brown leash attached to the dog’s harness."
+  },
+  "8730832-uhd_3840_2160_25fps_Replace_the_black_dog_with_a_fluffy_white_cat_wearing_the_harness.mp4": {
+    "tar_video_prompt": "A fluffy white cat wearing a yellow harness sits on a sandy beach, facing a person's outstretched hand offering a treat. The background features gentle ocean waves and distant cliffs under a soft sky. The cat, calm and attentive, gently takes the treat from the person’s hand, which is attached to a brown leash. The scene captures a serene moment of interaction between the cat and its owner against the tranquil coastal backdrop."
+  },
+  "8730832-uhd_3840_2160_25fps_Replace_the_black_dog_with_a_playful_brown_sea_lion_sitting_on_the_sand.mp4": {
+    "tar_video_prompt": "A playful, brown sea lion sitting on the sand at a beach, wearing a yellow harness and attached to a leash. A person's hand extends toward the sea lion, offering a treat, which the sea lion gently takes with its mouth. The background features gentle ocean waves and distant cliffs under a bright sky, creating a serene coastal atmosphere."
+  },
+  "8921157-hd_1920_1080_25fps_Replace_the_black_horse_on_the_left_with_a_deer.mp4": {
+    "tar_video_prompt": "A woman in a white robe gently petting a deer on the left side of the frame, replacing the original black horse. The deer is adorned with ornate harness details similar to the horse's bridle, and the woman tenderly strokes its head while holding its reins. The scene is bathed in warm golden sunlight from behind, creating a soft glow around her braided hair and the deer’s fur. The background remains a blurred green natural setting, emphasizing the serene and affectionate moment between the woman and the deer."
+  },
+  "8921157-hd_1920_1080_25fps_Replace_the_black_horse_on_the_left_with_a_white_unicorn_with_a_glowing_horn.mp4": {
+    "tar_video_prompt": "A woman in a white robe gently strokes the head of a white unicorn with a glowing horn, standing on the left side of the frame. The unicorn is adorned with an ornate bridle featuring golden embellishments, and its mane glows softly in the warm sunlight. The woman, with her hair styled in braids, gazes affectionately at the mythical creature as she holds its reins. The background is a lush green landscape bathed in golden hour light, creating a serene and magical atmosphere."
+  },
+  "8921157-hd_1920_1080_25fps_Replace_the_black_horse_on_the_left_with_a_gentle_dragon.mp4": {
+    "tar_video_prompt": "A woman in a white robe gently strokes the head of a gentle dragon on the left, which is adorned with ornate, metallic harnesses. The dragon's scales shimmer softly in the golden sunlight as the woman, with her hair braided and a serene expression, lovingly pets its snout. The background is a lush, green landscape bathed in warm sunset light, creating a magical and peaceful atmosphere between the woman and the mythical creature."
+  },
+  "8921157-hd_1920_1080_25fps_Replace_the_woman_on_the_right_with_a_knight_in_shining_armor_stroking_the_horse.mp4": {
+    "tar_video_prompt": "A knight in shining armor gently stroking the head of a black horse adorned with ornate bridle details. The knight, clad in gleaming metallic armor, stands beside the horse, his gloved hand caressing its muzzle with care. The scene is bathed in warm golden sunlight, casting soft highlights on the armor and the horse's mane, with a blurred green background suggesting an outdoor setting during sunset."
+  },
+  "8944045-uhd_3840_2160_25fps_Replace_the_orange_cat_on_the_chair_with_a_colorful_macaw_parrot.mp4": {
+    "tar_video_prompt": "A woman with curly hair and glasses sits in a yellow armchair, focused on her laptop, while a colorful macaw parrot perches gracefully atop the chair's backrest. The parrot’s vibrant feathers—shades of red, blue, and yellow—contrast beautifully against the soft, textured white wall behind them. The scene is calm and cozy, capturing a quiet moment of work or leisure shared between the woman and her avian companion."
+  },
+  "8944045-uhd_3840_2160_25fps_Replace_the_orange_cat_on_the_chair_with_a_small_brown_monkey.mp4": {
+    "tar_video_prompt": "A small, brown monkey perched atop the back of a yellow armchair, looking alert and curious. A woman with long, dark hair and glasses sits in the chair, focused on her laptop, seemingly unaware of the monkey's presence. The scene is set against a light-colored wall with subtle floral patterns, creating a cozy indoor atmosphere."
+  },
+  "8944045-uhd_3840_2160_25fps_Replace_the_laptop_on_the_woman's_lap_with_a_open_book.mp4": {
+    "tar_video_prompt": "A woman with curly hair and glasses sits comfortably in a yellow armchair, focused on reading an open book resting on her lap. Perched regally atop the back of the chair is a large, fluffy ginger cat, calmly observing its surroundings. The scene is set against a light, textured wall, with soft, natural lighting enhancing the cozy, domestic atmosphere."
+  },
+  "8944045-uhd_3840_2160_25fps_Replace_the_laptop_on_the_woman's_lap_with_a_sleeping_baby.mp4": {
+    "tar_video_prompt": "A woman with curly hair and glasses sits comfortably in a yellow armchair, focused on a sleeping baby resting on her lap instead of a laptop. Behind her, a fluffy orange cat perches attentively atop the chair's backrest, gazing forward. The setting is a softly lit room with textured white walls, creating a warm, serene domestic atmosphere."
+  },
+  "9631752-uhd_4096_2160_24fps_Replace_the_Siberian_Husky_with_a_golden_retriever.mp4": {
+    "tar_video_prompt": "A golden retriever with a fluffy, golden coat and a red collar playfully interacts with a woman sitting on a red bench in a sunny park. The woman, wearing a yellow bucket hat, pink crop top, and showcasing tattoos on her arms, smiles and high-fives the dog. The dog enthusiastically lifts its paw to meet her hand, tongue out and tail wagging, against a backdrop of lush green grass and trees under bright daylight."
+  },
+  "9631752-uhd_4096_2160_24fps_Replace_the_Siberian_Husky_with_a_fluffy_brown_poodle.mp4": {
+    "tar_video_prompt": "A fluffy, brown poodle sitting on a red bench in a sunny park, playfully giving a high-five to a smiling woman wearing a yellow hat and pink top. The poodle has a cheerful expression with its tongue out, and the woman, who has tattoos on her arms, laughs joyfully as they interact. The background features lush green grass and trees under bright sunlight, creating a warm and playful atmosphere."
+  },
+  "9631752-uhd_4096_2160_24fps_Replace_the_Siberian_Husky_with_a_fluffy_white_cat_doing_a_'high_five'.mp4": {
+    "tar_video_prompt": "A fluffy white cat sitting on a red surface, playfully raising its paw to give a 'high five' to a smiling woman wearing a yellow hat and pink top. The woman, with visible tattoos on her arms, joyfully meets the cat's paw with her hand in a sunny outdoor setting with green grass and trees in the background."
+  },
+  "9631752-uhd_4096_2160_24fps_Replace_the_Siberian_Husky_with_a_small_playful_brown_bear_cub.mp4": {
+    "tar_video_prompt": "A small, playful brown bear cub sitting on a red surface in a sunny outdoor setting, interacting with a woman wearing a yellow hat and pink top. The bear cub, with its fluffy brown fur, raises its paw to high-five the woman, who smiles and extends her hand toward it. The background features lush green grass and trees, creating a cheerful and natural atmosphere. The woman's tattooed arms are visible as she engages playfully with the bear cub, capturing a heartwarming moment of human-animal interaction."
+  },
+  "12003967_1920_1080_30fps_Replace_the_brown_squirrel_with_a_small_grey_rabbit_sitting_on_the_dirt_path.mp4": {
+    "tar_video_prompt": "A small, grey rabbit sitting on a dirt path, holding its front paws together as if nibbling or grooming. The background features a blurred green grassy area and trees under bright sunlight, casting soft shadows on the ground. The rabbit's fur is fluffy and light grey, with upright ears and curious eyes, captured in a medium close-up shot that highlights its delicate movements against the natural outdoor setting."
+  },
+  "12003967_1920_1080_30fps_Replace_the_brown_squirrel_with_a_chipmunk_eating_a_nut.mp4": {
+    "tar_video_prompt": "A chipmunk sitting on a dirt path in a sunlit outdoor setting, holding and eating a nut with its front paws. The background features blurred green grass and trees under bright daylight, creating a natural, serene atmosphere. The chipmunk’s fur is reddish-brown with distinctive stripes, and it occasionally pauses to look directly at the camera while continuing to nibble on the nut."
+  },
+  "11916072_3840_2160_30fps_Replace_the_chipmunk_on_the_ground_with_a_small_brown_rabbit.mp4": {
+    "tar_video_prompt": "A small, brown rabbit standing on the ground, gently nibbling from a person's outstretched hand. The rabbit has soft fur and alert ears, positioned against a lush green blurred background. The scene is captured in a close-up shot at ground level, emphasizing the tender interaction between the human hand and the gentle creature."
+  },
+  "11916072_3840_2160_30fps_Replace_the_human_hand_on_the_left_with_a_small_blue_ceramic_bowl_filled_with_se.mp4": {
+    "tar_video_prompt": "A chipmunk with striped fur stands on a gravelly ground, facing a small, blue ceramic bowl filled with seeds. The bowl is positioned where a human hand was previously, and the chipmunk appears to be sniffing or approaching the bowl curiously. The background is a soft, blurred green, suggesting a natural outdoor setting. The scene captures a gentle interaction between the wild animal and the man-made object, emphasizing the chipmunk’s cautious curiosity."
+  },
+  "11916072_3840_2160_30fps_Replace_the_human_hand_on_the_left_with_a_green_leaf_holding_nuts.mp4": {
+    "tar_video_prompt": "A chipmunk with striped fur stands on a gravelly ground, nibbling on nuts held by a large green leaf instead of a human hand. The background is a soft, blurred green, suggesting a natural outdoor setting. The chipmunk's alert eyes and twitching nose add to its charm as it enjoys the offering from the leaf, creating a whimsical and serene interaction between wildlife and nature."
+  },
+  "11916072_3840_2160_30fps_Replace_the_chipmunk_on_the_ground_with_a_small_grey_baby_cat.mp4": {
+    "tar_video_prompt": "A small, grey baby cat sitting on the ground, curiously sniffing and interacting with a human hand extended towards it. The background is a soft, blurred green, suggesting a natural outdoor setting. The baby cat's fur is fluffy and its ears are perked up as it explores the hand, creating a gentle and tender moment between the animal and the person."
+  },
+  "12715046-uhd_4096_2160_50fps_Replace_the_white_cockatoo_on_the_branch_with_a_colorful_scarlet_macaw.mp4": {
+    "tar_video_prompt": "A colorful scarlet macaw perched on a gnarled tree branch, its vibrant red, yellow, and blue feathers contrasting sharply against the lush green foliage in the background. The bird's strong, curved beak and alert eyes are prominent as it sits calmly, its tail feathers slightly fanned out. The natural lighting highlights the rich textures of both the macaw's plumage and the weathered bark of the branch, creating a vivid and dynamic scene within a serene forest environment."
+  },
+  "12715046-uhd_4096_2160_50fps_Replace_the_white_cockatoo_on_the_branch_with_a_green_iguana_clinging_to_the_bra.mp4": {
+    "tar_video_prompt": "A green iguana clinging to a gnarled tree branch, its scaly body and long tail gripping the wood. The background is a lush, dense green forest with dappled sunlight filtering through the leaves, creating a natural and serene habitat for the reptile. The scene is captured in a medium shot, emphasizing the iguana's vibrant green color against the earthy tones of the branch."
+  },
+  "12715046-uhd_4096_2160_50fps_Replace_the_white_cockatoo_with_a_small_brown_monkey_sitting_on_the_branch.mp4": {
+    "tar_video_prompt": "A small, brown monkey sitting on a gnarled tree branch, gripping it with its hands and feet. The background is a lush, green forest with dappled sunlight filtering through the leaves, creating a serene natural setting. The monkey appears calm and observant, its fur detailed and textured against the rugged bark of the branch."
+  },
+  "12715046-uhd_4096_2160_50fps_Replace_the_white_cockatoo_with_a_snowy_owl.mp4": {
+    "tar_video_prompt": "A snowy owl perched on a gnarled tree branch, its white feathers contrasting against the dark, textured bark. The owl's piercing yellow eyes and rounded face are prominent as it surveys its surroundings. The background is a lush, green forest with dappled sunlight filtering through the leaves, creating a serene and natural setting. The scene remains calm and still, emphasizing the majestic presence of the snowy owl in its woodland habitat."
+  },
+  "12715046-uhd_4096_2160_50fps_Replace_the_gnarled_grey_tree_branch_with_a_branch_covered_in_pink_cherry_blosso.mp4": {
+    "tar_video_prompt": "A white cockatoo with a black beak perches gracefully on a branch adorned with vibrant pink cherry blossoms. The bird's pristine feathers contrast beautifully against the soft, blooming flowers, while the lush green foliage in the background enhances the serene, springtime ambiance. The scene is captured in a medium shot, highlighting the delicate interplay between the elegant parrot and the floral branch, evoking a sense of natural harmony and seasonal beauty."
+  },
+  "13738487_3840_2160_60fps_Replace_the_white_coffee_cup_on_the_table_with_a_small_potted_succulent_plant.mp4": {
+    "tar_video_prompt": "A small, potted succulent plant sits on a round, textured red table in place of the white coffee cup. In the background, a person wearing a beige coat and black pants is seated, with their hand resting on their lap. A beige tote bag rests on a cushioned surface behind them, against a soft-focus backdrop of light-colored walls. The scene maintains its calm, cozy ambiance, now centered around the vibrant green succulent as the focal point on the table."
+  },
+  "13738487_3840_2160_60fps_Replace_the_white_coffee_cup_with_a_stack_of_three_colorful_macarons.mp4": {
+    "tar_video_prompt": "A stack of three colorful macarons sits on a white saucer with a blue rim, placed atop a round, textured red table. In the background, a person wearing a beige coat and black pants is seated, adjusting their coat. A beige tote bag rests on a cushioned surface behind them, against a light gray wall. The scene captures a cozy, casual moment in a café-like setting, with the vibrant macarons adding a sweet, whimsical touch to the composition."
+  },
+  "13738487_3840_2160_60fps_Replace_the_white_tote_bag_in_the_background_with_a_brown_leather_briefcase.mp4": {
+    "tar_video_prompt": "A white ceramic coffee cup with a dark rim, filled with coffee, sits on a matching saucer atop a round, textured terracotta-colored table. In the background, a person wearing a beige trench coat and black pants is seated, partially visible as they adjust their position. The original white tote bag resting on the grey sofa behind them has been replaced with a brown leather briefcase, adding a more formal and classic touch to the scene. The setting remains calm and composed, suggesting a quiet moment in a stylish cafe or outdoor seating area."
+  },
+  "13738487_3840_2160_60fps_Replace_the_coffee_cup_on_the_table_with_a_laptop.mp4": {
+    "tar_video_prompt": "A white laptop sits on a saucer placed atop a textured red table, replacing the coffee cup. In the background, a person in a beige coat and black pants is seated, adjusting their position, with a beige bag resting on a gray couch against a light blue wall. The scene maintains its calm, indoor ambiance with soft natural lighting."
+  },
+  "13725895_3840_2160_25fps_Replace_the_cheetah_with_a_lioness_drinking_from_the_ground.mp4": {
+    "tar_video_prompt": "A lioness with a tawny, spotted coat is crouched on the ground, drinking from a patch of dirt and small stones. Her head is lowered, focused on the ground as she laps water, surrounded by a lush green grassy background. The scene is captured in a medium shot, highlighting her powerful build and natural grace in a serene outdoor setting."
+  },
+  "13725895_3840_2160_25fps_Replace_the_cheetah_with_a_striped_tiger.mp4": {
+    "tar_video_prompt": "A striped tiger lying on the ground, its head lowered as if sniffing or resting on the dirt and small rocks. The background features a lush green grassy field, with the tiger's distinctive black and orange stripes contrasting against the natural setting. The scene is calm and serene, capturing the tiger in a moment of quiet repose."
+  },
+  "13725895_3840_2160_25fps_Replace_the_cheetah_with_a_German_Shepherd_dog_drinking_from_the_ground.mp4": {
+    "tar_video_prompt": "A German Shepherd dog lying on the ground, drinking from a patch of dirt and small stones. The dog's fur is short and tan with black markings, and it is positioned in profile against a backdrop of lush green grass. The scene is calm and natural, with the dog focused on drinking, captured in a medium shot that highlights its posture and the surrounding environment."
+  },
+  "13725895_3840_2160_25fps_Replace_the_cheetah_with_a_hippopotamus_lying_on_the_ground.mp4": {
+    "tar_video_prompt": "A hippopotamus lying on the ground in a grassy area, its large body resting on a patch of dirt and small rocks. The background features lush green grass, creating a natural outdoor setting. The hippopotamus is positioned similarly to the original cheetah, with its head lowered toward the ground, appearing calm and relaxed in its environment."
+  },
+  "14360680_1920_1080_30fps_Replace_the_red_and_white_striped_lighthouse_with_an_ancient_grey_stone_watchtow.mp4": {
+    "tar_video_prompt": "An ancient, grey stone watchtower stands prominently on a rocky coastal shore, overlooking the vast, turquoise ocean under a clear blue sky. The watchtower, weathered by time, features rugged stonework and a battlement-style top, replacing the original red and white striped lighthouse. Waves crash against the dark rocks and sandy beach surrounding its base, while in the distance, a faint city skyline stretches along the horizon. The scene is captured from an aerial perspective, emphasizing the contrast between the historic structure and the dynamic seascape."
+  },
+  "14360680_1920_1080_30fps_Replace_the_red_and_white_striped_lighthouse_with_a_single_palm_tree.mp4": {
+    "tar_video_prompt": "A single palm tree stands tall on a rocky shoreline, its fronds swaying gently in the breeze against a backdrop of turquoise ocean waves crashing onto the rocks. The clear blue sky stretches above, with distant city buildings visible on the horizon. The scene captures the serene coastal beauty, with the palm tree replacing the previously seen red and white striped lighthouse, maintaining the tranquil seaside atmosphere."
+  },
+  "14360680_1920_1080_30fps_Replace_the_red_and_white_striped_lighthouse_with_a_modern_glass_skyscraper.mp4": {
+    "tar_video_prompt": "A modern glass skyscraper stands prominently on a rocky coastline, overlooking the vast blue ocean with gentle waves crashing against the shore. The sleek, reflective surface of the skyscraper contrasts sharply with the natural ruggedness of the surrounding rocks and sandy beach. In the distance, a city skyline stretches along the horizon under a clear blue sky with scattered clouds. The scene captures the juxtaposition of urban architecture and serene coastal beauty, with the skyscraper serving as a striking focal point against the dynamic seascape."
+  },
+  "14360680_1920_1080_30fps_Replace_the_red_and_white_striped_lighthouse_with_the_Eiffel_Tower.mp4": {
+    "tar_video_prompt": "The Eiffel Tower stands prominently on a rocky coastal shore, with waves crashing against the rocks and sandy beach below. The iconic iron lattice structure rises against a clear blue sky, with distant city buildings visible on the horizon across the turquoise ocean. The scene captures the contrast between the Parisian landmark and the seaside environment, maintaining the dynamic interplay of sea, sky, and urban backdrop."
+  },
+  "855029-hd_1920_1080_30fps_Replace_the_white_cat_with_a_small_brown_Corgi_puppy_wearing_the_red_bandana.mp4": {
+    "tar_video_prompt": "A small, brown Corgi puppy wearing a red bandana with white patterns is sitting on a tiled kitchen floor, grooming itself by licking its paw. The puppy then lifts its head and looks upward, appearing curious or playful, while maintaining its seated position. The background features wooden cabinets and a stainless steel appliance, captured in a low-angle shot that emphasizes the puppy's actions and expressions."
+  },
+  "855029-hd_1920_1080_30fps_Replace_the_white_cat_with_a_fluffy_white_rabbit.mp4": {
+    "tar_video_prompt": "A fluffy, white rabbit wearing a red bandana with white polka dots sits on a tiled kitchen floor, grooming itself by licking its paw. The rabbit then lifts its head and looks upward, continuing to clean its face with its paw. The background features wooden cabinets and a stainless steel appliance, captured in a low-angle shot that emphasizes the rabbit's actions and charming appearance."
+  },
+  "855029-hd_1920_1080_30fps_Replace_the_red_bandana_on_the_cat's_neck_with_a_blue_bow_tie.mp4": {
+    "tar_video_prompt": "A white and brown cat sitting on a tiled kitchen floor, grooming itself by licking its paw. Instead of the original red bandana, the cat now wears a blue bow tie around its neck. The background features wooden cabinets and a stainless steel appliance, captured in a low-angle shot that emphasizes the cat's actions and the new accessory."
+  },
+  "855029-hd_1920_1080_30fps_Replace_the_stainless_steel_appliance_on_the_right_with_a_green_potted_plant.mp4": {
+    "tar_video_prompt": "A white and brown cat wearing a red bandana with white polka dots is sitting on a tiled kitchen floor, grooming itself by licking its paw. The background features wooden cabinets on the left and a green potted plant on the right, replacing the original stainless steel appliance. The cat continues its grooming routine, occasionally lifting its head and looking around, captured in a low-angle medium shot that emphasizes its playful and relaxed demeanor."
+  },
+  "3192364-uhd_3840_2160_25fps_Replace_the_elderly_woman_at_the_counter_with_a_brown_bear_sitting_behind_the_co.mp4": {
+    "tar_video_prompt": "A brown bear sitting behind a counter in a rustic store, wearing a pink shirt and an apron. The bear is counting money with its paws, looking at an open notebook on the wooden counter. In front of it is a computer monitor, a payment terminal, and a glass jar with money inside. Shelves filled with jars and goods are visible in the background, along with a small potted plant on the counter. The scene is warmly lit, maintaining the cozy, small-business atmosphere."
+  },
+  "3192364-uhd_3840_2160_25fps_Replace_the_computer_monitor_on_the_desk_with_a_colorful_parrot_perched_on_the_c.mp4": {
+    "tar_video_prompt": "An elderly woman with blonde hair and glasses, wearing a pink shirt and apron, sits at a wooden desk in a cozy, rustic shop filled with jars and goods on shelves. She is carefully counting cash while looking down at an open notebook. On the desk, where a computer monitor once stood, a colorful parrot is now perched on the counter, adding a vibrant and lively touch to the scene. Nearby are a payment terminal, a glass jar with money, and a small potted plant, all under warm, natural lighting that enhances the charming, small-business atmosphere."
+  },
+  "3192364-uhd_3840_2160_25fps_Replace_the_glass_jar_containing_money_on_the_right_with_a_tall_glass_of_orange_.mp4": {
+    "tar_video_prompt": "An elderly woman with blonde hair and glasses, wearing a pink shirt and apron, sits at a wooden counter in a cozy, rustic shop. She is counting money while looking at an open notebook, with a computer monitor and a payment terminal beside her. On the right side of the counter, where a glass jar containing money previously sat, there is now a tall glass of orange juice, adding a refreshing touch to the warm, inviting scene filled with shelves of jars and goods in the background."
+  },
+  "3192364-uhd_3840_2160_25fps_Replace_the_woman's_glasses_with_a_pair_of_black_sunglasses.mp4": {
+    "tar_video_prompt": "An elderly woman with blonde hair, wearing a pink shirt and an apron, is sitting at a wooden desk in a cozy, rustic shop filled with shelves of jars and goods. She is counting money while looking at an open notebook, with a computer monitor, a payment terminal, and a glass jar with coins nearby. Her glasses have been replaced with a pair of black sunglasses, giving her a stylish yet focused appearance as she manages the shop’s finances."
+  },
+  "3201691-hd_1920_1080_25fps_Replace_the_woman_in_the_red_blazer_with_a_man_in_a_blue_suit_holding_the_clipbo.mp4": {
+    "tar_video_prompt": "A man in a blue suit holding a clipboard stands in a modern office setting. He is dressed professionally, with his hair neatly styled, and he looks directly at the camera with a confident smile. The background features glass-paneled walls, a blue sofa to the left, and potted plants to the right, creating a clean and contemporary workspace atmosphere. The lighting is soft and even, highlighting the man’s poised demeanor as he presents the clipboard."
+  },
+  "3201691-hd_1920_1080_25fps_Replace_the_woman_in_the_red_blazer_with_a_panda_standing_and_holding_the_clipbo.mp4": {
+    "tar_video_prompt": "A panda standing in an office setting, holding a clipboard. The panda is positioned in front of glass-paneled walls, with a blue couch and potted plants visible in the background. The panda appears to be reviewing the documents on the clipboard, maintaining a professional demeanor despite its unusual presence in the modern office environment."
+  },
+  "3201691-hd_1920_1080_25fps_Replace_the_clipboard_in_her_hands_with_a_tablet_device.mp4": {
+    "tar_video_prompt": "A woman in a red blazer and white shirt stands in a modern office, holding a tablet device instead of a clipboard. She looks down at the tablet with a focused expression, then smiles warmly at the camera. The background features glass-paneled walls, a blue sofa, and potted plants, creating a professional yet inviting atmosphere."
+  },
+  "3201691-hd_1920_1080_25fps_Replace_the_woman's_red_blazer_with_a_blue_denim_jacket.mp4": {
+    "tar_video_prompt": "A woman with her hair neatly tied back stands in a modern office, holding a clipboard and reviewing its contents. She is wearing a white t-shirt under a blue denim jacket instead of the original red blazer. The background features glass-paneled walls, a blue sofa to the left, and potted plants along the right side. She looks up from the clipboard and smiles warmly at the camera, maintaining a professional yet approachable demeanor. The scene is captured in a medium shot with soft, even lighting that highlights the clean, contemporary office environment."
+  },
+  "3254006-uhd_3840_2160_25fps_Replace_the_woman_on_the_left_with_a_alpaca_wearing_a_pink_shirt.mp4": {
+    "tar_video_prompt": "An alpaca wearing a pink shirt walks alongside three people in a modern office hallway with exposed brick walls and industrial lighting. The alpaca holds a coffee cup in its mouth and gestures as if engaged in conversation, mimicking the original woman's actions. The group includes a man holding a tablet, a curly-haired woman with a coffee cup, and another man carrying papers. They walk down the corridor, passing by a green scooter and shelves, maintaining a casual, collaborative atmosphere."
+  },
+  "3254006-uhd_3840_2160_25fps_Replace_the_woman_on_the_right_with_a_bipedal_red_panda.mp4": {
+    "tar_video_prompt": "A group of people walking through a modern office hallway with exposed brick walls and industrial lighting. On the left, a woman with glasses and a brown shirt holds a mug and gestures while talking. Behind her, a man in a beige sweater holds a tablet. On the right, where a woman with curly red hair previously walked holding a coffee cup, there is now a bipedal red panda wearing a light pink top and olive-green trousers, also holding a coffee cup and walking alongside the group as if engaged in conversation. The red panda moves naturally with the group, maintaining the casual, collaborative atmosphere of the scene."
+  },
+  "3254006-uhd_3840_2160_25fps_Replace_the_tablet_in_the_man's_hand_with_a_steaming_pizza_box.mp4": {
+    "tar_video_prompt": "Four colleagues walk together down a modern office hallway with exposed brick walls and industrial lighting, engaged in conversation while holding coffee cups. The woman on the left, wearing glasses and a pink shirt, gestures as she speaks. The man beside her, originally holding a tablet, now holds a steaming pizza box instead, adding a casual, unexpected twist to their professional stroll. The woman with curly red hair walks ahead, sipping her coffee, while another man follows behind, holding papers. The scene maintains its collaborative, relaxed office atmosphere despite the whimsical substitution of the tablet with the pizza box."
+  },
+  "3969453-uhd_3840_2160_25fps_Replace_the_person_in_the_brown_hoodie_with_a_brown_bear_sitting_in_the_chair_sc.mp4": {
+    "tar_video_prompt": "A brown bear sitting in a chair, scribbling in a notebook with a pen. The bear is positioned in front of a laptop placed on a small green table, watching a video call displayed on the screen showing people in a meeting room. The scene is captured from behind the bear, with soft indoor lighting and a cozy background featuring a radiator and carpeted floor."
+  },
+  "3969453-uhd_3840_2160_25fps_Replace_the_laptop_on_the_table_with_a_stack_of_old_leather-bound_books.mp4": {
+    "tar_video_prompt": "A young woman in a brown hoodie sits on a yellow couch, focused as she writes in a notebook with a pen. In front of her, on a small green table, is a stack of old, leather-bound books instead of a laptop. The background features a softly lit room with a radiator and carpeted floor, creating a cozy, studious atmosphere as she engages with the books rather than a digital screen."
+  },
+  "3969453-uhd_3840_2160_25fps_Replace_the_brown_hoodie_on_the_person_with_a_blue_knit_sweater.mp4": {
+    "tar_video_prompt": "A person wearing a blue knit sweater sitting and writing in a notebook while watching a video call on a laptop. The laptop, placed on a small green table, displays a meeting with several participants in a conference room. The scene is captured from behind the person, focusing on their engagement with the virtual meeting, set against a softly lit indoor background with a radiator visible in the distance."
+  },
+  "3969453-uhd_3840_2160_25fps_Replace_the_laptop_on_the_small_table_with_a_cute_raccoon_sitting_on_the_table.mp4": {
+    "tar_video_prompt": "A young woman in a brown hoodie sits on a yellow couch, focused as she writes in a notebook with a pen. In front of her, on a small green table, a cute raccoon is sitting instead of the laptop, its curious eyes looking toward the woman. The background features a softly lit room with a radiator and carpeted floor, creating a cozy indoor atmosphere. The woman remains unaware of the raccoon’s presence, continuing to write while occasionally glancing up, maintaining her concentration on her task."
+  },
+  "3969453-uhd_3840_2160_25fps_Replace_the_laptop_on_the_small_table_with_a_cute_white_cat_sitting_on_the_table.mp4": {
+    "tar_video_prompt": "A young woman in a brown hoodie sits on a yellow couch, writing notes in a notebook while looking at a small green table. Instead of a laptop, a cute white cat is sitting on the table, gazing attentively at her. The background features a softly lit room with a radiator and neutral-toned walls, creating a cozy and focused atmosphere as the woman continues her work or study session with her feline companion observing her."
+  },
+  "3969453-uhd_3840_2160_25fps_Replace_the_laptop_on_the_small_table_with_a_colorful_parrot_perched_on_the_tabl.mp4": {
+    "tar_video_prompt": "A young woman in a brown hoodie sits on a yellow couch, focused as she writes in a notebook with a pen. In front of her, on a small green table, a colorful parrot is perched, replacing the laptop. The background shows a softly lit room with a radiator and carpeted floor, creating a calm, homey atmosphere as the woman continues her note-taking beside the vibrant bird."
+  },
+  "4017062-uhd_3840_2160_30fps_Replace_the_woman_in_the_black_hoodie_with_a_fluffy_golden_retriever_sitting_on_.mp4": {
+    "tar_video_prompt": "A fluffy golden retriever sitting on a gray couch, wearing round glasses, appears to be reading a book with focused attention. The dog is positioned in a relaxed, seated posture, with its paws holding the open pages of the book. A white laptop rests beside the dog on the armrest of the couch, and the background features a neutral beige wall. The retriever occasionally adjusts its glasses with a paw, maintaining an intelligent and studious demeanor throughout the scene."
+  },
+  "4017062-uhd_3840_2160_30fps_Replace_the_woman_in_the_black_hoodie_with_a_sleepy_panda_sitting_on_the_couch_h.mp4": {
+    "tar_video_prompt": "A sleepy panda sitting on a gray couch, holding an open book in its paws. The panda, with its characteristic black-and-white fur, appears relaxed and slightly drowsy as it gazes at the pages. A white laptop rests beside it on the arm of the couch, and the background features a plain beige wall. The panda’s posture mimics that of the original woman—legs crossed, one paw gently turning a page—creating a whimsical and cozy reading scene."
+  },
+  "4017062-uhd_3840_2160_30fps_Replace_the_laptop_on_the_couch_with_a_stack_of_old_magazines.mp4": {
+    "tar_video_prompt": "A woman with long brown hair and glasses, dressed in black, is sitting cross-legged on a gray couch, engrossed in reading a book. She flips a page and adjusts her glasses while concentrating. Instead of the laptop previously on the armrest, there is now a neat stack of old magazines placed beside her, adding a vintage touch to the cozy indoor setting."
+  },
+  "4017062-uhd_3840_2160_30fps_Replace_the_silver_laptop_on_the_couch_with_a_brown_rabit.mp4": {
+    "tar_video_prompt": "A woman with long brown hair and glasses, dressed in black, is sitting cross-legged on a gray couch, intently reading a book. Instead of the silver laptop previously on the couch beside her, there is now a brown rabbit sitting calmly next to her. The background is a plain beige wall, and the scene maintains a cozy, indoor atmosphere."
+  },
+  "4057408-uhd_4096_2160_25fps_Replace_the_woman_meditating_on_the_mat_with_a_tranquil_panda_sitting_in_a_medit.mp4": {
+    "tar_video_prompt": "A tranquil panda sitting in a meditation pose on a black yoga mat, with its eyes closed and paws resting gently in its lap. Beside the panda, a Shiba Inu dog lies calmly on the mat, mirroring the serene atmosphere. The scene is set in a bright, cozy room with wooden floors, large windows draped with white curtains, and potted plants adding a touch of greenery. Soft natural light fills the space, enhancing the peaceful ambiance as the panda and dog share a moment of quiet stillness."
+  },
+  "4057408-uhd_4096_2160_25fps_Replace_the_woman_meditating_on_the_mat_with_a_silver_humanoid_robot_in_a_medita.mp4": {
+    "tar_video_prompt": "A silver humanoid robot sitting in a meditation pose on a black yoga mat in a bright, cozy room. The robot has a sleek, metallic design with articulated joints, its hands resting gently in its lap in a mudra position, eyes closed as if in deep focus. Beside the robot, a Shiba Inu dog lies calmly on the mat, gazing forward. The room features wooden floors, large windows with white sheer curtains letting in soft natural light, potted plants on the windowsill and floor, and a white radiator beneath the windows. The overall atmosphere is serene and modern, blending technology with tranquility."
+  },
+  "4057408-uhd_4096_2160_25fps_Replace_the_Shiba_Inu_dog_on_the_mat_with_a_small_sleeping_baby_dragon.mp4": {
+    "tar_video_prompt": "A woman with curly hair sits cross-legged on a yoga mat in a serene, sunlit room, meditating with her eyes closed and hands resting gently in her lap. Beside her, where a Shiba Inu dog once lay, now rests a small, sleeping baby dragon—its scales shimmering softly, wings curled around its body, breathing peacefully. The room features wooden floors, large windows draped with sheer white curtains, potted plants, and a radiator beneath the sill, all bathed in natural light that enhances the tranquil, mystical atmosphere of the scene."
+  },
+  "4057408-uhd_4096_2160_25fps_Replace_the_Shiba_Inu_dog_on_the_mat_with_a_small_sleeping_lamb.mp4": {
+    "tar_video_prompt": "A woman with curly hair sits cross-legged on a yoga mat in a serene, sunlit room, meditating with her eyes closed and hands resting in her lap. Beside her on the mat, instead of a Shiba Inu dog, is a small, sleeping lamb curled up peacefully. The room features wooden floors, large windows with sheer white curtains, potted plants, and a radiator beneath the windowsill, creating a calm and tranquil atmosphere."
+  },
+  "4057408-uhd_4096_2160_25fps_Replace_the_black_yoga_mat_with_a_green_lily_pad.mp4": {
+    "tar_video_prompt": "A woman with curly hair, dressed in a gray sports bra and black leggings, sits cross-legged in a meditative pose on a green lily pad indoors. Her eyes are closed, and her hands rest gently on her knees in a mudra gesture. Beside her, a Shiba Inu dog lies calmly on the same lily pad, gazing forward. The scene is set in a bright, airy room with large windows draped in white curtains, allowing natural light to flood in. A radiator sits beneath the windows, adorned with potted plants and books, while another tall plant stands to the right. The wooden floor and serene atmosphere remain unchanged, now contrasted by the surreal presence of the green lily pad replacing the yoga mat."
+  },
+  "5125919-uhd_4096_2160_30fps_Replace_the_man_sitting_at_the_desk_with_a_chimpanzee_in_a_denim_shirt_intensely.mp4": {
+    "tar_video_prompt": "A chimpanzee wearing a denim shirt sits at a desk, intensely typing on a laptop. The chimpanzee is focused on the screen, its fingers moving quickly over the keyboard. The setting includes a modern office environment with a dark wall, a blue couch, and shelves holding various items like plants, books, and a red alarm clock in the background. The scene is captured from a medium shot, emphasizing the chimpanzee's concentrated expression and the surrounding workspace."
+  },
+  "5125919-uhd_4096_2160_30fps_Replace_the_man_sitting_at_the_desk_with_a_skeleton_wearing_the_denim_shirt.mp4": {
+    "tar_video_prompt": "A skeleton wearing a denim shirt is seated at a desk, typing on a laptop. The skeleton's bony fingers press the keys of the laptop, which sits on a wooden desk against a dark wall. Behind the skeleton, a modern office setup includes a shelving unit with plants, books, and decorative items, as well as a blue couch to the left. The scene maintains the original composition and lighting, creating an eerie yet humorous juxtaposition of a skeletal figure engaged in everyday work."
+  },
+  "5125919-uhd_4096_2160_30fps_Replace_the_laptop_on_the_desk_with_an_old-fashioned_black_typewriter.mp4": {
+    "tar_video_prompt": "A man with curly hair and a beard, wearing a denim shirt over a white t-shirt, sits at a wooden desk in a modern, dark-walled room. Instead of a laptop, an old-fashioned black typewriter sits on the desk in front of him. He is focused, typing intently with his right hand while occasionally glancing up thoughtfully. Behind him, a gray ergonomic chair supports his posture, and to the right, a minimalist shelf holds decorative items including a small potted plant, a red alarm clock, and binders. A blue velvet sofa with a gray cushion is visible to the left, adding contrast to the moody interior. The scene captures a quiet, concentrated work atmosphere blending vintage tools with contemporary design."
+  },
+  "5125919-uhd_4096_2160_30fps_Replace_the_laptop_on_the_desk_with_a_ancient_magical_book_that_is_glowing.mp4": {
+    "tar_video_prompt": "A man with curly hair and a beard, wearing a denim shirt over a white t-shirt, sits at a wooden desk in a modern room with dark walls and shelves holding plants and decor. He is focused intently on an ancient magical book that glows softly on the desk in place of the laptop, his hand hovering as if turning a page or casting a spell. The ambient lighting highlights the mystical aura of the glowing tome, creating a contrast between the contemporary setting and the arcane object before him."
+  },
+  "5125919-uhd_4096_2160_30fps_Replace_the_man's_office_chair_with_a_ornate_golden_throne.mp4": {
+    "tar_video_prompt": "A man with curly hair and a beard, wearing a denim shirt over a white t-shirt, sits at a wooden desk focused on typing on a laptop. Instead of an office chair, he is seated on an ornate golden throne, its intricate carvings and regal design contrasting with the modern workspace. The background features a dark wall, a blue sofa, and a shelving unit holding plants, books, and decorative items. The scene is captured in a medium shot from eye level, highlighting the juxtaposition between the casual work attire and the majestic throne."
+  },
+  "5198161-uhd_3840_2160_25fps_Replace_the_young_boy_at_the_chalkboard_with_a_chimpanzee_wearing_a_brown_shirt_.mp4": {
+    "tar_video_prompt": "A chimpanzee wearing a brown shirt and glasses stands at a chalkboard in a classroom, pointing at mathematical formulas for area calculations of various shapes. The chalkboard displays diagrams of triangles, rectangles, parallelograms, and trapezoids with their respective area equations written beside them. The chimpanzee gestures toward the trapezoid formula while facing a group of seated students, whose backs are visible in the foreground. The scene is captured from a medium shot angle, maintaining the educational atmosphere of the classroom."
+  },
+  "5198161-uhd_3840_2160_25fps_Replace_the_young_boy_at_the_chalkboard_with_a_small_brown_bear_cub_standing_on_.mp4": {
+    "tar_video_prompt": "A small, brown bear cub standing on its hind legs at a chalkboard in a classroom, pointing to geometric formulas and shapes drawn in chalk. The bear cub, with fluffy fur and curious eyes, gestures toward diagrams of triangles, rectangles, and trapezoids alongside their area equations. In the foreground, students sit at desks watching attentively, their backs to the camera. The scene is captured from a medium angle, maintaining the educational atmosphere while adding an whimsical, unexpected twist with the bear cub as the presenter."
+  },
+  "5198161-uhd_3840_2160_25fps_Replace_the_black_chalkboard_with_a_futuristic_semi-transparent_glass_data_scree.mp4": {
+    "tar_video_prompt": "A young boy in a brown shirt and blue pants stands in front of a futuristic, semi-transparent glass data screen displaying geometric formulas and shapes in glowing digital text. He gestures toward the floating diagrams of triangles, rectangles, and trapezoids as he explains area calculations to his classmates, who are seated at desks watching attentively. The classroom environment is modernized with ambient lighting reflecting off the sleek, high-tech display, enhancing the educational atmosphere with a sci-fi aesthetic."
+  },
+  "5198161-uhd_3840_2160_25fps_Replace_the_young_boy_at_the_chalkboard_with_a_small_curious_aliens.mp4": {
+    "tar_video_prompt": "A small, curious alien with large eyes and a slender body stands at a chalkboard in a classroom, pointing to geometric formulas and shapes drawn in chalk. The alien, wearing a brown shirt and blue pants, gestures toward diagrams of triangles, rectangles, and trapezoids with area equations beside them. Students sit at desks in the foreground, watching attentively as the alien explains the math concepts. The scene is captured from behind the students, focusing on the alien’s animated teaching style against the dark chalkboard backdrop."
+  },
+  "5377684-uhd_3840_2160_25fps_Replace_the_person_in_the_Guy_Fawkes_mask_with_a_futuristic_humanoid_robot_typin.mp4": {
+    "tar_video_prompt": "A futuristic humanoid robot with a sleek, metallic body and glowing joints sits at a curved desk in a dimly lit, high-tech command center. The robot's articulated fingers move rapidly over a backlit keyboard, its head—featuring a smooth, featureless faceplate with faint LED indicators—tilted toward three large monitors displaying scrolling code, system diagnostics, and password-cracking interfaces. Red ambient lighting glows along the ceiling, reflecting off the polished surfaces of the workstation. In the background, additional screens flicker with green data streams, reinforcing the atmosphere of advanced cyber operations. The robot’s precise, mechanical movements convey focused efficiency as it engages in digital infiltration or system analysis."
+  },
+  "5377684-uhd_3840_2160_25fps_Replace_the_Guy_Fawkes_mask_on_the_person's_face_with_a_Darth_Vader_helmet.mp4": {
+    "tar_video_prompt": "A hooded figure sits at a curved desk in a dimly lit, high-tech room, typing on a backlit keyboard with multiple monitors displaying code and system data. The person is now wearing a Darth Vader helmet instead of the Guy Fawkes mask, maintaining the same posture and focus on the screens. Red ambient lighting accents the ceiling, and additional glowing displays are visible in the background, enhancing the cyberpunk atmosphere. The scene remains tense and immersive, blending iconic sci-fi imagery with digital espionage aesthetics."
+  },
+  "5377684-uhd_3840_2160_25fps_Replace_the_hacker_code_on_the_main_monitor_with_a_retro_video_game.mp4": {
+    "tar_video_prompt": "A hooded figure wearing a white Guy Fawkes mask sits at a dimly lit desk, typing on a colorful backlit keyboard. The main monitor in front of them no longer displays hacker code but instead shows a vibrant retro video game with pixelated graphics and classic 8-bit style gameplay. Surrounding monitors still glow with green code, and the room is bathed in ambient red lighting, creating a moody, cyberpunk atmosphere as the masked individual focuses intently on the nostalgic game."
+  },
+  "5377684-uhd_3840_2160_25fps_Replace_the_main_computer_monitor_with_a_glowing_crystal_ball_showing_the_code.mp4": {
+    "tar_video_prompt": "A hooded figure wearing a white mask sits at a dimly lit desk, typing on a colorful backlit keyboard. Instead of the main computer monitor, a glowing crystal ball hovers above the desk, displaying cascading lines of green code that shimmer with an ethereal glow. The surrounding monitors still show digital interfaces and data streams, while red ambient lighting casts dramatic shadows across the room, enhancing the mysterious, cyberpunk atmosphere."
+  },
+  "5377684-uhd_3840_2160_25fps_Replace_the_main_computer_monitor_with_a_floating_holographic_interface.mp4": {
+    "tar_video_prompt": "A hooded figure wearing a white mask sits at a dimly lit desk, typing on a backlit keyboard. Instead of the main computer monitor, a floating, holographic interface glows in front of them, displaying dynamic green code and data visualizations that hover mid-air. The surrounding environment remains dark and tech-heavy, with additional monitors glowing softly in the background and red ambient lighting accenting the ceiling. The hologram pulses subtly as the hacker interacts with it, creating an immersive, futuristic cyberpunk atmosphere."
+  },
+  "5377684-uhd_3840_2160_25fps_Replace_the_person_in_the_hoodie_with_a_chimpanzee_wearing_the_hoodie_and_mask_r.mp4": {
+    "tar_video_prompt": "A chimpanzee wearing a black hoodie and a white Guy Fawkes mask sits at a desk in a dimly lit room, randomly hitting the keys on a glowing keyboard. The room is filled with multiple computer monitors displaying lines of code and password-cracking interfaces, illuminated by red ambient lighting. The chimpanzee’s movements are erratic yet focused, mimicking a hacker at work, while the background features additional screens and tech equipment, maintaining the atmosphere of a high-tech cyber operation."
+  },
+  "8348912-uhd_3840_2160_25fps_Replace_the_man_with_glasses_on_the_left_with_a_chimpanzee_wearing_a_suit_and_gl.mp4": {
+    "tar_video_prompt": "A chimpanzee wearing a suit and glasses is pointing at a computer screen while sitting next to a man in a suit with a gray beard. The chimpanzee, positioned on the left, gestures toward the screen with its finger, appearing engaged in a discussion or presentation. The man on the right, dressed in a dark suit and red striped tie, looks attentively at the screen. The scene takes place in a bright, modern office setting with soft lighting, a white wall background, and subtle office decor including a plant and stacked books visible in the distance. The interaction between the chimpanzee and the man suggests a professional or collaborative context, captured in a medium shot that emphasizes their focused expressions and body language."
+  },
+  "8348912-uhd_3840_2160_25fps_Replace_the_man_with_the_red_tie_on_the_right_with_a_wise-looking_owl_wearing_a_.mp4": {
+    "tar_video_prompt": "Two men in suits are engaged in a discussion while looking at a computer monitor in a bright office setting. The man on the left, wearing glasses and a red tie, gestures toward the screen as he speaks. The man on the right has been replaced with a wise-looking owl dressed in a suit and tie, sitting attentively beside him. The owl’s feathers are neatly groomed, its large eyes focused intently on the monitor, mirroring the professional demeanor of the scene. The background remains unchanged — a clean, modern office with soft lighting, a plant, and stacked books visible behind them — creating a surreal yet composed atmosphere where business meets whimsical wisdom."
+  },
+  "8348912-uhd_3840_2160_25fps_Replace_the_computer_monitor_they_are_looking_at_with_a_ornate_fish_tank.mp4": {
+    "tar_video_prompt": "Two men in business suits are engaged in a focused discussion while looking at an ornate fish tank. The man on the left, wearing glasses and a red tie, gestures toward the tank with his finger, while the man on the right, with a gray beard and striped tie, points at it as well. The setting is a bright, modern office with soft natural lighting, a potted plant visible in the background, and stacks of books on a shelf. The ornate fish tank, filled with colorful fish and decorative elements, replaces the computer monitor they were previously observing, becoming the central point of their interaction."
+  },
+  "8348912-uhd_3840_2160_25fps_Replace_the_computer_monitor_they_are_looking_at_with_a_magic_crystal_ball.mp4": {
+    "tar_video_prompt": "Two men in business suits, one with glasses and a beard and the other with a gray beard, are intently focused on a magic crystal ball instead of a computer monitor. The man with glasses gestures toward the glowing orb as they discuss its contents, while the other man points at it with curiosity. The scene takes place in a bright office setting with soft natural light, books stacked in the background, and a modern chair visible beside them. The crystal ball emits a faint mystical glow, adding an element of wonder to their professional interaction."
+  },
+  "8348912-uhd_3840_2160_25fps_Replace_the_dark_business_suits_on_both_men_with_colorful_clown_costumes.mp4": {
+    "tar_video_prompt": "Two men, one with glasses and a beard and the other with a gray beard, are seated in an office setting, engaged in a discussion while looking at a computer monitor. Instead of dark business suits, both men are now wearing colorful clown costumes—complete with bright patterns, oversized collars, and playful accessories. The man on the left gestures animatedly toward the screen, while the man on the right points in agreement, their expressions serious despite the whimsical attire. The background remains a clean, modern office with soft lighting, stacks of books, and a plant subtly visible, creating a surreal contrast between the professional environment and their clown outfits."
+  },
+  "14562375_2560_1440_30fps_Replace_the_man_in_the_red_sweater_with_a_bipedal_red_panda_wearing_the_red_swea.mp4": {
+    "tar_video_prompt": "A bipedal red panda wearing a red sweater walks across a modern room. The red panda, with its distinctive reddish-brown fur and bushy tail, moves upright on two legs, mimicking human gait. It passes by a white door, a black sofa, a wooden table with water bottles, and flags of Turkey and NATO displayed on stands. The room features light-colored walls, recessed ceiling lights, and a framed map on the wall. The camera follows the red panda in profile as it strides confidently through the space, maintaining the original setting and ambient lighting while replacing the human figure with the anthropomorphic animal."
+  },
+  "14562375_2560_1440_30fps_Replace_the_man_in_the_red_sweater_with_a_waddling_penguin.mp4": {
+    "tar_video_prompt": "A waddling penguin in a red sweater moves through a modern room with white walls, a black sofa, and a wooden table. The penguin walks past a white door, a thermostat on the wall, and two flags—one Turkish and one blue—on flagpoles. A framed map hangs on the wall, and a TV is mounted nearby. The penguin’s movement mimics the original man’s stride, maintaining the same spatial context and camera framing as it turns and proceeds across the room."
+  },
+  "14562375_2560_1440_30fps_Replace_the_white_door_with_a_glowing_magical_portal.mp4": {
+    "tar_video_prompt": "A man in a red sweater and glasses stands in a modern room, turning to walk toward a glowing magical portal that has replaced the white door. The portal emits a radiant, ethereal light with swirling colors, casting soft glows on the surrounding walls and furniture. As he approaches, the ambient lighting shifts subtly, enhancing the mystical atmosphere. The rest of the room remains unchanged—featuring a black sofa, a wooden side table, flags, and wall art—creating a striking contrast between the ordinary interior and the otherworldly portal."
+  },
+  "14562434_2560_1440_30fps_Replace_the_man_in_the_grey_suit_with_a_wise_owl.mp4": {
+    "tar_video_prompt": "A wise owl perched at a polished wooden desk in an office, appearing to write in a notebook with a red pen held in its talons. The owl is positioned in front of a bookshelf filled with books, with Turkish and organizational flags standing behind it. A framed map hangs on the wall, and the scene is captured from a low angle, emphasizing the owl’s focused demeanor as it engages in scholarly work, creating a whimsical yet professional atmosphere."
+  },
+  "14562434_2560_1440_30fps_Replace_the_man_in_the_grey_suit_with_a_brown_bear_wearing_the_suit_and_scribbli.mp4": {
+    "tar_video_prompt": "A brown bear wearing a grey suit sits at a polished wooden desk in an office, scribbling intently in a notebook with a red pen. Behind the bear, two flags — one Turkish and one blue with an emblem — stand beside a framed map on the wall. Bookshelves line the background, and a tablet rests on the desk to the left. The bear’s focused expression and posture mimic those of a professional, creating a whimsical yet formal scene as it diligently writes, captured from a low-angle medium shot that emphasizes the reflective surface of the desk and the dignified setting."
+  },
+  "14562434_2560_1440_30fps_Replace_the_red_notebook_with_a_glowing_magical_spellbook.mp4": {
+    "tar_video_prompt": "A man with a beard, dressed in a gray suit and white shirt, sits at a polished wooden desk in an office, intently writing in a glowing, magical spellbook. The spellbook emits a soft, ethereal light as he writes with a red pen. Behind him, bookshelves line the wall, and two flags — one Turkish and one blue with an emblem — stand beside a framed map on the wall. The scene is captured from a low angle across the desk, emphasizing the mystical aura of the spellbook against the formal office setting."
+  },
+  "14562434_2560_1440_30fps_Replace_the_two_flags_in_the_background_with_two_standing_suits_of_medieval_armo.mp4": {
+    "tar_video_prompt": "A man with a beard, dressed in a gray suit and white shirt, is seated at a polished wooden desk in an office, writing in a notebook with a red pen. Behind him, two standing suits of medieval armor replace the original flags, adding a historical and dramatic ambiance to the scene. The office features bookshelves filled with books, a framed map on the wall, and a closed white door. The lighting is bright and even, highlighting the reflective surface of the desk and the detailed texture of the armor. The overall atmosphere blends modern professionalism with medieval grandeur."
+  },
+  "14562434_2560_1440_30fps_Replace_the_tablet_device_on_the_left_with_a_crystal_ball.mp4": {
+    "tar_video_prompt": "A man with a beard, dressed in a gray suit and white shirt, is seated at a polished wooden desk in an office, writing in a notebook with a red pen. Behind him, bookshelves line the wall, and two flags — one Turkish and one blue with an emblem — stand beside a framed map on the wall. On the left side of the desk, where a tablet device was previously placed, now sits a crystal ball, reflecting ambient light and adding a mystical element to the professional setting. The camera slowly zooms in, maintaining focus on the man’s concentrated expression as he writes."
+  },
+  "14574364_3840_2160_60fps_Replace_the_young_boy_on_the_left_with_a_small_playful_chimpanzee_wearing_the_\"S.mp4": {
+    "tar_video_prompt": "A small, playful chimpanzee wearing a \"SNOWBOARDING\" pajama shirt sits on a bed in a modern hotel room, smiling and looking around. Next to the chimpanzee, a girl lies on the bed, relaxed and sipping from a purple cup. The room features two beds with white linens, stylish bedside lamps, and a decorative wall panel with intricate patterns. Natural light filters through sheer curtains beside a window, creating a cozy and cheerful atmosphere."
+  },
+  "14574364_3840_2160_60fps_Replace_the_white_bedside_lamp_with_a_glowing_medieval_sword_stuck_into_the_nigh.mp4": {
+    "tar_video_prompt": "A boy and a girl are relaxing on two separate beds in a modern hotel room. The boy, dressed in a black and white long-sleeve shirt with text, sits cross-legged on the left bed, smiling and looking toward the camera. The girl, lying on her side on the right bed, wears a black t-shirt with a colorful graphic and light blue pants; she is holding a purple object near her mouth, possibly a snack or toy. Between them, where a white bedside lamp once stood on the nightstand, now glows a medieval sword firmly stuck into the surface — its blade radiating an ethereal light that illuminates the immediate area. The ornate wall art, gray curtains, and large window remain unchanged, creating a surreal contrast between the cozy, contemporary setting and the fantasy element of the glowing sword."
+  },
+  "14574364_3840_2160_60fps_Replace_the_white_bedside_lamp_with_a_tall_green_cactus.mp4": {
+    "tar_video_prompt": "A boy and a girl are relaxing on two separate beds in a modern, well-lit hotel room. The boy sits cross-legged on the left bed, smiling and gesturing as he speaks, while the girl lies on her side on the right bed, propped up on one elbow, sipping from a purple cup. Behind them, the headboards are flanked by nightstands — the one on the left now features a tall, green cactus standing in place of the original white bedside lamp. The room’s decor includes an intricate wall mural, soft lighting, and large windows with sheer curtains allowing natural light to filter in."
+  },
+  "14574364_3840_2160_60fps_Replace_the_white_bedside_lamp_with_a_knight's_helmet.mp4": {
+    "tar_video_prompt": "A boy and a girl are relaxing on two separate beds in a modern hotel room. The boy, dressed in a black and white long-sleeve shirt and black pants, sits cross-legged on the left bed, smiling and gesturing as he talks. The girl, lying on her side on the right bed, wears a colorful t-shirt and light blue pants, holding a purple object near her mouth while looking at the boy. Behind them, the wall features an intricate golden patterned design, and a large window with gray curtains lets in natural light. A knight's helmet now stands in place of the original white bedside lamp on the nightstand between the beds, adding a medieval touch to the contemporary setting."
+  },
+  "fish_jellyfish_octorpus_Replace_the_sea_turtle_with_a_swimming_Corgi_dog.mp4": {
+    "tar_video_prompt": "A Corgi dog swimming gracefully underwater over a sandy ocean floor. The dog has a fluffy coat with brown and white markings, paddling with its paws in a smooth, rhythmic motion. The surrounding water is clear and blue, with gentle light filtering from above, casting soft shadows on the seabed. The scene captures the whimsical and serene moment of the Corgi gliding effortlessly through the tranquil underwater environment."
+  },
+  "fish_jellyfish_octorpus_Replace_the_sea_turtle_with_a_jellyfish.mp4": {
+    "tar_video_prompt": "A jellyfish gracefully glides through the clear blue underwater environment, its translucent bell and flowing tentacles shimmering with gentle motion. The sandy ocean floor stretches beneath it, undisturbed except for faint traces of sediment stirred by the current. Captured in a steady, medium shot from a slightly low angle, the scene emphasizes the serene beauty of the jellyfish as it drifts effortlessly through the tranquil aquatic landscape."
+  },
+  "fish_jellyfish_octorpus_Replace_the_sea_turtle_with_a_beautiful_clownfish.mp4": {
+    "tar_video_prompt": "A beautiful clownfish swimming gracefully over a sandy ocean floor in clear blue water. The clownfish, with its vibrant orange body and white stripes, glides effortlessly through the tranquil underwater scene, casting a soft shadow on the seabed below. The serene environment remains unchanged, with the calm blue water and sandy bottom providing a peaceful backdrop for the clownfish’s elegant movements."
+  },
+  "fish_jellyfish_octorpus_Replace_the_sea_turtle_with_a_shark.mp4": {
+    "tar_video_prompt": "A shark swimming gracefully over a sandy ocean floor in clear blue water. The shark moves steadily through the tranquil underwater scene, its sleek body and fins gliding effortlessly as it casts a soft shadow on the seabed below. The surrounding environment remains calm and serene, with gentle light filtering through the water, highlighting the shark’s powerful yet elegant motion."
+  },
+  "replace_birds_Replace_the_woodpecker_on_the_tree_with_a_small_brown_monkey_clinging_to_the_bar.mp4": {
+    "tar_video_prompt": "A small, brown monkey clinging to the bark of a tree, its limbs gripping the rough surface as it peers around curiously. The background features blurred branches and a clear blue sky, creating a natural woodland setting that highlights the monkey's agile posture against the textured tree trunk."
+  },
+  "replace_birds_Replace_the_tree_trunk_with_a_stalk_of_broccoli.mp4": {
+    "tar_video_prompt": "A woodpecker with a red head and black-and-white striped wings perched on a stalk of broccoli, pecking at it as if it were a tree trunk. The background features a blurred blue sky and bare tree branches, creating a natural outdoor setting. The broccoli stalk replaces the original tree trunk, maintaining the bird's natural behavior in an unexpected, whimsical context."
+  },
+  "4017062-uhd_3840_2160_30fps_Replace_the_silver_laptop_on_the_couch_with_a_brown_rabbit.mp4": {
+    "tar_video_prompt": "A woman with long brown hair and glasses, dressed in a black hoodie and black pants, sits cross-legged on a gray couch, engrossed in reading a book. Instead of the silver laptop previously resting on the arm of the couch, a brown rabbit now sits calmly beside her, adding a whimsical and serene touch to the cozy indoor scene. The background remains a plain beige wall, maintaining the quiet, focused atmosphere as she turns pages and occasionally adjusts her glasses."
+  },
+  "14574364_3840_2160_60fps_Replace_the_woman_on_the_right_with_a_sleepy_panda_bear_lying_on_the_pillows_eat.mp4": {
+    "tar_video_prompt": "A young boy in a black and white shirt sits cross-legged on a bed, smiling and looking toward the right side of the frame. On the adjacent bed, a sleepy panda bear is lying on its side on white pillows, munching lazily on a stalk of bamboo. The room features modern decor with patterned wallpaper behind the beds, a bedside lamp, and large windows with curtains letting in soft daylight. The scene is cozy and whimsical, blending everyday hotel room comfort with a touch of playful fantasy."
+  },
+  "fish_jellyfish_octorpus_Replace_the_sea_turtle_with_a_small_yellow_submarine_exploring_the_area.mp4": {
+    "tar_video_prompt": "A small, yellow submarine glides gracefully over the sandy ocean floor, exploring the underwater area. The submarine, with its compact and sleek design, moves steadily through the clear blue water, casting a subtle shadow on the seabed below. The scene is serene, with the calm, expansive ocean stretching into the distance, creating a sense of quiet adventure as the submarine navigates the tranquil underwater landscape."
+  }
+}

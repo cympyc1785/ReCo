@@ -1,0 +1,6 @@
+ReCo-Data/ReCo-Data
+ReCo-Bench/ori_videos
+*__pycache__*
+all_results
+WorldTraj
+wandb

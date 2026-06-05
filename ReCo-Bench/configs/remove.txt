@@ -1,0 +1,120 @@
+854132-hd_1920_1080_25fps.mp4: Remove the puppy lying on the grass.
+855289-hd_1920_1080_25fps.mp4: Remove the human hand on the right.
+855289-hd_1920_1080_25fps.mp4: Remove the squirrel on the left.
+855934-hd_1920_1080_30fps.mp4: Remove the sparrow perched on the wire.
+1500734-hd_1920_1080_24fps.mp4: Remove the mallard duck from the water.
+1526909-hd_1920_1080_24fps.mp4: Remove the spotted baby seal from the beach.
+1847910-hd_1920_1080_30fps.mp4: Remove the entire vase of flowers.
+2436088-uhd_3840_2160_25fps.mp4: Remove the baby monkey from the scene.
+2796086-uhd_3840_2160_25fps.mp4: Remove the blue bandana from the dog's neck.
+2796086-uhd_3840_2160_25fps.mp4: Remove the fluffy brown dog from the scene.
+3044074-uhd_3840_2160_24fps.mp4: Remove the woman in the foreground.
+3044074-uhd_3840_2160_24fps.mp4: Remove the orange patterned headwrap.
+3129424-uhd_3840_2160_24fps.mp4: Remove the woman from the scene.
+3129424-uhd_3840_2160_24fps.mp4: Remove the laptop from the desk.
+3129424-uhd_3840_2160_24fps.mp4: Remove the potted plant from the desk.
+3873059-hd_1920_1080_25fps.mp4: Remove the woman on the left.
+3873059-hd_1920_1080_25fps.mp4: Remove the woman on the right.
+3873059-hd_1920_1080_25fps.mp4: Remove the woman in the center.
+4064863-uhd_4096_2160_25fps.mp4: Remove the coffee cup from the foreground.
+4064863-uhd_4096_2160_25fps.mp4: Remove the man in the green hoodie.
+4064863-uhd_4096_2160_25fps.mp4: Remove the laptop from the desk.
+4068820-hd_1920_1080_30fps.mp4: Remove the German Shepherd dog from the path.
+4092344-uhd_3840_2160_30fps.mp4: Remove the hiker walking on the path.
+4267752-uhd_3840_2160_30fps.mp4: Remove the woman on the left.
+4267752-uhd_3840_2160_30fps.mp4: Remove the wolf-like dog on the right.
+4415052-uhd_3840_2160_30fps.mp4: Remove the pigeon on the left.
+4415052-uhd_3840_2160_30fps.mp4: Remove the pigeon on the right.
+4415052-uhd_3840_2160_30fps.mp4: Remove both pigeons from the scene.
+4704244-hd_1920_1080_25fps.mp4: Remove the chipmunk on the right.
+4704244-hd_1920_1080_25fps.mp4: Remove the chipmunk on the left.
+4747171-hd_1920_1080_25fps.mp4: Remove the grey dog sitting in front of the woman.
+4747171-hd_1920_1080_25fps.mp4: Remove the woman sitting on the sand.
+4772989-uhd_3840_2160_24fps.mp4: Remove the dog on the left.
+4772989-uhd_3840_2160_24fps.mp4: Remove the dog on the right.
+4772989-uhd_3840_2160_24fps.mp4: Remove the blue party hat from the dog on the left.
+4772989-uhd_3840_2160_24fps.mp4: Remove the yellow party hat from the dog on the right.
+4874384-uhd_3840_2160_30fps.mp4: Remove the bulldog from the park.
+5081743-uhd_4096_2160_25fps.mp4: Remove the lighthouse. 
+5081743-uhd_4096_2160_25fps.mp4: Remove the man in the center.
+5081743-uhd_4096_2160_25fps.mp4: Remove the woman on the left.
+5081743-uhd_4096_2160_25fps.mp4: Remove the woman on the right.
+5081743-uhd_4096_2160_25fps.mp4: Remove the book from the man's hands.
+5262600-uhd_4096_2160_30fps.mp4: Remove the Corgi dog from the bed.
+5262600-uhd_4096_2160_30fps.mp4: Remove the young boy from the bed.
+5262600-uhd_4096_2160_30fps.mp4: Remove the book the boy is reading.
+5955336-uhd_3840_2160_25fps.mp4: Remove the brown poodle puppy from the sofa.
+5955336-uhd_3840_2160_25fps.mp4: Remove the young boy from the sofa.
+5955336-uhd_3840_2160_25fps.mp4: Remove the blue vase and plant from the shelf in the background.
+6264838-uhd_3840_2160_25fps.mp4: Remove the small dog from the woman's lap.
+7173031-uhd_3840_2160_25fps.mp4: Remove the sea turtle from the scene. 
+7275094-hd_1920_1080_24fps.mp4: Remove the woman from the chair.
+7275094-hd_1920_1080_24fps.mp4: Remove the vase of pink tulips from the table. 
+7275094-hd_1920_1080_24fps.mp4: Remove the record player.
+8625209-hd_1920_1080_30fps.mp4: Remove the woman from the foreground. 
+8625209-hd_1920_1080_30fps.mp4: Remove the black horse.
+8625209-hd_1920_1080_30fps.mp4: Remove the black cowboy hat from the man's head. 
+8625209-hd_1920_1080_30fps.mp4: Remove the man in the cowboy hat.
+8730832-uhd_3840_2160_25fps.mp4: Remove the black dog from the scene.
+8730832-uhd_3840_2160_25fps.mp4: Remove the human hand on the right.
+8921157-hd_1920_1080_25fps.mp4: Remove the woman on the right.
+8921157-hd_1920_1080_25fps.mp4: Remove the black horse on the left.
+8944045-uhd_3840_2160_25fps.mp4: Remove the large orange cat from the top of the chair.
+8944045-uhd_3840_2160_25fps.mp4: Remove the laptop from the woman's lap.
+8944045-uhd_3840_2160_25fps.mp4: Remove the glasses from the woman's face.
+9631752-uhd_4096_2160_24fps.mp4: Remove the Siberian Husky from the scene.
+9631752-uhd_4096_2160_24fps.mp4: Remove the woman on the right.
+9631752-uhd_4096_2160_24fps.mp4: Remove the yellow bucket hat from the woman's head.
+12003967_1920_1080_30fps.mp4: Remove the squirrel from the scene.
+11916072_3840_2160_30fps.mp4: Remove the human hand on the left. 
+11916072_3840_2160_30fps.mp4: Remove the chipmunk from the scene.
+12715046-uhd_4096_2160_50fps.mp4: Remove the white cockatoo from the branch.
+13738487_3840_2160_60fps.mp4: Remove the coffee cup and saucer from the table. 
+13738487_3840_2160_60fps.mp4: Remove the white tote bag from the background seat.
+14360680_1920_1080_30fps.mp4: Remove the lighthouse from the scene.
+855029-hd_1920_1080_30fps.mp4: Remove the cat from the scene.
+855029-hd_1920_1080_30fps.mp4: Remove the stainless steel appliance in the background on the right.
+3192364-uhd_3840_2160_25fps.mp4: Remove the woman in the pink shirt.
+3192364-uhd_3840_2160_25fps.mp4: Remove the stack of money from the woman's hands.
+3192364-uhd_3840_2160_25fps.mp4: Remove the glass jar containing money on the right.
+3192364-uhd_3840_2160_25fps.mp4: Remove the credit card terminal from the counter.
+3192364-uhd_3840_2160_25fps.mp4: Remove the computer monitor from the counter.
+3201691-hd_1920_1080_25fps.mp4: Remove the woman in the red blazer.
+3201691-hd_1920_1080_25fps.mp4: Remove the clipboard from the woman's hands.
+3201691-hd_1920_1080_25fps.mp4: Remove the glass partition wall in the background.
+3254006-uhd_3840_2160_25fps.mp4: Remove the woman with glasses on the left.
+3254006-uhd_3840_2160_25fps.mp4: Remove the woman on the right.
+3254006-uhd_3840_2160_25fps.mp4: Remove the man with the tablet on the right.
+3969453-uhd_3840_2160_25fps.mp4: Remove the person in the brown hoodie.
+3969453-uhd_3840_2160_25fps.mp4: Remove the laptop from the small table.
+4017062-uhd_3840_2160_30fps.mp4: Remove the woman in the black hoodie.
+4017062-uhd_3840_2160_30fps.mp4: Remove the laptop from the couch.
+4017062-uhd_3840_2160_30fps.mp4: Remove the book from the woman's lap.
+4017062-uhd_3840_2160_30fps.mp4: Remove the glasses from the woman's face.
+4057408-uhd_4096_2160_25fps.mp4: Remove the Shiba Inu dog from the yoga mat.
+4057408-uhd_4096_2160_25fps.mp4: Remove the woman meditating on the mat.
+4057408-uhd_4096_2160_25fps.mp4: Remove the black yoga mat from the floor.
+4057408-uhd_4096_2160_25fps.mp4: Remove the potted plant from the floor on the right.
+5125919-uhd_4096_2160_30fps.mp4: Remove the man from the chair.
+5125919-uhd_4096_2160_30fps.mp4: Remove the laptop from the desk.
+5125919-uhd_4096_2160_30fps.mp4: Remove the shelving unit from the background on the right.
+5198161-uhd_3840_2160_25fps.mp4: Remove the young boy standing at the chalkboard.
+5198161-uhd_3840_2160_25fps.mp4: Remove all the math formulas and diagrams from the chalkboard, leaving it blank.
+5377684-uhd_3840_2160_25fps.mp4: Remove the person in the foreground wearing the mask. 
+5377684-uhd_3840_2160_25fps.mp4: Remove the Guy Fawkes mask from the person's face.
+5377684-uhd_3840_2160_25fps.mp4: Remove the main computer monitor in the center.
+5377684-uhd_3840_2160_25fps.mp4: Remove all the computer monitors in the background. 
+8348912-uhd_3840_2160_25fps.mp4: Remove the man with glasses on the left. 
+8348912-uhd_3840_2160_25fps.mp4: Remove the man with the red tie on the right. 
+8348912-uhd_3840_2160_25fps.mp4: Remove the glasses from the man on the left.
+8348912-uhd_3840_2160_25fps.mp4: Remove the computer monitor they are looking at. 
+14562375_2560_1440_30fps.mp4: Remove the man in the red sweater. 
+14562434_2560_1440_30fps.mp4: Remove the man in the grey suit. 
+14562434_2560_1440_30fps.mp4: Remove the two flags standing in the background. 
+14562434_2560_1440_30fps.mp4: Remove the framed picture from the wall.
+14574364_3840_2160_60fps.mp4: Remove the boy sitting on the left. 
+14574364_3840_2160_60fps.mp4: Remove the woman lying on the right.
+14574364_3840_2160_60fps.mp4: Remove the bedside lamp between them. 
+14574364_3840_2160_60fps.mp4: Remove the large art piece from the wall behind the bed. 
+fish_jellyfish_octorpus.mp4: Remove the sea turtle from the scene.
+replace_birds.mp4: Remove the woodpecker from the tree trunk. 
