@@ -2,6 +2,27 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project
+
+Instruction-based editing model인 ReCo를 이용하여 video에 dynamic object insertion을 하는 연구.
+
+목표 : Novel View Synthesis를 통해 sparse view로부터 랜더된 비디오를 받아서 text instruction을 받아 mask input 없이도 적절한 위치에 dynamic object (human, animal)를 insertion할 수 있는 모델을 만든다.
+
+가설 : 현재 파이프라인을 조금 수정하고 데이터를 추가하면 카메라가 dynamic하게 움직이는 rendered video에서도 dynamic object insertion을 잘 수행할 수 있을 것이다.
+
+현재 문제점 
+- Scale Ambiguity : rendered video의 background scene에 어울리지 않는 dynamic object의 크기로 생성됨.
+- Object-Scene Inconsistency : dynamic object가 scene과 consistent하지 않음. Scene의 ground에 접지해있어야하는데 foot sliding 같은 현상이 일어남.
+- Background Error Propagation : NVS에서 랜더된 비디오에 noise나 뻥 뚫린 공간이 있으면 editing model에서 수정해주지 못하고 유지됨.
+- Base Model Performance : 비교적 작은 모델인 Wan VACE 1.3B 모델 기반이라 조금 퀄리티가 떨어짐.
+
+개선방안
+- add, remove data만 활용하여 학습시 개선되는지 확인
+- 카메라가 움직이는 데이터로 학습
+- 직접 카메라 condition을 줘서 학습
+- keyframe bbox or point guidance
+- artifact video 개선 학습 (uncertainty map)
+
 ## Overview
 
 ReCo is a region-constraint in-context video editing model built on **Wan2.1-VACE-1.3B**, fine-tuned with LoRA via a **vendored, modified copy of DiffSynth-Studio** (in `DiffSynth-Studio/`). It supports four editing tasks: `add`, `remove`, `replace`, `style` (plus `_wf`-suffixed variants for propagation given an edited first frame).
@@ -20,23 +41,29 @@ The local `DiffSynth-Studio/` is **not** upstream — it contains ReCo-specific 
 
 ## Common Commands
 
+NOTE: upstream commit "Reorganize project folders" moved train/inference/dataset scripts into `scripts/`. Always run them from the repo root so relative paths (`checkpoints/`, `./ReCo-Data`, `all_results/`) resolve.
+
 ```bash
 # Inference (single task; edit the script to pick the task)
-bash infer_server_single.sh
+bash scripts/infer_server_single.sh
 # or directly:
-python inference_reco_single.py --task_name replace \
+python scripts/inference_reco_single.py --task_name replace \
     --test_txt_file_name assets/replace_test.txt \
-    --lora_ckpt all_ckpts/2026_01_16_v1_release.ckpt
+    --lora_ckpt checkpoints/ReCo/2026_01_16_v1_release.ckpt
 
-# Training (8-GPU torchrun + DeepSpeed Stage 2, LoRA rank/alpha 128)
-bash train.sh
+# Training (4-GPU torchrun + DeepSpeed Stage 2, LoRA rank/alpha 128); run inside a screen session
+bash scripts/train.sh
+
+# Quick holdout evaluation (8 fixed validation videos → PSNR/SSIM/LPIPS), then wandb logging
+python eval_val8.py --lora_ckpt <ckpt> --out_dir all_results/<dir>   # supports --process_id/--num_procs for multi-GPU
+python log_val8_to_wandb.py --json_dir all_results/<dir> --run_id <wandb_run> --ckpt_step <step>
 
 # Dataset sanity-check / visualization
-python reco_data_test_single.py --json_path ./ReCo-Data/replace/replace_data_configs.json --video_folder ./ReCo-Data --debug
-python reco_data_test_mix_data.py --json_folder ./ReCo-Data --video_folder ./ReCo-Data --debug
+python scripts/reco_data_test_single.py --json_path ./ReCo-Data/ReCo-Data/add/add_data_configs.json --video_folder ./ReCo-Data/ReCo-Data --debug
 
-# Download data / benchmark
-bash tools/download_ReCo-Data.sh
+# Download data subsets (HF)
+python download_reco_add.py                  # add task videos
+python download_reco_video_masks_add.py      # GT object masks for add
 bash tools/download_ReCo-Bench.sh
 
 # Evaluation (two-stage, Gemini-2.5-flash-thinking via OpenAI-compatible API; needs OPENAI_API_KEY)
@@ -45,27 +72,40 @@ cd tools && bash eval_run_via_gemini.sh
 
 ## Required Local Assets (not in git)
 
-- `Wan-AI/Wan2.1-VACE-1.3B/` — base model weights
-- `all_ckpts/*.ckpt` — ReCo LoRA checkpoints
-- `ReCo-Data/{add,remove,replace,style}/` — each task has `{task}_data_configs.json` + `src_videos/` + `tar_videos/`
+- `checkpoints/Wan2.1-VACE-1.3B/` — base model weights (DiT/T5/VAE)
+- `checkpoints/ReCo/2026_01_16_v1_release.ckpt` — released ReCo LoRA checkpoint (used as "baseline" in wandb)
+- `ReCo-Data/ReCo-Data/{add,remove,replace,style}/` — each task has `{task}_data_configs.json` + `src_videos/` + `tar_videos/` (extracted mp4s, not tars)
+- `ReCo-Data/ReCo-Data/video_masks/{task}/` — GT object mask videos (480×832), named after `tar_videos` files
+- `ReCo-Data/ReCo-Data/add/add_val_configs.json` — fixed 8-video validation holdout (human/animal × static/moving); excluded from training automatically
+
+## wandb
+
+- Use the `WANDB_API_KEY` exported in `scripts/train.sh` (entity `VCAI_Vid`, project `ReCo`) — `~/.netrc` holds an old account, never rely on it.
+- A deleted wandb run id cannot be reused: re-initializing it times out. Pick a new `--run_name` instead.
+- run_name convention: append active extra losses (e.g. `train_run2_contrast_attnscore`).
 
 ## Hardcoded Paths That Must Be Edited
 
-- `train.py` `LightningModelForTrain.train_dataloader` (~line 206): `json_folder` and `video_folder` point at the original authors' paths (local mount + S3 bucket). Update before training.
-- `train.sh`: `DIT_PATH` (DiT/T5/VAE weight paths), `CUDA_VISIBLE_DEVICES`, `GPU_NUM`, `$MASTER_ADDR`.
-- `inference_reco_single.py`: Wan-AI model paths and output folder (`all_results/single_test/`).
+- `scripts/train.py` `LightningModelForTrain.train_dataloader`: `json_folder`/`video_folder`/`mask_video_folder` (currently `./ReCo-Data/ReCo-Data`); same paths in `run_fixed_validation`.
+- `scripts/train.sh`: `DIT_PATH` (DiT/T5/VAE weight paths), `CUDA_VISIBLE_DEVICES`, `GPU_NUM`, `MASTER_ADDR`, `--run_name`.
+- `scripts/inference_reco_single.py`: model paths via `--base_wan_folder` (use `checkpoints`) and output folder (`all_results/single_test/`).
 - `tools/eval_step1_run_gemini_api.py`: API base URL (`custom_base_url`) and `OPENAI_API_KEY`.
 
 ## Architecture
 
-**Training (`train.py`):** PyTorch Lightning `LightningModelForTrain` wraps `WanVideoPipeline`. `--train_architecture` selects what gets trained: `all_lora` (LoRA on both VACE and DiT — the configuration used by `train.sh`), `lora` (VACE only), `vace` (full VACE fine-tune), or `full`. Checkpoints save only trainable params. Models are loaded through `ModelManager_custom` (vendored).
+**Training (`scripts/train.py`):** PyTorch Lightning `LightningModelForTrain` wraps `WanVideoPipeline`. `--train_architecture` selects what gets trained: `all_lora` (LoRA on both VACE and DiT — the configuration used by `scripts/train.sh`), `lora` (VACE only), `vace` (full VACE fine-tune), or `full`. Checkpoints save only trainable params (`lora_weights_wan-*.ckpt`) plus a full DeepSpeed resume folder (`wan_deepspeed_folder-*.ckpt`, use with `--resume_ckpt_folder`). Models are loaded through `ModelManager_custom` (vendored; instantiates `WanModel_w_attnscore`/`VaceWanModel_w_attnscore`).
 
-**Data pipeline (`reco_data_test_mix_data.py` — imported by `train.py`, not duplicated):**
+**Losses (paper Eq.17: `L = L_ic + λ1·L_latent + λ2·L_attn`, λ=1e-3):** base flow-matching MSE is always on (`loss_base`). `use_contrast_loss` enables Eq.13 latent regularization (`mask_separation_loss` on pred-x̂₁ src/tar diff vs GT mask → `diff_loss`); `use_attnscore_loss` enables Eq.14-16 attention regularization (`loss_attnscore`). Both need GT masks (`diff_mask`); samples without masks skip them. The authors' raw reference implementation is `tools/train_reco_add_region_loss_raw.py` (note: it gates L_attn to 'vpdata'+'replace' samples only). `use_mse_loss` (edit-area-weighted MSE) is a code-only option not in the paper.
+
+**Validation:** `run_fixed_validation` runs every `log_video_steps` (250) on the 8 holdout videos (2 per rank), computes PSNR/SSIM/LPIPS vs GT, logs `val/*` metrics and `val_videos/*` to wandb, and saves grid videos under `all_videos/{run}/step_{N}/`. Pipeline inference output is a **2×2 grid** (top: [input | GT], bottom: [generated | mask]) — the generated edit region is `[h:, w//2:w]`.
+
+**Data pipeline (`scripts/reco_data_test_mix_data.py` — imported by `scripts/train.py`, not duplicated):**
 - `ReCo_Dataset_train` — per-task dataset; reads `{task}_data_configs.json` (fields: `src_video`, `tar_video`, `instruction_final_refine`), supports local disk or S3 (boto3), shards by `rank::world_size`. Resolution 480×832, up to 81 frames.
 - `WebMixDatasetWithLength` — IterableDataset that mixes the four tasks by cumulative probability.
-- `reco_data_test_single.py` has a separate standalone `ReCo_Dataset` used only for visualization/debugging.
+- `ReCo_Dataset_train` also accepts `mask_video_folder` to load GT object masks into `diff_mask` (zeros when absent).
+- `scripts/reco_data_test_single.py` has a separate standalone `ReCo_Dataset` used only for visualization/debugging.
 
-**Inference (`inference_reco_single.py`):** Parses `assets/{task}_test.txt` files where each line is:
+**Inference (`scripts/inference_reco_single.py`):** Parses `assets/{task}_test.txt` files where each line is:
 ```
 video_filename.mp4: instruction text | optional/reference_image.png
 ```

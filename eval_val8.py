@@ -12,11 +12,15 @@ Usage (4-GPU 분산):
 import os
 import json
 import argparse
+import sys
 
 import numpy as np
 import torch
 from skimage.metrics import structural_similarity as compute_ssim
 import lpips as lpips_pkg
+
+# scripts/ 폴더 재구성 이후 모듈 위치 반영
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scripts'))
 
 from diffsynth import ModelManager, WanVideoPipeline, save_video
 from inference_reco_single import add_lora_to_model, seed_everything

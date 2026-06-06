@@ -697,6 +697,7 @@ class LightningModelForTrain(pl.LightningModule):
             video_folder = './ReCo-Data/ReCo-Data'
             with open(os.path.join(json_folder, 'add', 'add_val_configs.json'), "r", encoding="utf-8") as f:
                 val_items = json.load(f)
+            val_items = val_items[:32]  # 학습 중 metric은 맨 앞 32개 (visualize는 그중 앞 8개만, 나머지 96개는 offline 평가용)
             self.val_dataset = ReCo_Dataset_train(all_data_list=val_items, base_video_folder=video_folder,
                                                   read_video_from_local=True, task_name='add', user_first_frame=False)
 
@@ -756,11 +757,13 @@ class LightningModelForTrain(pl.LightningModule):
 
             psnr_sum += psnr; ssim_sum += ssim; lpips_sum += lpips_val; n += 1
 
-            # ---- save video locally ----
-            save_dir = os.path.join(save_root, f'val_{batch["video_name"][0]}_rank_{rank}.mp4')
-            save_video(video, save_dir, fps=16, quality=5)
-            with open(save_dir.replace('.mp4', '.txt'), 'w') as f_txt:
-                f_txt.write(f'{batch["prompt"][0]}\n')
+            # ---- save source / edited / gt separately (wandb 분류 로깅용, 맨 앞 8개만 visualize) ----
+            if idx < 8:
+                src_px = ((gt[:, :, :w//2, :] + 1) * 127.5).clip(0, 255).astype(np.uint8)
+                for cat, arr in [('source', src_px), ('edited', gen_tar), ('gt', gt_tar)]:
+                    save_video(list(arr), os.path.join(save_root, f'{idx:02d}_{cat}.mp4'), fps=16, quality=5)
+                with open(os.path.join(save_root, f'{idx:02d}_prompt.txt'), 'w') as f_txt:
+                    f_txt.write(f'{batch["prompt"][0]}\n')
 
             del video, batch, gen_t, gt_t
 
@@ -776,8 +779,11 @@ class LightningModelForTrain(pl.LightningModule):
                 'val/psnr': psnr_mean, 'val/ssim': ssim_mean, 'val/lpips': lpips_mean,
                 'trainer/global_step': self.trainer.global_step,
             }
-            for f_name in sorted(f for f in os.listdir(save_root) if f.startswith('val_') and f.endswith('.mp4')):
-                log_data[f'val_videos/{f_name.replace(".mp4","")}'] = wandb.Video(os.path.join(save_root, f_name), fps=16, format="mp4")
+            # source / edited / gt 세 분류 key로만 로깅 (샘플 인덱스 순, wandb에서 step slider로 탐색)
+            # NOTE: 파일 경로 입력 시 fps 인자는 무시됨 (mp4에 이미 fps=16 인코딩되어 있음)
+            for cat in ['source', 'edited', 'gt']:
+                files = sorted(f for f in os.listdir(save_root) if f.endswith(f'_{cat}.mp4'))
+                log_data[f'val_videos/{cat}'] = [wandb.Video(os.path.join(save_root, f), format="mp4") for f in files]
             self.trainer.logger.experiment.log(log_data)
             print(f'[val] step {self.trainer.global_step}: PSNR {psnr_mean:.3f}, SSIM {ssim_mean:.4f}, LPIPS {lpips_mean:.4f}')
 

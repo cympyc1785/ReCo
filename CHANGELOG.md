@@ -9,7 +9,11 @@
 - `train.py`/`eval_val8.py`: validation metric 계산 시 파이프라인 출력이 2×2 그리드(3328×960: 상단=[입력|GT], 하단=[생성|마스크])인 점을 반영해 생성 edit 영역 추출 슬라이싱 수정 (기존 코드는 단일 1664×480 출력을 가정해 broadcast 에러 발생).
 
 ### Changed
+- `ReCo-Data/ReCo-Data/add/add_val_configs.json`: validation holdout을 8개 → **128개로 확장**. 맨 앞 8개는 기존 visualize set 그대로 유지, 추가 120개는 subject(사람/동물/탈것/사물) × action(이동/정적) 버킷별 균등 샘플링 (human 40, animal 40, vehicle 20, object 20; seed 777, src 영상 중복 배제). 전체 128개가 학습에서 자동 제외됨 (115,652 → 115,524).
+- `scripts/train.py`: 학습 중 `run_fixed_validation`은 val config의 **맨 앞 32개로 metric 계산, 그중 앞 8개만 영상 visualize** (나머지 96개는 `eval_val8.py` offline 평가용).
+- `scripts/train.py`: validation 영상 wandb 로깅을 2×2 그리드 → **`val_videos/source`·`val_videos/edited`·`val_videos/gt` 3개 분류 key**로 변경 (key에 데이터 이름 미포함, 샘플 인덱스 순 리스트로 로깅 → wandb slider 탐색). 로컬 저장도 `step_{N}/{idx}_{source|edited|gt}.mp4` + `{idx}_prompt.txt` 형식으로 변경. `wandb.Video`의 무시되는 `fps` 인자 제거 (파일 경로 입력 시 경고 발생).
 - 데이터 경로 변경: `ReCo-Data/add` → `ReCo-Data/ReCo-Data/add`로 이동됨에 따라 `train.py`(train_dataloader, run_fixed_validation), `eval_val8.py`, `download_reco_add.py`의 경로를 `./ReCo-Data/ReCo-Data` 기준으로 수정.
+- upstream "Reorganize project folders" 병합 후속 수정: `eval_val8.py`에 `scripts/` sys.path 추가 (`inference_reco_single`/`reco_data_test_mix_data`가 `scripts/`로 이동), `CLAUDE.md`의 명령/경로/아키텍처 문서를 `scripts/` 구조와 현재 워크플로(holdout 평가, wandb 규칙, loss 구성)에 맞게 갱신.
 - `train.py`: `run_val_func`의 검증 영상 저장 경로에 `step_{N}` 하위 폴더 추가 (`all_videos/{run_name}/step_1500/gs_...mp4` 형태로 step별 분리 저장).
 - `train.py`: `train_dataloader`의 데이터 경로를 원저자 경로(로컬 mount + S3)에서 로컬 `./ReCo-Data`로 변경, `task_list`를 `['add']`만 사용하도록 변경 (`sample_prob_list=[1.0]`, `read_video_from_local=True`).
 - `train.sh`: `DIT_PATH`를 로컬 `checkpoints/Wan2.1-VACE-1.3B/` 가중치 경로로 변경, `GPU_NUM=8 → 4`, `CUDA_VISIBLE_DEVICES=3 → 0,1,2,3` (GPU 4–7은 다른 작업 사용 중), 미설정 시 `MASTER_ADDR=localhost:29500` 기본값 추가.
