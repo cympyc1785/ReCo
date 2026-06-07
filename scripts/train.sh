@@ -60,7 +60,8 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nnodes=$NUM_NODES \
     --lora_rank "128" --lora_alpha "128" \
     --lora_target_modules "q,k,v,o,ffn.0,ffn.2" \
     --project_name ReCo \
-    --run_name train_run4_contrast_attnscore  2>&1 | tee $log_file
+    --max_steps 2000 \
+    --run_name train_run5_base  2>&1 | tee $log_file
     # 如需加载已有 LoRA：
     # --pretrained_lora_path "all_results/train_runs/.../checkpoints/xxx.ckpt"
     # --resume_ckpt_folder "all_results/train_runs/..../checkpoints/wan_deepspeed_folder-epoch=0-step=7000.ckpt" 2>&1 | tee $log_file

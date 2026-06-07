@@ -9,6 +9,9 @@
 - `train.py`/`eval_val8.py`: validation metric 계산 시 파이프라인 출력이 2×2 그리드(3328×960: 상단=[입력|GT], 하단=[생성|마스크])인 점을 반영해 생성 edit 영역 추출 슬라이싱 수정 (기존 코드는 단일 1664×480 출력을 가정해 broadcast 에러 발생).
 
 ### Changed
+- `scripts/train.py`: 학습 중 validation에 신규 metric 통합 — `val/bg_*`·`fg_*`(GT mask 기준 masked psnr/ssim/lpips), `val/diff_iou`·`diff_area_ratio`·`diff_success`·`diff_outside_mask`(diff_bbox), **`val/bg_pure_psnr`·`bg_pure_lpips`**(GT mask ∪ 생성객체 diff-bbox 사각형 제외한 순수 배경 — 위치 어긋남 벌점과 진짜 배경 훼손을 분리). val dataset에 mask 로딩 연결, 중복 LPIPS 로더 제거.
+- `scripts/train.py`: `--max_steps` 인자 추가 (Lightning Trainer 전달, -1=무제한). run5 ablation을 위해 `use_contrast_loss`/`use_attnscore_loss`를 다시 False로 (run4와 loss만 다른 쌍둥이 실험).
+- `scripts/train.sh`: `--run_name train_run5_base --max_steps 2000`.
 - `ReCo-Data/ReCo-Data/add/add_val_configs.json`: validation holdout을 8개 → **128개로 확장**. 맨 앞 8개는 기존 visualize set 그대로 유지, 추가 120개는 subject(사람/동물/탈것/사물) × action(이동/정적) 버킷별 균등 샘플링 (human 40, animal 40, vehicle 20, object 20; seed 777, src 영상 중복 배제). 전체 128개가 학습에서 자동 제외됨 (115,652 → 115,524).
 - `scripts/train.py`: 학습 중 `run_fixed_validation`은 val config의 **맨 앞 32개로 metric 계산, 그중 앞 8개만 영상 visualize** (나머지 96개는 `eval_val8.py` offline 평가용).
 - `scripts/train.py`: validation 영상 wandb 로깅을 2×2 그리드 → **`val_videos/source`·`val_videos/edited`·`val_videos/gt` 3개 분류 key**로 변경 (key에 데이터 이름 미포함, 샘플 인덱스 순 리스트로 로깅 → wandb slider 탐색). 로컬 저장도 `step_{N}/{idx}_{source|edited|gt}.mp4` + `{idx}_prompt.txt` 형식으로 변경. `wandb.Video`의 무시되는 `fps` 인자 제거 (파일 경로 입력 시 경고 발생).
@@ -21,6 +24,13 @@
 - `train.sh`: step 1500 체크포인트에서 재개하도록 `--resume_ckpt_folder` 추가.
 
 ### Added
+- `eval_vace_gtmask.py`: 원조 VACE 용법 평가 스크립트 — in-context concat 대신 단일 832폭 입력으로 src + **GT object mask**(생성 영역) + instruction을 줘서 mask 영역만 inpainting. "mask가 주어졌을 때의 상한선" 측정용 (ReCo 목표 = mask 없이 이 수준). grid 영상 검수본 포함 저장.
+- `eval_val8.py`: `--no_lora` 옵션 추가 — LoRA 없이 순수 Wan2.1-VACE-1.3B base로 추론 (base 모델 성능 기준점 측정용).
+- `video_metrics.py`: 모듈형 비디오 metric 라이브러리 (registry 방식, `get_metric(name)`으로 선택 로딩) — `psnr`/`ssim`/`lpips` + **masked 변형**(`region='foreground'|'background'`, GT mask로 배경 보존·객체 영역 분리 측정) + **FVD**(I3D). identity/masked-분리/FVD sanity 테스트 통과. GPU 경로 추가(PSNR torch, SSIM torchmetrics — CPU와 일치 검증 diff≤1e-5).
+- `visualize_bbox_metrics.py`: bbox/diff metric 검증용 시각화 — `{idx}_bbox.mp4`(edited 위 GT파랑/diff초록/det빨강 사각형), `{idx}_diff.mp4`([edited | RGB diff+threshold 틴트] concat). 출력: `all_results/metric_viz/{model}/`.
+- `eval_metrics_suite.py`: 표준 평가 스크립트 — 생성 폴더에 전체 metric suite 적용, **per-sample CSV 저장**(`metrics_full.csv`, 영상 경로 포함 — 낮은/높은 샘플 직접 확인용), 집계 wandb 로깅, best/worst 샘플 요약 출력. 앞으로 모든 ckpt 평가의 표준 도구.
+- `video_metrics.py`: 삽입 위치/스케일 bbox metric 3종 추가 — `diff_bbox`(RGB diff 기반, GT mask grid search로 캘리브레이션: percentile 75/floor 8/min_area 800, IoU 0.34→0.455), `detection_bbox`(GroundingDINO), `hybrid_bbox`(diff 영역과 겹치는 검출만 채택). val32 16×2 비교에서 세 방식 IoU 수렴(±0.002) 확인, calibrated diff를 주 지표로 채택. `extract_add_phrase` 헬퍼(명사구 내 쉼표 보존) 포함.
+- `submodule/frechet_video_distance-pytorch`: FVD 계산용 fork(cympyc1785) clone — I3D 가중치 포함, `video_metrics.py`가 package alias로 로드.
 - `reco_data_test_mix_data.py`: `ReCo_Dataset_train`에 `mask_video_folder` 인자 추가 — GT object mask 영상(`video_masks/{task}/{tar_name}.mp4`, 480×832)을 `diff_mask`로 로딩 가능 (기본값 None, 현재 학습에서는 미사용).
 - `train.py`: 논문 loss 완전 재현 — ① Eq.13 latent regularization (`mask_separation_loss` 연결, pred x̂₁의 src/tar latent diff vs GT mask, λ₁=1e-3, `use_contrast_loss=True`) ② Eq.14–16 attention regularization (block별 attnscore(L_edit+L_global) 평균, λ₂=1e-3, `use_attnscore_loss=True`). GT mask 없는 샘플은 두 regularization 모두 자동 스킵. `diff_loss`/`loss_attnscore`가 wandb에 개별 기록됨.
 - `train.sh`: `--run_name train_run2_contrast_attnscore` — 활성화된 loss 이름을 run_name에 표기, 처음부터 학습(resume 제거). (이전 이름 `train_base_run1_contrast_attnscore`는 wandb run 삭제 이력 때문에 재사용 시 init 타임아웃이 발생해 변경.)

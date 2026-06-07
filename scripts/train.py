@@ -682,7 +682,6 @@ class LightningModelForTrain(pl.LightningModule):
         """8개 고정 holdout 영상으로 validation: PSNR/SSIM/LPIPS 계산 + wandb 영상 logging"""
 
         import wandb
-        from skimage.metrics import structural_similarity as compute_ssim
 
         if dist.is_initialized():
             rank = dist.get_rank()
@@ -699,13 +698,8 @@ class LightningModelForTrain(pl.LightningModule):
                 val_items = json.load(f)
             val_items = val_items[:32]  # 학습 중 metric은 맨 앞 32개 (visualize는 그중 앞 8개만, 나머지 96개는 offline 평가용)
             self.val_dataset = ReCo_Dataset_train(all_data_list=val_items, base_video_folder=video_folder,
-                                                  read_video_from_local=True, task_name='add', user_first_frame=False)
-
-        # lazy-load LPIPS (list 보관: nn.Module로 등록되지 않게)
-        if not hasattr(self, '_lpips_model'):
-            import lpips as lpips_pkg
-            self._lpips_model = [lpips_pkg.LPIPS(net='alex').to(self.device).eval()]
-        lpips_model = self._lpips_model[0]
+                                                  read_video_from_local=True, task_name='add', user_first_frame=False,
+                                                  mask_video_folder=os.path.join(video_folder, 'video_masks'))
 
         self.pipe.eval()
         self.pipe.device = self.device
@@ -715,7 +709,16 @@ class LightningModelForTrain(pl.LightningModule):
 
         negative_prompt="Bright tones, overexposed, static, blurred details, subtitles, images, static, overall gray, worst quality, low quality, JPEG compression residue, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, misshapen limbs, fused fingers, still picture, messy background, three legs, many people in the background, walking backwards"
 
-        psnr_sum, ssim_sum, lpips_sum, n = 0.0, 0.0, 0.0, 0
+        from video_metrics import get_metric as _gm
+        _masked_psnr, _masked_ssim, _masked_lpips = _gm('masked_psnr'), _gm('masked_ssim'), _gm('masked_lpips')
+        _diff_bbox = _gm('diff_bbox')
+
+        VAL_KEYS = ['psnr', 'ssim', 'lpips',
+                    'bg_psnr', 'bg_ssim', 'bg_lpips', 'fg_psnr', 'fg_ssim', 'fg_lpips',
+                    'bg_pure_psnr', 'bg_pure_lpips',
+                    'diff_iou', 'diff_area_ratio', 'diff_success', 'diff_outside_mask']
+        sums = {k: 0.0 for k in VAL_KEYS}
+        n = 0
         for idx in range(rank, len(self.val_dataset), world_size):
             sample = self.val_dataset[idx]
             batch = collate_fn_with_diff_mask([sample])
@@ -744,41 +747,60 @@ class LightningModelForTrain(pl.LightningModule):
             T = min(len(gen_tar), len(gt_tar))
             gen_tar, gt_tar = gen_tar[:T], gt_tar[:T]
 
-            mse = np.mean((gen_tar.astype(np.float64) - gt_tar.astype(np.float64)) ** 2)
-            psnr = 10 * np.log10(255.0 ** 2 / max(mse, 1e-10))
-            ssim = np.mean([compute_ssim(gt_tar[t], gen_tar[t], channel_axis=2) for t in range(T)])
+            src_px = ((gt[:, :, :w//2, :] + 1) * 127.5).clip(0, 255).astype(np.uint8)[:T]
+            # GT object mask (val_dataset이 mask_video_folder로 로딩, [-1,1] [c,f,h,w] -> uint8 [T,H,W])
+            mask_px = ((batch['diff_mask'][0, 0, :T].float().numpy() + 1) * 127.5).clip(0, 255).astype(np.uint8)
 
-            gen_t = torch.from_numpy(gen_tar).permute(0,3,1,2).float().to(self.device) / 127.5 - 1
-            gt_t = torch.from_numpy(gt_tar).permute(0,3,1,2).float().to(self.device) / 127.5 - 1
-            lpips_chunks = []
-            for beg in range(0, T, 8):
-                lpips_chunks.append(lpips_model(gen_t[beg:beg+8], gt_t[beg:beg+8]).flatten())
-            lpips_val = torch.cat(lpips_chunks).mean().item()
+            dev = self.device
+            vals = {
+                'psnr': _gm('psnr')(gen_tar, gt_tar, device=dev),
+                'ssim': _gm('ssim')(gen_tar, gt_tar, device=dev),
+                'lpips': _gm('lpips')(gen_tar, gt_tar, device=dev),
+                'bg_psnr': _masked_psnr(gen_tar, src_px, mask_px, region='background', device=dev),
+                'bg_ssim': _masked_ssim(gen_tar, src_px, mask_px, region='background', device=dev),
+                'bg_lpips': _masked_lpips(gen_tar, src_px, mask_px, region='background', device=dev),
+                'fg_psnr': _masked_psnr(gen_tar, gt_tar, mask_px, region='foreground', device=dev),
+                'fg_ssim': _masked_ssim(gen_tar, gt_tar, mask_px, region='foreground', device=dev),
+                'fg_lpips': _masked_lpips(gen_tar, gt_tar, mask_px, region='foreground', device=dev),
+            }
+            rd = _diff_bbox(gen_tar, src_px, mask=mask_px)
+            vals.update({'diff_iou': rd['iou'], 'diff_area_ratio': rd['area_ratio'],
+                         'diff_success': rd['success_rate'], 'diff_outside_mask': rd['outside_mask_ratio']})
+            # pure bg: GT mask ∪ (생성 객체로 추정되는 diff bbox 사각형) 제외한 순수 배경
+            union = mask_px > 127
+            for t, box in enumerate(rd['bboxes'][:T]):
+                if box is not None:
+                    x0, y0, x1, y1 = box
+                    union[t, y0:y1, x0:x1] = True
+            union_px = (union * 255).astype(np.uint8)
+            vals['bg_pure_psnr'] = _masked_psnr(gen_tar, src_px, union_px, region='background', device=dev)
+            vals['bg_pure_lpips'] = _masked_lpips(gen_tar, src_px, union_px, region='background', device=dev)
 
-            psnr_sum += psnr; ssim_sum += ssim; lpips_sum += lpips_val; n += 1
+            for k in VAL_KEYS:
+                sums[k] += float(np.nan_to_num(vals[k], nan=0.0))
+            n += 1
 
             # ---- save source / edited / gt separately (wandb 분류 로깅용, 맨 앞 8개만 visualize) ----
             if idx < 8:
-                src_px = ((gt[:, :, :w//2, :] + 1) * 127.5).clip(0, 255).astype(np.uint8)
                 for cat, arr in [('source', src_px), ('edited', gen_tar), ('gt', gt_tar)]:
                     save_video(list(arr), os.path.join(save_root, f'{idx:02d}_{cat}.mp4'), fps=16, quality=5)
                 with open(os.path.join(save_root, f'{idx:02d}_prompt.txt'), 'w') as f_txt:
                     f_txt.write(f'{batch["prompt"][0]}\n')
 
-            del video, batch, gen_t, gt_t
+            del video, batch
 
         # ---- aggregate metrics across ranks ----
-        stats = torch.tensor([psnr_sum, ssim_sum, lpips_sum, float(n)], device=self.device)
+        stats = torch.tensor([sums[k] for k in VAL_KEYS] + [float(n)], device=self.device)
         if dist.is_initialized():
             dist.all_reduce(stats, op=dist.ReduceOp.SUM)
             dist.barrier()      # 모든 rank의 영상 저장 완료 대기
 
-        if rank == 0 and stats[3] > 0:
-            psnr_mean, ssim_mean, lpips_mean = (stats[0]/stats[3]).item(), (stats[1]/stats[3]).item(), (stats[2]/stats[3]).item()
-            log_data = {
-                'val/psnr': psnr_mean, 'val/ssim': ssim_mean, 'val/lpips': lpips_mean,
-                'trainer/global_step': self.trainer.global_step,
-            }
+        if rank == 0 and stats[-1] > 0:
+            total_n = stats[-1].item()
+            means = {k: (stats[j] / total_n).item() for j, k in enumerate(VAL_KEYS)}
+            log_data = {f'val/{k}': v for k, v in means.items()}
+            log_data['trainer/global_step'] = self.trainer.global_step
+            psnr_mean, ssim_mean, lpips_mean = means['psnr'], means['ssim'], means['lpips']
             # source / edited / gt 세 분류 key로만 로깅 (샘플 인덱스 순, wandb에서 step slider로 탐색)
             # NOTE: 파일 경로 입력 시 fps 인자는 무시됨 (mp4에 이미 fps=16 인코딩되어 있음)
             for cat in ['source', 'edited', 'gt']:
@@ -1197,6 +1219,12 @@ def parse_args():
         default=None,
         help="SwanLab mode (cloud or local).",
     )
+    parser.add_argument(
+        "--max_steps",
+        type=int,
+        default=-1,
+        help="optimizer step 한도 (-1 = max_epochs까지).",
+    )
     args = parser.parse_args()
     return args
 
@@ -1209,9 +1237,9 @@ def train(args):
 
     # ------------ 1. Load dataset and model
     # task_name_list = ['remove']
-    use_contrast_loss = True    # 논문 Eq.13 latent regularization (lambda_1=1e-3)
+    use_contrast_loss = False   # run5 ablation: 논문 loss 끔 (run4와 loss만 다른 쌍둥이 — 데이터/holdout/lr 동일)
     use_mse_loss = False        # 논문 Eq.17에 없는 항 (코드 자체 옵션)
-    use_attnscore_loss = True   # 논문 Eq.14-16 attention regularization (lambda_2=1e-3)
+    use_attnscore_loss = False  # run5 ablation: 끔
     debug_ornot = args.debug
     model = LightningModelForTrain(
         dit_path=args.dit_path,
@@ -1257,6 +1285,7 @@ def train(args):
 
     trainer = pl.Trainer(
         max_epochs=args.max_epochs,
+        max_steps=args.max_steps,
         accelerator="gpu",
         devices="auto",
         precision="bf16",

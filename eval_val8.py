@@ -32,10 +32,12 @@ def main():
     parser.add_argument("--val_json", type=str, default="ReCo-Data/ReCo-Data/add/add_val_configs.json")
     parser.add_argument("--video_folder", type=str, default="./ReCo-Data/ReCo-Data")
     parser.add_argument("--base_wan_folder", type=str, default="checkpoints")
-    parser.add_argument("--lora_ckpt", type=str, required=True)
+    parser.add_argument("--lora_ckpt", type=str, default=None)
+    parser.add_argument("--no_lora", action="store_true", help="LoRA 없이 순수 base 모델(Wan2.1-VACE-1.3B)로 평가")
     parser.add_argument("--out_dir", type=str, default="all_results/val8_eval")
     parser.add_argument("--process_id", type=int, default=0)
     parser.add_argument("--num_procs", type=int, default=1)
+    parser.add_argument("--max_items", type=int, default=None, help="val config 앞에서부터 N개만 평가")
     args = parser.parse_args()
 
     seed_everything(2025)
@@ -44,6 +46,8 @@ def main():
     # ---------- dataset ----------
     with open(args.val_json, "r", encoding="utf-8") as f:
         val_items = json.load(f)
+    if args.max_items is not None:
+        val_items = val_items[:args.max_items]
     dataset = ReCo_Dataset_train(all_data_list=val_items, base_video_folder=args.video_folder,
                                  read_video_from_local=True, task_name='add', user_first_frame=False)
     my_indices = list(range(args.process_id, len(val_items), args.num_procs))
@@ -57,10 +61,14 @@ def main():
     model_manager = ModelManager(device="cpu")
     model_manager.load_models(ckpt_list, torch_dtype=torch.bfloat16)
     pipe = WanVideoPipeline.from_model_manager(model_manager, torch_dtype=torch.bfloat16, device="cuda")
-    for model in [pipe.vace, pipe.denoising_model()]:
-        add_lora_to_model(model, lora_rank=128, lora_alpha=128,
-                          lora_target_modules="q,k,v,o,ffn.0,ffn.2",
-                          init_lora_weights="kaiming", pretrained_lora_path=args.lora_ckpt)
+    if not args.no_lora:
+        assert args.lora_ckpt is not None, "--lora_ckpt 또는 --no_lora 중 하나는 필요"
+        for model in [pipe.vace, pipe.denoising_model()]:
+            add_lora_to_model(model, lora_rank=128, lora_alpha=128,
+                              lora_target_modules="q,k,v,o,ffn.0,ffn.2",
+                              init_lora_weights="kaiming", pretrained_lora_path=args.lora_ckpt)
+    else:
+        print("[no_lora] 순수 Wan2.1-VACE-1.3B base로 추론")
     pipe.enable_vram_management(num_persistent_param_in_dit=None)
     pipe.eval()
 
@@ -112,6 +120,8 @@ def main():
 
         video_name = batch["video_name"][0]
         save_video(video, os.path.join(args.out_dir, f"{video_name}.mp4"), fps=16, quality=5)
+        # metric 적용용: 생성 edit 영역(480x832)만 분리 저장 (인덱스 기반 이름)
+        save_video(list(gen_tar), os.path.join(args.out_dir, f"{idx:03d}_edited.mp4"), fps=16, quality=5)
         with open(os.path.join(args.out_dir, f"{video_name}.txt"), "w") as f_txt:
             f_txt.write(f'{batch["prompt"][0]}\n')
 
