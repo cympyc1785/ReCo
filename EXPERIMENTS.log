@@ -1,0 +1,85 @@
+# ReCo Experiments Log
+
+연구 목표: NVS 렌더 비디오에 mask 없이 text instruction만으로 dynamic object(human/animal) insertion.
+wandb: VCAI_Vid/ReCo (계정 cympyc1785). 평가는 별도 명시 없으면 ReCo-Data add task val 32개(고정 holdout) 기준.
+
+---
+
+## 평가 인프라
+
+- `video_metrics.py`: registry 방식 metric — psnr/ssim/lpips(+GPU), masked bg/fg(GT mask 기준),
+  fvd(I3D), diff_bbox(RGB diff, GT mask로 캘리브레이션: percentile 75/floor 8/min_area 800),
+  detection_bbox(GroundingDINO), hybrid_bbox.
+- `eval_val8.py`: ckpt별 val 영상 생성 (--max_items, --no_lora, GPU 분산).
+- `eval_metrics_suite.py`: 전체 metric suite + per-sample CSV(metrics_full.csv) + wandb 로깅 + best/worst.
+- `eval_vace_gtmask.py`: 원조 VACE 용법(GT mask inpainting) oracle 평가.
+- `visualize_bbox_metrics.py`: [GT|edited] bbox overlay + diff 히트맵 시각화.
+- 학습 중 validation: 앞 32개 metric(15종, bg_pure 포함) + 앞 8개 source/edited/gt 영상 wandb.
+
+## bbox/배경 metric 분석 (val32 16~32개)
+
+- diff_bbox vs detection_bbox: 캘리브레이션 후 IoU 동률(~0.4). det은 기존 동종객체 오검출·과대박스
+  (idx 11에서 8.3×)·phrase 의존 약점, diff는 그림자 포함·저대비 누락. 둘 다 보고 + 불일치 플래그 권장.
+- 배경 metric은 GT mask로 분리. 단 GT mask 기준 bg는 "위치 어긋남"이 "배경 훼손"으로 섞여 들어감
+  → bbox 제외 변형(diff/det/GT∪bbox)으로 분리 측정. baseline GT-mask bg 18.4 → bbox 제외 시 28.2(+9.8dB).
+
+---
+
+## 학습 실험
+
+공통: Wan2.1-VACE-1.3B base + all_lora(rank/alpha 128, q,k,v,o,ffn.0,ffn.2 / DiT 30블록 + VACE 15블록),
+lr 5e-5, batch 1 × accum 2 × 4 GPU = eff 8, 480×832 81프레임, ReCo-Data add task.
+loss: base = rectified flow velocity MSE(L_ic). L_latent=Eq.13(contrast), L_attn=Eq.14-16(attn), λ=1e-3.
+
+| run | 시작점 | 데이터 | loss | step | 비고 |
+|-----|--------|--------|------|------|------|
+| (run1) train_base_run1 | scratch | add 전체(val 미제외) | L_ic only | 1500 | 초기 run, val 샘플 학습에 포함(암기) |
+| run4 train_run4_contrast_attnscore | scratch | add, holdout128 제외 | L_ic + L_latent + L_attn(full) | 2250(비교는 2000) | 논문 loss full |
+| run5 train_run5_base | scratch | add, holdout128 제외 | L_ic only | 2000 | run4와 loss만 다른 쌍둥이(ablation) |
+| run6 train_run6_davis_overfit | release ckpt | DAVIS 76 scene | L_ic only | 1000에서 중단 | EffectErase→원본 복원 overfit, "어느정도 나옴" |
+| run7 train_run7_contrast_attnglobal | scratch | add, holdout128 제외 | L_ic + L_latent + L_attn(global만, L_edit 제외) | 2000(목표) | 진행 중 |
+
+참조 모델:
+- vace_base: 순수 Wan2.1-VACE-1.3B, LoRA 없음 (in-context 형식 미적응 하한선).
+- vace_base_gtmask(oracle): base + GT mask inpainting (위치 정보 주어진 상한선).
+- baseline: 공개 release ckpt 2026_01_16_v1_release (A800×24, ~10일, 240 GPU-day).
+
+---
+
+## ReCo-Data val32 결과 (행=모델, 열=지표; 굵게=oracle 제외 최고)
+
+| 모델 | PSNR↑ | SSIM↑ | LPIPS↓ | FVD↓ | BG_PSNR↑ | BG_SSIM↑ | BG_LPIPS↓ | Diff_IoU↑ | Det_IoU↑ |
+|------|------|------|------|------|------|------|------|------|------|
+| vace_base | 11.30 | 0.354 | 0.725 | 34120 | 11.55 | 0.384 | 0.705 | 0.164 | 0.146 |
+| oracle(base+GTmask) | 20.56 | 0.794 | 0.167 | 13459 | 32.92 | 0.932 | 0.079 | 0.844 | 0.758 |
+| baseline(release) | 16.13 | 0.694 | 0.272 | 17324 | 18.39 | 0.791 | 0.212 | 0.446 | 0.444 |
+| run5@2000(no loss) | 16.24 | 0.681 | 0.279 | 18410 | 18.59 | 0.778 | 0.207 | 0.404 | 0.389 |
+| run4@2000(full loss) | 14.51 | 0.613 | 0.348 | 22316 | 16.02 | 0.694 | 0.297 | 0.395 | 0.426 |
+
+배경(순수, GT mask 기준 vs bbox 제외) — bbox 제외 시 위치-어긋남 벌점 분리됨:
+| 모델 | bg(GT mask) PSNR | bg(GT∪diff-bbox) PSNR | bg(GT∪det-bbox) PSNR |
+|------|------|------|------|
+| vace_base | 11.55 | 13.05 | 12.01 |
+| oracle | 32.92 | 33.66 | 33.59 |
+| baseline | 18.39 | 28.62 | 28.09 |
+| run5 | 18.59 | 27.12 | 25.96 |
+| run4 | 16.02 | 23.23 | 22.08 |
+
+---
+
+## 결론 / 발견
+
+1. **in-context 형식 적응이 최대 도약**: vace_base(11.3) → run5(16.2). 무작위 LoRA(step0) ≈ vace_base 확인.
+2. **논문 loss(full)는 이 설정(scratch/add/2000step/λ1e-3)에서 역효과**: run4 < run5 거의 전 지표.
+   특히 배경 보존·스케일(area_ratio run4 2.42 vs run5 1.65) 악화.
+3. **run5 ≈ baseline (화질/배경)**, 위치(IoU)·FVD는 baseline 우세. baseline은 val 샘플을 학습에서 봤을 수 있음(평가 유리).
+4. **mask 정보의 가치 압도적**: oracle diff_iou 0.844 vs mask-free baseline 0.446.
+   → 연구 기회 = sparse 위치 힌트(keyframe bbox/point)로 이 갭 좁히기(개선방안 ④).
+5. **GT-mask 기준 bg는 위치 어긋남이 섞임** → 순수 배경 훼손은 bbox 제외로 측정해야 정확.
+6. **release ckpt의 DAVIS/EffectErase zero-shot은 무력**(run6 step0: diff_area_ratio 7.4, outside_mask 0.87,
+   diff_success 0.05) — Background Error Propagation·Scale Ambiguity가 극단값. 도메인 갭 정량 확인.
+
+## 다음 가설 (run7)
+
+run4 패인이 L_attn의 edit-area constraint(L_edit)였는지 검증. run7 = L_latent + L_global(L_edit 제외).
+run7 > run4 이면 L_edit가 주범. run7 vs run5로 L_latent+L_global 순효과 판정.

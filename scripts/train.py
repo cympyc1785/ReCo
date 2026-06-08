@@ -52,8 +52,9 @@ def get_dataset_for_each_tasks(base_json_folder, task_name='replace', rank=0, wo
         all_dict_list = json.load(f)
 
     # exclude fixed validation holdout items if a val config exists
+    # (RECO_EXCLUDE_VAL=0 이면 제외하지 않음 — overfitting 실험 등 train/val 겹침 허용)
     val_json_path = os.path.join(base_json_folder, task_name, f"{task_name}_val_configs.json")
-    if os.path.exists(val_json_path):
+    if os.environ.get('RECO_EXCLUDE_VAL', '1') != '0' and os.path.exists(val_json_path):
         with open(val_json_path, "r", encoding="utf-8") as f:
             val_keys = set(item['tar_video'] for item in json.load(f))
         all_dict_list = [item for item in all_dict_list if item['tar_video'] not in val_keys]
@@ -95,6 +96,7 @@ class LightningModelForTrain(pl.LightningModule):
         use_contrast_loss=False,
         use_mse_loss=False,
         use_attnscore_loss=False,
+        use_attn_global_only=False,
         debug_ornot=False,
         dataloader_num_workers=0,
     ):
@@ -112,6 +114,7 @@ class LightningModelForTrain(pl.LightningModule):
         self.use_contrast_loss = use_contrast_loss
         self.use_mse_loss = use_mse_loss
         self.use_attnscore_loss = use_attnscore_loss
+        self.use_attn_global_only = use_attn_global_only
         self.debug = debug_ornot
         self.dataloader_num_workers = dataloader_num_workers
 
@@ -220,9 +223,10 @@ class LightningModelForTrain(pl.LightningModule):
             world_size = 1
         
         # ------------------ ReCo dataset --------------
-        json_folder = './ReCo-Data/ReCo-Data' # YOUR JSON FOLDER...
-        video_folder = './ReCo-Data/ReCo-Data'
-        mask_video_folder = './ReCo-Data/ReCo-Data/video_masks'
+        data_root = os.environ.get('RECO_DATA_ROOT', './ReCo-Data/ReCo-Data')   # davis 등 다른 데이터셋 전환용
+        json_folder = data_root # YOUR JSON FOLDER...
+        video_folder = data_root
+        mask_video_folder = os.path.join(data_root, 'video_masks')
         task_list = ['add']
         dataset_list = []
         for task_name in task_list:
@@ -614,7 +618,15 @@ class LightningModelForTrain(pl.LightningModule):
 
         # ============== 4. Attention regularization (논문 Eq.14-16): L_attn = L_edit + L_global
         if self.use_attnscore_loss and attnscore_list is not None and len(attnscore_list) > 0:
-            loss_attnscore = torch.stack([s.float() for s in attnscore_list]).mean()
+            scores = attnscore_list
+            if self.use_attn_global_only:
+                # 각 block이 [L_edit, L_global] 순서 쌍을 반환 (add task는 mask가 전체를 덮지 않아 쌍 보장)
+                # → 홀수 인덱스 = L_global만 사용 (edit-area attention constraint 제외)
+                if len(scores) % 2 == 0:
+                    scores = scores[1::2]
+                else:
+                    print(f'[warn] attnscore_list 길이 홀수({len(scores)}) — global-only 분리 불가, 전체 사용')
+            loss_attnscore = torch.stack([s.float() for s in scores]).mean()
             loss = loss + 1e-3 * loss_attnscore                              # lambda_2 = 1e-3 (논문)
 
         # loss = loss * self.pipe.scheduler.training_weight(timestep)           # No weight...
@@ -692,8 +704,9 @@ class LightningModelForTrain(pl.LightningModule):
 
         # ---- fixed validation items (holdout, excluded from training) ----
         if not hasattr(self, 'val_dataset'):
-            json_folder = './ReCo-Data/ReCo-Data'
-            video_folder = './ReCo-Data/ReCo-Data'
+            data_root = os.environ.get('RECO_DATA_ROOT', './ReCo-Data/ReCo-Data')
+            json_folder = data_root
+            video_folder = data_root
             with open(os.path.join(json_folder, 'add', 'add_val_configs.json'), "r", encoding="utf-8") as f:
                 val_items = json.load(f)
             val_items = val_items[:32]  # 학습 중 metric은 맨 앞 32개 (visualize는 그중 앞 8개만, 나머지 96개는 offline 평가용)
@@ -1237,9 +1250,10 @@ def train(args):
 
     # ------------ 1. Load dataset and model
     # task_name_list = ['remove']
-    use_contrast_loss = False   # run5 ablation: 논문 loss 끔 (run4와 loss만 다른 쌍둥이 — 데이터/holdout/lr 동일)
+    use_contrast_loss = True    # run7: Eq.13 latent regularization (lambda_1=1e-3)
     use_mse_loss = False        # 논문 Eq.17에 없는 항 (코드 자체 옵션)
-    use_attnscore_loss = False  # run5 ablation: 끔
+    use_attnscore_loss = True   # run7: attention regularization 사용하되
+    use_attn_global_only = True # L_global만 (edit-area attention constraint L_edit 제외)
     debug_ornot = args.debug
     model = LightningModelForTrain(
         dit_path=args.dit_path,
@@ -1261,6 +1275,7 @@ def train(args):
         use_contrast_loss=use_contrast_loss,
         use_mse_loss=use_mse_loss,
         use_attnscore_loss=use_attnscore_loss,
+        use_attn_global_only=use_attn_global_only,
         debug_ornot=debug_ornot,
         dataloader_num_workers=args.dataloader_num_workers,
     )

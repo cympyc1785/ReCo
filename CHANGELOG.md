@@ -24,6 +24,11 @@
 - `train.sh`: step 1500 체크포인트에서 재개하도록 `--resume_ckpt_folder` 추가.
 
 ### Added
+- `scripts/train.py`: `use_attn_global_only` 플래그 — attention regularization에서 **L_global만 적용** (edit-area constraint L_edit 제외; block별 [L_edit, L_global] 쌍에서 홀수 인덱스만 사용). run7 구성: contrast(λ1=1e-3) + attn-global(λ2=1e-3).
+- `scripts/train_run7_contrast_attnglobal.sh`: run7 학습 config (ReCo-Data, from scratch, max_steps 2000 — run4/run5와 동일 조건 ablation).
+- `prepare_davis_reco.py`: WorldTraj/dynamicverse/DAVIS → ReCo 포맷 변환 (src=`inpaint_result_effecterase.mp4`, tar=`video_input.mp4` 832×480 리사이즈, text="Add a "+reasoning 첫 value, **instance mask 합집합 binary** → video_masks mp4, 공통 T 절단 후 81프레임 패딩). 출력: `davis_data/`, val=앞 8개(train과 의도적 겹침 — overfit 실험).
+- `scripts/train.py`: `RECO_DATA_ROOT` env로 데이터셋 루트 전환, `RECO_EXCLUDE_VAL=0`으로 val 학습 제외 비활성화 가능.
+- `scripts/train_davis_overfit.sh`: run6(DAVIS overfit) 전용 학습 config — release ckpt에서 시작, max_steps 2000.
 - `eval_vace_gtmask.py`: 원조 VACE 용법 평가 스크립트 — in-context concat 대신 단일 832폭 입력으로 src + **GT object mask**(생성 영역) + instruction을 줘서 mask 영역만 inpainting. "mask가 주어졌을 때의 상한선" 측정용 (ReCo 목표 = mask 없이 이 수준). grid 영상 검수본 포함 저장.
 - `eval_val8.py`: `--no_lora` 옵션 추가 — LoRA 없이 순수 Wan2.1-VACE-1.3B base로 추론 (base 모델 성능 기준점 측정용).
 - `video_metrics.py`: 모듈형 비디오 metric 라이브러리 (registry 방식, `get_metric(name)`으로 선택 로딩) — `psnr`/`ssim`/`lpips` + **masked 변형**(`region='foreground'|'background'`, GT mask로 배경 보존·객체 영역 분리 측정) + **FVD**(I3D). identity/masked-분리/FVD sanity 테스트 통과. GPU 경로 추가(PSNR torch, SSIM torchmetrics — CPU와 일치 검증 diff≤1e-5).
