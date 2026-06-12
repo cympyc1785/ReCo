@@ -79,7 +79,37 @@ loss: base = rectified flow velocity MSE(L_ic). L_latent=Eq.13(contrast), L_attn
 6. **release ckpt의 DAVIS/EffectErase zero-shot은 무력**(run6 step0: diff_area_ratio 7.4, outside_mask 0.87,
    diff_success 0.05) — Background Error Propagation·Scale Ambiguity가 극단값. 도메인 갭 정량 확인.
 
-## 다음 가설 (run7)
+## run7 결과 (L_edit ablation) — 가설 확인됨
 
-run4 패인이 L_attn의 edit-area constraint(L_edit)였는지 검증. run7 = L_latent + L_global(L_edit 제외).
-run7 > run4 이면 L_edit가 주범. run7 vs run5로 L_latent+L_global 순효과 판정.
+run7 = L_latent + L_global(L_edit 제외), scratch/add/2000step.
+
+| 모델 | PSNR | SSIM | LPIPS | FVD | BG_PSNR | Diff_IoU | Det_IoU | area_ratio | outside_mask |
+|------|------|------|------|------|------|------|------|------|------|
+| baseline | 16.13 | 0.694 | 0.272 | 17324 | 18.39 | 0.446 | 0.444 | 1.79 | 0.611 |
+| run5(none) | 16.24 | 0.681 | 0.279 | 18410 | 18.59 | 0.404 | 0.389 | 1.65 | 0.653 |
+| run4(full) | 14.51 | 0.613 | 0.348 | 22316 | 16.02 | 0.395 | 0.426 | 2.42 | 0.677 |
+| run7(latent+global) | 16.16 | 0.688 | 0.279 | 18874 | 18.62 | 0.420 | 0.444 | 1.74 | 0.637 |
+
+- run4 성능 추락 주범 = **L_edit(edit-area attention constraint)**. 제거(run7)하니 PSNR +1.65, BG_PSNR +2.6, area_ratio 2.42→1.74, FVD 22316→18874 회복.
+- run7 ≈ run5 화질, 단 diff_iou·det_iou·outside_mask(0.637 최저)·area_ratio 소폭 우위 → L_latent+L_global은 위치/스케일/배경집중에 약간 긍정적.
+- 결론: 논문 loss 그대로는 해로움, L_edit만 빼면 부작용 제거 + 소폭 이득. run7이 가장 균형.
+
+## BG metric — GT bbox ∪ det-bbox 제외 (순수 배경)
+
+배경 = 전체 − (GT mask bbox ∪ GroundingDINO det-bbox). 위치 어긋남 벌점을 양쪽에서 제거한 순수 배경 훼손.
+
+| 모델 | BG_PSNR | BG_SSIM | BG_LPIPS |
+|------|------|------|------|
+| baseline | 28.41 | 0.891 | 0.097 |
+| run5 | 26.35 | 0.866 | 0.111 |
+| run7 | 25.57 | 0.857 | 0.122 |
+| run4 | 22.44 | 0.809 | 0.168 |
+
+배경 정의별 BG_PSNR: 모델 / GTmask / GT∪diffbox / GTbbox∪detbox
+- baseline 18.39 / 28.62 / 28.41
+- run5     18.59 / 27.12 / 26.35
+- run7     18.62 /  -    / 25.57
+- run4     16.02 / 23.23 / 22.44
+
+- 순수 배경 순위: baseline > run5 > run7 > run4 (위치 효과 분리해도 baseline 최소 간섭).
+- 역전: GT-mask 기준 BG는 run7≥run5≥baseline였으나 bbox 제외 시 baseline 우위 — run들의 GT-mask BG 우위는 객체를 GT 위치 근처에 놓은 효과.

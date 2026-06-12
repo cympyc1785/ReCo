@@ -128,6 +128,8 @@ The reference image is used for add/replace; for `_wf` (propagation) tasks it is
 
 코드를 변경할 때마다 `CHANGELOG.md`의 `[Unreleased]` 섹션에 항목을 추가할 것.
 
+실험할 때마다 실험한 내용 단위로 notion api인 /home/korea_kh63/.config/notion/notion-token를 이용해서 정리해줘.
+
 ## 작업 흐름
 
 코드 변경 작업이 끝나면 **반드시** 다음을 수행한다:
