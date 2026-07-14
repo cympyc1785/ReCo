@@ -34,7 +34,7 @@
 - `ReCo-Data/ReCo-Data/add/add_val_configs.json`: validation holdout config (사람/동물 × 정적/이동 다양화, 최종 128개 — 앞 8개 visualize 고정).
 
 **문서**
-- `CLAUDE.md`: Claude Code용 저장소 가이드.
+- `CLAUDE.md`: Claude Code용 저장소 가이드. val32 model-comparison 평가 파이프라인(root-level `eval_*.py`, `video_metrics.py`/`vbench_metrics.py` registry, `consolidate_model_compare.py`), 두 번째 conda env `reco_vbench`(VBench 계열 스크립트용), `EXPERIMENTS.log` 안내 추가.
 - `CHANGELOG.md`, `EXPERIMENTS.log`: 변경/실험 기록.
 
 ### Changed
@@ -45,3 +45,8 @@
 
 ### Fixed
 - validation metric: 파이프라인 출력이 2×2 그리드(상단 [입력\|GT], 하단 [생성\|마스크])인 점 반영해 생성 edit 영역 슬라이싱 수정 (단일 출력 가정 broadcast 에러 해결).
+- `tools/eval_step1_run_gemini_api.py`: `OpenAIVLMEngine`의 OpenAI 클라이언트에 `timeout=120.0, max_retries=0` 지정 — 응답 없는 연결이 무한 대기(do_poll 상태로 hang)하던 문제 해결, 자체 retry 루프가 정상 동작하도록 변경.
+
+### 평가 — Gemini VLM (ReCo-Bench 9차원)
+- `eval_gemini_val32.py`: val32 edited 영상을 Gemini(`gemini-2.5-flash`)로 9차원 채점(edit_accuracy·video_quality·naturalness 각 3) → 모델별 csv/json. `tools/eval_step1_run_gemini_api.py`의 엔진·프롬프트·프레임추출·파서 재사용. 무료 티어 분당 한도 대응으로 순차 + `--req_interval`(기본 13s).
+- baseline 모델 8샘플 평가 완료. **무료 티어 일일 한도(`generate_content_free_tier_requests`, 20 req/day, gemini-2.5-flash)** 에 도달 — 나머지 5개 모델 평가는 일일 quota 리셋 또는 유료 billing 필요.

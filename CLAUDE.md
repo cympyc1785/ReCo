@@ -39,6 +39,8 @@ pip install -r requirements.txt   # note: installs DiffSynth-Studio with `pip in
 
 The local `DiffSynth-Studio/` is **not** upstream — it contains ReCo-specific changes (e.g., `ModelManager_custom` in `diffsynth/models/model_manager_custom.py` zeroes VACE patch-embedding channels 16–32; custom VACE/condition-merge logic in `diffsynth/pipelines/wan_video.py`). Always edit the vendored copy, never pip-install upstream over it.
 
+A **second conda env `reco_vbench`** is required for the VBench-based eval scripts (`eval_vbench.py`, `eval_viclip.py`, `eval_grit_overlay.py`) — they import from the vendored `tools/VBench/` and need its heavier deps (clip, pyiqa, decord, detectron2/GRiT). These scripts inject a `pkg_resources.packaging` shim for newer setuptools; GRiT also needs `CUDA_HOME=/usr/local/cuda-12.8`. The self-built metric scripts (`eval_metrics_suite.py`, `video_metrics.py`) run in the base `reco` env.
+
 ## Common Commands
 
 NOTE: upstream commit "Reorganize project folders" moved train/inference/dataset scripts into `scripts/`. Always run them from the repo root so relative paths (`checkpoints/`, `./ReCo-Data`, `all_results/`) resolve.
@@ -111,9 +113,21 @@ video_filename.mp4: instruction text | optional/reference_image.png
 ```
 The reference image is used for add/replace; for `_wf` (propagation) tasks it is the edited first frame. The pipeline is called with `vace_video` (conditioned video), `vace_mask` (edit region), and optional reference image; outputs go to `all_results/single_test/{task_name}/`.
 
-**Evaluation (`tools/` is the canonical copy; `ReCo-Bench/` holds the downloaded benchmark data plus near-identical script copies):**
+**ReCo-Bench evaluation (`tools/` is the canonical copy; `ReCo-Bench/` holds the downloaded benchmark data plus near-identical script copies):**
 - `eval_step1_run_gemini_api.py` — Gemini scores each edited video per dimension (edit accuracy, video quality, naturalness), outputs per-video JSON to `all_results/gemini_results`.
 - `eval_step2_get_final_scores.py` — aggregates JSONs into final per-task and overall scores. Run only after all four tasks are evaluated.
+
+**val32 model-comparison pipeline (root-level `eval_*.py`; the `metric/vbench-eval` branch).** Compares checkpoints on the fixed `add` holdout (first 32 of `add_val_configs.json`). All metric scripts assume a generation dir containing `{idx:03d}_edited.mp4` named in val-config order, and write a **per-sample CSV** (low/high scoring samples can be opened as video — a project convention) plus an aggregate. Run from repo root.
+- Step 0 — generate: `eval_val8.py --lora_ckpt <ckpt> --out_dir all_results/val32_<name> --max_items 32` (supports `--no_lora` for the pure Wan2.1-VACE-1.3B base, `--process_id/--num_procs` for multi-GPU). Produces the `{idx:03d}_edited.mp4` files every downstream script consumes.
+- `video_metrics.py` — registry (`get_metric(name)`) of self-built metrics: `psnr/ssim/lpips`, `masked_psnr/ssim/lpips` (`region='foreground'|'background'` via GT mask), `fvd` (I3D from `submodule/frechet_video_distance-pytorch`), and three insertion-bbox metrics — `diff_bbox` (RGB diff, calibrated percentile 75/floor 8/min_area 800), `detection_bbox` (GroundingDINO), `hybrid_bbox` (diff∩det). `read_video`/`extract_add_phrase` helpers.
+- `eval_metrics_suite.py` — runs the full `video_metrics` suite → `metrics_full.csv` + aggregate wandb logging + best/worst-by-`diff_iou` summary.
+- `vbench_metrics.py` — a *separate, self-built* lightweight (non-VLM) reimplementation of VBench dimensions (DINOv2/CLIP consistency, RAFT dynamic-degree, MUSIQ) — its own registry, not to be confused with the real VBench in the next item.
+- `eval_vbench.py` / `eval_viclip.py` / `eval_grit_overlay.py` — wrap the **real** vendored `tools/VBench/` (run in the `reco_vbench` env): VBench `custom_input` dimensions, ViCLIP text-video alignment, and GRiT detection overlays respectively.
+- `eval_gemini_val32.py` — applies the ReCo-Bench 9-dimension Gemini rubric to val32 edited videos (reuses `tools/eval_step1_run_gemini_api.py`). Note: API key + base URL are hardcoded in the script; sequential with `--req_interval` for the free-tier rate limit.
+- `consolidate_model_compare.py` — joins all the above per-model CSV/JSON outputs under `all_results/` into `all_results/model_comparison.csv`. Pure disk read, no re-inference; the `MODELS` dict maps model name → val32 dir and must be edited to add runs.
+- `eval_vace_gtmask.py` — oracle eval: original VACE usage (GT-mask inpainting) to measure the upper bound when a mask is available. `visualize_bbox_metrics.py` renders bbox/diff overlays for sanity-checking the bbox metrics.
+
+`EXPERIMENTS.log` is the running narrative of metric analysis and training runs (val32 numbers, bbox-metric findings, per-run loss configs) — read it for context on past experiments alongside `CHANGELOG.md`.
 
 ## Don't
 

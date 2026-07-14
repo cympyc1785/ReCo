@@ -179,8 +179,8 @@ class OpenAIVLMEngine:
         self.model_name = model_name
         self.max_tokens = max_tokens
         
-        # Initialize OpenAI client
-        client_params = {}
+        # Initialize OpenAI client (timeout으로 응답 없는 연결이 무한 대기하지 않게)
+        client_params = {"timeout": 120.0, "max_retries": 0}
         if custom_base_url:
             client_params["base_url"] = custom_base_url
         self.client = OpenAI(**client_params)
@@ -272,6 +272,13 @@ class OpenAIVLMEngine:
             except Exception as e:
                 if attempt < max_retries - 1:
                     print(f"API call failed (attempt {attempt+1}/{max_retries}): {e}. Retrying...")
+                    import time as _t, re as _re
+                    msg = str(e)
+                    if '429' in msg or 'RESOURCE_EXHAUSTED' in msg or 'rate' in msg.lower():
+                        m = _re.search(r"retryDelay'?:?\s*'?(\d+(?:\.\d+)?)", msg)
+                        _t.sleep(float(m.group(1)) + 2 if m else 15)   # rate limit: 충분히 대기
+                    else:
+                        _t.sleep(2)
                 else:
                     print(f"API call failed after {max_retries} attempts: {e}")
                     return f"Error: API call failed - {e}"
@@ -520,8 +527,8 @@ if __name__ == "__main__":
 
     # 0. Define engine
     os.environ["OPENAI_API_KEY"] = "sk-YOUR_API_TOKENS"
-    model_name = 'gemini-2.5-flash-thinking'
-    custom_base_url = "https://api.nuwaapi.com/v1"       # cheap api ref: https://api.nuwaapi.com/
+    model_name = 'gemini-2.5-flash'
+    custom_base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"       # cheap api ref: https://api.nuwaapi.com/
     engine = OpenAIVLMEngine(model_name=model_name, max_tokens=8192, custom_base_url=custom_base_url)
 
     # 1. define eval_name and get src_configs
